@@ -1,0 +1,6 @@
+@QLNV_HostAddress = http://localhost:5170
+
+GET {{QLNV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
