@@ -1,0 +1,17 @@
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Application.deps.json
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Application.dll
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Application.pdb
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.AssemblyInfoInputs.cache
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.AssemblyInfo.cs
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.csproj.CoreCompileInputs.cache
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.dll
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\refint\QLNV.Application.dll
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.pdb
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\ref\QLNV.Application.dll
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Domain.dll
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Infrastructure.dll
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Domain.pdb
+D:\ThucTapDN\QLNV.Application\bin\Debug\net8.0\QLNV.Infrastructure.pdb
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.Application.csproj.AssemblyReference.cache
+D:\ThucTapDN\QLNV.Application\obj\Debug\net8.0\QLNV.App.40F2538B.Up2Date
