@@ -1,0 +1,15 @@
+D:\ThucTapDN\QLNV.Infrastructure\bin\Debug\net8.0\QLNV.Infrastructure.deps.json
+D:\ThucTapDN\QLNV.Infrastructure\bin\Debug\net8.0\QLNV.Infrastructure.dll
+D:\ThucTapDN\QLNV.Infrastructure\bin\Debug\net8.0\QLNV.Infrastructure.pdb
+D:\ThucTapDN\QLNV.Infrastructure\bin\Debug\net8.0\QLNV.Domain.dll
+D:\ThucTapDN\QLNV.Infrastructure\bin\Debug\net8.0\QLNV.Domain.pdb
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.csproj.AssemblyReference.cache
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.AssemblyInfoInputs.cache
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.AssemblyInfo.cs
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.csproj.CoreCompileInputs.cache
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Inf.74FA15CE.Up2Date
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.dll
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\refint\QLNV.Infrastructure.dll
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\QLNV.Infrastructure.pdb
+D:\ThucTapDN\QLNV.Infrastructure\obj\Debug\net8.0\ref\QLNV.Infrastructure.dll

@@ -1,0 +1,11 @@
+D:\ThucTapDN\QLNV.Domain\bin\Debug\net8.0\QLNV.Domain.deps.json
+D:\ThucTapDN\QLNV.Domain\bin\Debug\net8.0\QLNV.Domain.dll
+D:\ThucTapDN\QLNV.Domain\bin\Debug\net8.0\QLNV.Domain.pdb
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.AssemblyInfoInputs.cache
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.AssemblyInfo.cs
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.csproj.CoreCompileInputs.cache
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.dll
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\refint\QLNV.Domain.dll
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\QLNV.Domain.pdb
+D:\ThucTapDN\QLNV.Domain\obj\Debug\net8.0\ref\QLNV.Domain.dll
