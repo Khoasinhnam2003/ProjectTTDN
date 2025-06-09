@@ -3,13 +3,34 @@
   "WorkspaceRootPath": "D:\\ThucTapDN\\QLNV\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\dtos\\updatejopdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\dtos\\jobdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\commands\\updateemployeecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7763A9F9-72AD-406B-A12D-A0C9045877F7}|..\\QLNV.Presentation\\QLNV.Presentation.csproj|d:\\thuctapdn\\qlnv.presentation\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\commands\\updatejobcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\commands\\deletejobcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E7001CE-1F3A-4D00-9C03-6BD8D3003E75}|..\\QLNV.Infrastructure\\QLNV.Infrastructure.csproj|d:\\thuctapdn\\qlnv.infrastructure\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\commands\\createjobcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{33AC77E5-8865-46A9-AF95-6A372C956A5C}|..\\QLNV.Application\\QLNV.Application.csproj|d:\\thuctapdn\\qlnv.application\\commands\\createemployeecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E7001CE-1F3A-4D00-9C03-6BD8D3003E75}|..\\QLNV.Infrastructure\\QLNV.Infrastructure.csproj|d:\\thuctapdn\\qlnv.infrastructure\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E7001CE-1F3A-4D00-9C03-6BD8D3003E75}|..\\QLNV.Infrastructure\\QLNV.Infrastructure.csproj|d:\\thuctapdn\\qlnv.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -25,9 +46,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E7001CE-1F3A-4D00-9C03-6BD8D3003E75}|..\\QLNV.Infrastructure\\QLNV.Infrastructure.csproj|d:\\thuctapdn\\qlnv.infrastructure\\repositories\\ijobrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7763A9F9-72AD-406B-A12D-A0C9045877F7}|..\\QLNV.Presentation\\QLNV.Presentation.csproj|d:\\thuctapdn\\qlnv.presentation\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,24 +55,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "JobDto.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\DTOs\\JobDto.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\DTOs\\JobDto.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\DTOs\\JobDto.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\DTOs\\JobDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:20:11.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UpdateEmployeeCommand.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Commands\\UpdateEmployeeCommand.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\Commands\\UpdateEmployeeCommand.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Commands\\UpdateEmployeeCommand.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\Commands\\UpdateEmployeeCommand.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:19:23.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpdateJopDto.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\DTOs\\UpdateJopDto.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\DTOs\\UpdateJopDto.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\DTOs\\UpdateJopDto.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\DTOs\\UpdateJopDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:18:43.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\Services\\EmployeeService.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAADwv4gAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:17:01.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeleteJobCommand.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Commands\\DeleteJobCommand.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\Commands\\DeleteJobCommand.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Commands\\DeleteJobCommand.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\Commands\\DeleteJobCommand.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:14:37.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateJobCommand.cs",
+              "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Commands\\UpdateJobCommand.cs",
+              "RelativeDocumentMoniker": "..\\QLNV.Application\\Commands\\UpdateJobCommand.cs",
+              "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Commands\\UpdateJobCommand.cs",
+              "RelativeToolTip": "..\\QLNV.Application\\Commands\\UpdateJobCommand.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T02:11:14.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CreateEmployeeCommand.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Commands\\CreateEmployeeCommand.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Application\\Commands\\CreateEmployeeCommand.cs",
               "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Commands\\CreateEmployeeCommand.cs",
               "RelativeToolTip": "..\\QLNV.Application\\Commands\\CreateEmployeeCommand.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAkwD4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T04:08:20.836Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Infrastructure\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Infrastructure\\Data\\ApplicationDbContext.cs",
@@ -62,25 +158,24 @@
               "RelativeToolTip": "..\\QLNV.Infrastructure\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T03:55:27.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-07T03:55:27.188Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "EmployeeRepository.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Infrastructure\\Repositories\\EmployeeRepository.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Infrastructure\\Repositories\\EmployeeRepository.cs",
               "ToolTip": "D:\\ThucTapDN\\QLNV.Infrastructure\\Repositories\\EmployeeRepository.cs",
               "RelativeToolTip": "..\\QLNV.Infrastructure\\Repositories\\EmployeeRepository.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAqwCkAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAkwKIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T03:54:55.562Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "JobRepository.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Infrastructure\\Repositories\\JobRepository.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Infrastructure\\Repositories\\JobRepository.cs",
@@ -88,12 +183,11 @@
               "RelativeToolTip": "..\\QLNV.Infrastructure\\Repositories\\JobRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwB8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T03:48:57.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-07T03:48:57.286Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "IJobRepository.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Infrastructure\\Repositories\\IJobRepository.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Infrastructure\\Repositories\\IJobRepository.cs",
@@ -101,12 +195,11 @@
               "RelativeToolTip": "..\\QLNV.Infrastructure\\Repositories\\IJobRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T03:48:35.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-07T03:48:35.904Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "GetAllEmployeesQuery.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Queries\\GetAllEmployeesQuery.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Application\\Queries\\GetAllEmployeesQuery.cs",
@@ -114,12 +207,11 @@
               "RelativeToolTip": "..\\QLNV.Application\\Queries\\GetAllEmployeesQuery.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAgwBUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T03:44:44.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-07T03:44:44.614Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "GetJobsByEmployeeIdQuery.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Queries\\GetJobsByEmployeeIdQuery.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Application\\Queries\\GetJobsByEmployeeIdQuery.cs",
@@ -127,31 +219,30 @@
               "RelativeToolTip": "..\\QLNV.Application\\Queries\\GetJobsByEmployeeIdQuery.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwCQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T03:18:28.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-07T03:18:28.101Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "CreateJobCommand.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Application\\Commands\\CreateJobCommand.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Application\\Commands\\CreateJobCommand.cs",
               "ToolTip": "D:\\ThucTapDN\\QLNV.Application\\Commands\\CreateJobCommand.cs",
               "RelativeToolTip": "..\\QLNV.Application\\Commands\\CreateJobCommand.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA3wB0AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T03:17:57.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "D:\\ThucTapDN\\QLNV.Presentation\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "..\\QLNV.Presentation\\Controllers\\EmployeeController.cs",
               "ToolTip": "D:\\ThucTapDN\\QLNV.Presentation\\Controllers\\EmployeeController.cs",
               "RelativeToolTip": "..\\QLNV.Presentation\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAOQCAAAAAAAAAAAuwPMCAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAUDAAAAAAAAAAAAAAUDAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T03:17:13.904Z",
               "EditorCaption": ""
