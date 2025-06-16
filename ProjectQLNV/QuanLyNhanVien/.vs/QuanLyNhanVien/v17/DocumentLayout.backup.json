@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0D96CA-E7A2-4F18-8E4A-C4EBCB066845}|QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.api\\quanlynhanvien.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5A0D96CA-E7A2-4F18-8E4A-C4EBCB066845}|QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj|solutionrelative:quanlynhanvien.api\\quanlynhanvien.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B82166A3-8155-4F75-9793-13529DF16B29}|QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.persistence\\quanlynhanvien.persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B82166A3-8155-4F75-9793-13529DF16B29}|QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj|solutionrelative:quanlynhanvien.persistence\\quanlynhanvien.persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0D96CA-E7A2-4F18-8E4A-C4EBCB066845}|QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0D96CA-E7A2-4F18-8E4A-C4EBCB066845}|QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj|solutionrelative:quanlynhanvien.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E8C5F4E-D79A-4CED-9185-0144C9CBFCD9}|QuanLyNhanVien.Presentation\\QuanLyNhanVien.Presentation.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.presentation\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E8C5F4E-D79A-4CED-9185-0144C9CBFCD9}|QuanLyNhanVien.Presentation\\QuanLyNhanVien.Presentation.csproj|solutionrelative:quanlynhanvien.presentation\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B93528E5-0F0E-47A8-BFDA-CD1F34B5E657}|QuanLyNhanVien.Infrastructure\\QuanLyNhanVien.Infrastructure.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B93528E5-0F0E-47A8-BFDA-CD1F34B5E657}|QuanLyNhanVien.Infrastructure\\QuanLyNhanVien.Infrastructure.csproj|solutionrelative:quanlynhanvien.infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{893BFCCC-B82C-4BF5-A1AD-5447F373E012}|QuanLyNhanVien.Domain\\QuanLyNhanVien.Domain.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{893BFCCC-B82C-4BF5-A1AD-5447F373E012}|QuanLyNhanVien.Domain\\QuanLyNhanVien.Domain.csproj|solutionrelative:quanlynhanvien.domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA6C3068-D418-4641-97F5-C8DDF6AEC8A3}|QuanLyNhanVien.Contract\\QuanLyNhanVien.Contract.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.contract\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA6C3068-D418-4641-97F5-C8DDF6AEC8A3}|QuanLyNhanVien.Contract\\QuanLyNhanVien.Contract.csproj|solutionrelative:quanlynhanvien.contract\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEB402FA-3ADE-4908-864C-D712E18B8AEF}|QuanLyNhanVien.Application\\QuanLyNhanVien.Application.csproj|d:\\2024-2025\\projectttdn\\quanlynhanvien\\quanlynhanvien.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEB402FA-3ADE-4908-864C-D712E18B8AEF}|QuanLyNhanVien.Application\\QuanLyNhanVien.Application.csproj|solutionrelative:quanlynhanvien.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuanLyNhanVien.API",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj",
+              "RelativeToolTip": "QuanLyNhanVien.API\\QuanLyNhanVien.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-15T03:00:35.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuanLyNhanVien.Persistence",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj",
+              "RelativeToolTip": "QuanLyNhanVien.Persistence\\QuanLyNhanVien.Persistence.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-15T02:56:24.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.API\\Program.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.API\\Program.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.API\\Program.cs",
+              "RelativeToolTip": "QuanLyNhanVien.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:54:19.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Presentation\\Class1.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Presentation\\Class1.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Presentation\\Class1.cs",
+              "RelativeToolTip": "QuanLyNhanVien.Presentation\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:54:12.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Infrastructure\\Class1.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Infrastructure\\Class1.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Infrastructure\\Class1.cs",
+              "RelativeToolTip": "QuanLyNhanVien.Infrastructure\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:53:51.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Domain\\Class1.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Domain\\Class1.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Domain\\Class1.cs",
+              "RelativeToolTip": "QuanLyNhanVien.Domain\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:53:41.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Contract\\Class1.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Contract\\Class1.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Contract\\Class1.cs",
+              "RelativeToolTip": "QuanLyNhanVien.Contract\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:53:23.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Application\\Class1.cs",
+              "RelativeDocumentMoniker": "QuanLyNhanVien.Application\\Class1.cs",
+              "ToolTip": "D:\\2024-2025\\ProjectTTDN\\QuanLyNhanVien\\QuanLyNhanVien.Application\\Class1.cs",
+              "RelativeToolTip": "QuanLyNhanVien.Application\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T02:53:05.497Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

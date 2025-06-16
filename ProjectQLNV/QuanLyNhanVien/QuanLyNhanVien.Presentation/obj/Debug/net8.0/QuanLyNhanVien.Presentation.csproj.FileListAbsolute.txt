@@ -1,0 +1,11 @@
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\bin\Debug\net8.0\QuanLyNhanVien.Presentation.deps.json
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\bin\Debug\net8.0\QuanLyNhanVien.Presentation.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\bin\Debug\net8.0\QuanLyNhanVien.Presentation.pdb
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.AssemblyInfoInputs.cache
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.AssemblyInfo.cs
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.csproj.CoreCompileInputs.cache
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\refint\QuanLyNhanVien.Presentation.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\QuanLyNhanVien.Presentation.pdb
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Presentation\obj\Debug\net8.0\ref\QuanLyNhanVien.Presentation.dll

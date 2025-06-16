@@ -1,0 +1,11 @@
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\bin\Debug\net8.0\QuanLyNhanVien.Domain.deps.json
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\bin\Debug\net8.0\QuanLyNhanVien.Domain.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\bin\Debug\net8.0\QuanLyNhanVien.Domain.pdb
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.AssemblyInfoInputs.cache
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.AssemblyInfo.cs
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.csproj.CoreCompileInputs.cache
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\refint\QuanLyNhanVien.Domain.dll
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\QuanLyNhanVien.Domain.pdb
+D:\2024-2025\ProjectTTDN\QuanLyNhanVien\QuanLyNhanVien.Domain\obj\Debug\net8.0\ref\QuanLyNhanVien.Domain.dll
