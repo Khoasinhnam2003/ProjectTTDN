@@ -1,0 +1,12 @@
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\bin\Debug\net8.0\QuanLyNhanVien.Query.Contracts.deps.json
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\bin\Debug\net8.0\QuanLyNhanVien.Query.Contracts.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\bin\Debug\net8.0\QuanLyNhanVien.Query.Contracts.pdb
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.csproj.AssemblyReference.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.AssemblyInfoInputs.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.AssemblyInfo.cs
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.csproj.CoreCompileInputs.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\refint\QuanLyNhanVien.Query.Contracts.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\QuanLyNhanVien.Query.Contracts.pdb
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Query.Contracts\obj\Debug\net8.0\ref\QuanLyNhanVien.Query.Contracts.dll

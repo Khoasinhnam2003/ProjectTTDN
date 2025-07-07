@@ -1,0 +1,673 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Presentation\\QuanLyNhanVien.Command.Presentation.csproj": {}
+  },
+  "projects": {
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj",
+        "projectName": "QuanLyNhanVien.Command.Application",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\QuanLyNhanVien.Command.Contracts.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\QuanLyNhanVien.Command.Contracts.csproj"
+              },
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj"
+              },
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\QuanLyNhanVien.Command.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\QuanLyNhanVien.Command.Contracts.csproj",
+        "projectName": "QuanLyNhanVien.Command.Contracts",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\QuanLyNhanVien.Command.Contracts.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj",
+        "projectName": "QuanLyNhanVien.Command.Domain",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\QuanLyNhanVien.Command.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\QuanLyNhanVien.Command.Infrastructure.csproj",
+        "projectName": "QuanLyNhanVien.Command.Infrastructure",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\QuanLyNhanVien.Command.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj"
+              },
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj",
+        "projectName": "QuanLyNhanVien.Command.Persistence",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\QuanLyNhanVien.Command.Persistence.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Domain\\QuanLyNhanVien.Command.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Presentation\\QuanLyNhanVien.Command.Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Presentation\\QuanLyNhanVien.Command.Presentation.csproj",
+        "projectName": "QuanLyNhanVien.Command.Presentation",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Presentation\\QuanLyNhanVien.Command.Presentation.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Presentation\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Application\\QuanLyNhanVien.Command.Application.csproj"
+              },
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\QuanLyNhanVien.Command.Infrastructure.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Command.Infrastructure\\QuanLyNhanVien.Command.Infrastructure.csproj"
+              },
+              "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\QuanLyNhanVien.Query.Domain.csproj": {
+                "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\QuanLyNhanVien.Query.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\QuanLyNhanVien.Query.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\QuanLyNhanVien.Query.Domain.csproj",
+        "projectName": "QuanLyNhanVien.Query.Domain",
+        "projectPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\QuanLyNhanVien.Query.Domain.csproj",
+        "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
+        "outputPath": "D:\\2024-2025\\ProjectTTDN(Complete)\\QuanLyNhanVien\\QuanLyNhanVien.Query.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
