@@ -30,7 +30,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
         public async Task<IActionResult> GetAllEmployee([FromQuery] GetAllEmployeesQuery query)
         {
             var employees = await _mediator.Send(query);
-            var response = employees.Select(e => new
+            var response = employees
+                .OrderBy(e => e.EmployeeId)
+                .Select(e => new
             {
                 EmployeeId = e.EmployeeId,
                 FullName = $"{e.FirstName} {e.LastName}",
@@ -40,8 +42,6 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
             }).ToList();
             return Ok(response);
         }
-
-        [Authorize(Roles = "Admin")]
         [HttpGet("{employeeId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -53,7 +53,14 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
             {
                 var query = new GetEmployeeByIdQuery { EmployeeId = employeeId };
                 var employee = await _mediator.Send(query);
-                return Ok(employee);
+                return Ok(new
+                {
+                    EmployeeId = employee.EmployeeId,
+                    FullName = $"{employee.FirstName} {employee.LastName}",
+                    Email = employee.Email,
+                    DepartmentName = employee.Department?.DepartmentName,
+                    PositionName = employee.Position?.PositionName
+                });
             }
             catch (InvalidOperationException ex)
             {
@@ -76,7 +83,15 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
                 PageSize = pageSize
             };
             var employees = await _mediator.Send(query);
-            return employees.Any() ? Ok(employees) : NotFound(new { Message = "No employees found in this department." });
+            var response = employees.Select(e => new
+            {
+                EmployeeId = e.EmployeeId,
+                FullName = $"{e.FirstName} {e.LastName}",
+                Email = e.Email,
+                DepartmentName = e.DepartmentName,
+                PositionName = e.PositionName
+            }).ToList();
+            return employees.Any() ? Ok(response) : NotFound(new { Message = "No employees found in this department." });
         }
     }
 }

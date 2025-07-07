@@ -46,6 +46,8 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Employees
         {
             var repository = _unitOfWork.Repository<Employee>();
             return await repository.GetAll()
+                .Include(e => e.Department)
+                .Include(e => e.Position)
                 .Where(e => e.DepartmentId == request.DepartmentId)
                 .OrderBy(e => e.LastName)
                 .ThenBy(e => e.FirstName)
@@ -59,7 +61,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Employees
                     Email = e.Email,
                     Phone = e.Phone,
                     DepartmentId = e.DepartmentId,
-                    PositionId = e.PositionId
+                    PositionId = e.PositionId,
+                    DepartmentName = e.Department != null ? e.Department.DepartmentName : null,
+                    PositionName = e.Position != null ? e.Position.PositionName : null
                 })
                 .ToListAsync(cancellationToken);
         }

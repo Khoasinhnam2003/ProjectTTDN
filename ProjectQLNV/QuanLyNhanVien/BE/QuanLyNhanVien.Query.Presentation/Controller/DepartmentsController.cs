@@ -35,7 +35,8 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
                 DepartmentId = d.DepartmentId,
                 DepartmentName = d.DepartmentName,
                 Location = d.Location,
-                ManagerName = d.Manager != null ? $"{d.Manager.FirstName} {d.Manager.LastName}" : null
+                ManagerName = d.ManagerName,
+                EmployeeCount = d.EmployeeCount
             }).ToList();
             return Ok(response);
         }
