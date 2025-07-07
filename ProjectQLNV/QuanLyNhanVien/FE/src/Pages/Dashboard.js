@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api';
+import { queryApi } from '../api';
 
 function Dashboard() {
   const [user, setUser] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [viewMode, setViewMode] = useState('all'); // 'all', 'byId', 'byDepartment'
+  const [viewMode, setViewMode] = useState('all');
   const [employeeId, setEmployeeId] = useState('');
   const [departmentId, setDepartmentId] = useState('');
   const navigate = useNavigate();
@@ -41,16 +41,16 @@ function Dashboard() {
         let response;
         setLoading(true);
         if (viewMode === 'all') {
-          response = await api.get('api/Employees', {
+          response = await queryApi.get('api/Employees', {
             headers: { Authorization: `Bearer ${token}` },
             params: { PageNumber: 1, PageSize: 100 }
           });
         } else if (viewMode === 'byId' && employeeId) {
-          response = await api.get(`api/Employees/${employeeId}`, {
+          response = await queryApi.get(`api/Employees/${employeeId}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
         } else if (viewMode === 'byDepartment' && departmentId) {
-          response = await api.get(`api/Employees/by-department/${departmentId}`, {
+          response = await queryApi.get(`api/Employees/by-department/${departmentId}`, {
             headers: { Authorization: `Bearer ${token}` },
             params: { PageNumber: 1, PageSize: 100 }
           });
@@ -61,7 +61,18 @@ function Dashboard() {
         if (viewMode === 'all' || viewMode === 'byDepartment') {
           employeeData = response.data.$values || [];
         } else if (viewMode === 'byId') {
-          employeeData = [response.data]; // Đóng gói thành mảng để tái sử dụng bảng
+          const employee = response.data;
+          if (employee && employee.employeeId) {
+            employeeData = [{
+              employeeId: employee.employeeId,
+              fullName: employee.fullName || 'Chưa có',
+              email: employee.email || 'Chưa có',
+              departmentName: employee.departmentName || 'Chưa có',
+              positionName: employee.positionName || 'Chưa có'
+            }];
+          } else {
+            employeeData = [];
+          }
         }
         setEmployees(employeeData);
         setLoading(false);
@@ -70,8 +81,8 @@ function Dashboard() {
         setError('Không thể tải danh sách nhân viên. Vui lòng thử lại.');
         setLoading(false);
         if (err.response?.status === 404) {
-          setEmployees([]); // Đặt employees rỗng khi không tìm thấy
-          setError(null); // Xóa lỗi để hiển thị "Không có nhân viên nào" trong bảng
+          setEmployees([]);
+          setError(null);
         } else if (err.response?.status === 401 || err.response?.status === 403) {
           localStorage.removeItem('token');
           localStorage.removeItem('user');
@@ -89,16 +100,24 @@ function Dashboard() {
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>Danh sách nhân viên</h2>
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            navigate('/');
-          }}
-        >
-          Đăng xuất
-        </button>
+        <div>
+          <button
+            className="btn btn-success me-2"
+            onClick={() => navigate('/add-employee')}
+          >
+            Thêm nhân viên
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              localStorage.removeItem('token');
+              localStorage.removeItem('user');
+              navigate('/');
+            }}
+          >
+            Đăng xuất
+          </button>
+        </div>
       </div>
 
       {user && (
