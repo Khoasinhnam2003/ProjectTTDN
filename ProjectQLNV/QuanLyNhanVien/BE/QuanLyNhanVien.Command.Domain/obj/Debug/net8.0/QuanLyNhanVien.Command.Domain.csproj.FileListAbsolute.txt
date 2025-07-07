@@ -1,0 +1,12 @@
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\bin\Debug\net8.0\QuanLyNhanVien.Command.Domain.deps.json
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\bin\Debug\net8.0\QuanLyNhanVien.Command.Domain.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\bin\Debug\net8.0\QuanLyNhanVien.Command.Domain.pdb
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.csproj.AssemblyReference.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.AssemblyInfoInputs.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.AssemblyInfo.cs
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.csproj.CoreCompileInputs.cache
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\refint\QuanLyNhanVien.Command.Domain.dll
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\QuanLyNhanVien.Command.Domain.pdb
+D:\2024-2025\ProjectTTDN(Complete)\QuanLyNhanVien\QuanLyNhanVien.Command.Domain\obj\Debug\net8.0\ref\QuanLyNhanVien.Command.Domain.dll

@@ -1,0 +1,6 @@
+@QuanLyNhanVien.Command.API_HostAddress = http://localhost:5001
+
+GET {{QuanLyNhanVien.Command.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
