@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { queryApi } from '../api';
+import { queryApi, commandApi } from '../api'; // Thêm commandApi
 
 function Dashboard() {
   const [user, setUser] = useState(null);
@@ -96,6 +96,25 @@ function Dashboard() {
     }
   }, [token, user, viewMode, employeeId, departmentId, navigate]);
 
+  const handleDelete = async (employeeId) => {
+    if (window.confirm('Bạn có chắc chắn muốn xóa nhân viên này?')) {
+      try {
+        const response = await commandApi.delete(`api/Employees/${employeeId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (response.data && response.data.isSuccess) {
+          setEmployees(employees.filter(emp => emp.employeeId !== employeeId));
+          alert('Nhân viên đã được xóa thành công!');
+        } else {
+          throw new Error(response.data.error?.message || 'Xóa nhân viên thất bại.');
+        }
+      } catch (err) {
+        setError(err.message || 'Đã xảy ra lỗi khi xóa nhân viên.');
+        console.error('Lỗi chi tiết:', err.response ? err.response.data : err);
+      }
+    }
+  };
+
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
@@ -166,6 +185,7 @@ function Dashboard() {
                 <th>Email</th>
                 <th>Phòng Ban</th>
                 <th>Vị trí</th>
+                <th>Hành động</th> {/* Thêm cột Hành động */}
               </tr>
             </thead>
             <tbody>
@@ -177,11 +197,25 @@ function Dashboard() {
                     <td>{employee.email || 'Chưa có'}</td>
                     <td>{employee.departmentName || 'Chưa có'}</td>
                     <td>{employee.positionName || 'Chưa có'}</td>
+                    <td>
+                      <button
+                        className="btn btn-warning me-2"
+                        onClick={() => navigate(`/update-employee/${employee.employeeId}`)}
+                      >
+                        Chỉnh sửa
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(employee.employeeId)}
+                      >
+                        Xóa
+                      </button>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="text-center">
+                  <td colSpan="6" className="text-center">
                     Không có nhân viên nào.
                   </td>
                 </tr>
