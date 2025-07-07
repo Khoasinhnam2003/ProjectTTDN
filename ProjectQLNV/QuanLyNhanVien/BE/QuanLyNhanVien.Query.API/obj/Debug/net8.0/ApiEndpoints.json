@@ -325,58 +325,5 @@
         "StatusCode": 403
       }
     ]
-  },
-  {
-    "ContainingType": "QuanLyNhanVien.Query.Presentation.Controller.UsersController",
-    "Method": "CreateUser",
-    "RelativePath": "api/Users",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "query",
-        "Type": "QuanLyNhanVien.Query.Application.UseCases.Jwt.CreateUserQuery",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "QuanLyNhanVien.Query.Contracts.Shared.Result\u00601[[QuanLyNhanVien.Query.Domain.Entities.User, QuanLyNhanVien.Query.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "QuanLyNhanVien.Query.Contracts.Shared.Result\u00601[[QuanLyNhanVien.Query.Domain.Entities.User, QuanLyNhanVien.Query.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 401
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 403
-      }
-    ]
   }
 ]

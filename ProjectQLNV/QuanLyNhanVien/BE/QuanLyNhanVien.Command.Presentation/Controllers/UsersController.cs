@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using QuanLyNhanVien.Command.Application.UseCases.Jwt;
+using QuanLyNhanVien.Command.Application.UseCases.Users;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Entities;
 using System;

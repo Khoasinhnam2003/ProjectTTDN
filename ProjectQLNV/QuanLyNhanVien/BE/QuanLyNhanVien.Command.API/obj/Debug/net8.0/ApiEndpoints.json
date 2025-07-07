@@ -784,7 +784,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "QuanLyNhanVien.Command.Application.UseCases.Jwt.CreateUserCommand",
+        "Type": "QuanLyNhanVien.Command.Application.UseCases.Users.CreateUserCommand",
         "IsRequired": true
       },
       {
