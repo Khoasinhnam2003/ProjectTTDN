@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import api from '../api';
+import { queryApi, commandApi } from '../api';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -15,10 +15,19 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await api.post('api/Authentication/login', {
+      // Try login with queryApi first (e.g., port 5221)
+      let response = await queryApi.post('api/Authentication/login', {
         username,
         password,
       });
+
+      // If queryApi fails with 404 or 401, try commandApi (e.g., port 5001)
+      if (!response.data || !response.data.isSuccess) {
+        response = await commandApi.post('api/Authentication/login', {
+          username,
+          password,
+        });
+      }
 
       console.log('Full Response from API:', response);
       console.log('Response data:', JSON.stringify(response.data, null, 2));
