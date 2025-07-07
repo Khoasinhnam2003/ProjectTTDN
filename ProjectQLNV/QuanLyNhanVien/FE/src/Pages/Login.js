@@ -15,13 +15,11 @@ function Login() {
     setLoading(true);
 
     try {
-      // Try login with queryApi first (e.g., port 5221)
       let response = await queryApi.post('api/Authentication/login', {
         username,
         password,
       });
 
-      // If queryApi fails with 404 or 401, try commandApi (e.g., port 5001)
       if (!response.data || !response.data.isSuccess) {
         response = await commandApi.post('api/Authentication/login', {
           username,
@@ -48,14 +46,19 @@ function Login() {
       const { userId, employeeId, username: userName, token, roles } = data;
       const roleArray = roles && roles.$values ? roles.$values : roles || [];
 
-      // Kiểm tra và lưu dữ liệu
       const userData = { userId, employeeId, username: userName, roles: roleArray };
       console.log('User data to save:', userData);
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(userData));
 
-      navigate('/dashboard');
+      if (roleArray.includes('Admin')) {
+        navigate('/admin-dashboard');
+      } else if (roleArray.includes('User')) {
+        navigate('/user-dashboard');
+      } else {
+        throw new Error('Vai trò không được hỗ trợ.');
+      }
     } catch (err) {
       setError(err.message || 'Đăng nhập thất bại. Vui lòng kiểm tra thông tin.');
       console.error('Lỗi chi tiết:', err.response ? err.response.data : err);
