@@ -7,6 +7,9 @@ function Dashboard() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [viewMode, setViewMode] = useState('all'); // 'all', 'byId', 'byDepartment'
+  const [employeeId, setEmployeeId] = useState('');
+  const [departmentId, setDepartmentId] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -33,33 +36,54 @@ function Dashboard() {
   }, [navigate, token]);
 
   useEffect(() => {
-  const fetchEmployees = async () => {
-    try {
-      const response = await api.get('api/Employees', {
-        headers: { Authorization: `Bearer ${token}` },
-        params: { PageNumber: 1, PageSize: 100 }
-      });
-      console.log('API Employees Response:', response.data);
-      // Lấy mảng từ $values
-      const employeeData = response.data.$values || [];
-      setEmployees(employeeData);
-      setLoading(false);
-    } catch (err) {
-      console.error('API Employees Error:', err.response ? err.response.data : err.message);
-      setError('Không thể tải danh sách nhân viên. Vui lòng thử lại.');
-      setLoading(false);
-      if (err.response?.status === 401 || err.response?.status === 403) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        navigate('/');
-      }
-    }
-  };
+    const fetchEmployees = async () => {
+      try {
+        let response;
+        setLoading(true);
+        if (viewMode === 'all') {
+          response = await api.get('api/Employees', {
+            headers: { Authorization: `Bearer ${token}` },
+            params: { PageNumber: 1, PageSize: 100 }
+          });
+        } else if (viewMode === 'byId' && employeeId) {
+          response = await api.get(`api/Employees/${employeeId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+        } else if (viewMode === 'byDepartment' && departmentId) {
+          response = await api.get(`api/Employees/by-department/${departmentId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+            params: { PageNumber: 1, PageSize: 100 }
+          });
+        }
 
-  if (token && user?.roles.includes('Admin')) {
-    fetchEmployees();
-  }
-}, [token, user, navigate]);
+        console.log('API Employees Response:', response.data);
+        let employeeData;
+        if (viewMode === 'all' || viewMode === 'byDepartment') {
+          employeeData = response.data.$values || [];
+        } else if (viewMode === 'byId') {
+          employeeData = [response.data]; // Đóng gói thành mảng để tái sử dụng bảng
+        }
+        setEmployees(employeeData);
+        setLoading(false);
+      } catch (err) {
+        console.error('API Employees Error:', err.response ? err.response.data : err.message);
+        setError('Không thể tải danh sách nhân viên. Vui lòng thử lại.');
+        setLoading(false);
+        if (err.response?.status === 404) {
+          setEmployees([]); // Đặt employees rỗng khi không tìm thấy
+          setError(null); // Xóa lỗi để hiển thị "Không có nhân viên nào" trong bảng
+        } else if (err.response?.status === 401 || err.response?.status === 403) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          navigate('/');
+        }
+      }
+    };
+
+    if (token && user?.roles.includes('Admin') && (viewMode === 'all' || (viewMode === 'byId' && employeeId) || (viewMode === 'byDepartment' && departmentId))) {
+      fetchEmployees();
+    }
+  }, [token, user, viewMode, employeeId, departmentId, navigate]);
 
   return (
     <div className="container mt-5">
@@ -83,6 +107,33 @@ function Dashboard() {
         </p>
       )}
 
+      <div className="mb-4">
+        <select className="form-select mb-2" value={viewMode} onChange={(e) => setViewMode(e.target.value)}>
+          <option value="all">Xem tất cả</option>
+          <option value="byId">Xem theo ID</option>
+          <option value="byDepartment">Xem theo Department</option>
+        </select>
+        {viewMode === 'byId' && (
+          <input
+            type="number"
+            className="form-control mb-2"
+            placeholder="Nhập Employee ID"
+            value={employeeId}
+            onChange={(e) => setEmployeeId(e.target.value)}
+          />
+        )}
+        {viewMode === 'byDepartment' && (
+          <input
+            type="number"
+            className="form-control mb-2"
+            placeholder="Nhập Department ID"
+            value={departmentId}
+            onChange={(e) => setDepartmentId(e.target.value)}
+          />
+        )}
+        <button className="btn btn-primary" onClick={() => setEmployees([])}>Tải lại</button>
+      </div>
+
       {loading && <div className="text-center">Đang tải...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
 
@@ -103,8 +154,8 @@ function Dashboard() {
                 employees.map((employee) => (
                   <tr key={employee.employeeId}>
                     <td>{employee.employeeId}</td>
-                    <td>{employee.fullName}</td>
-                    <td>{employee.email}</td>
+                    <td>{employee.fullName || 'Chưa có'}</td>
+                    <td>{employee.email || 'Chưa có'}</td>
                     <td>{employee.departmentName || 'Chưa có'}</td>
                     <td>{employee.positionName || 'Chưa có'}</td>
                   </tr>
