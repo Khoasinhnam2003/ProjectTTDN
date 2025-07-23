@@ -13,6 +13,7 @@ namespace QuanLyNhanVien.Command.Domain.Abstractions.Repositories
         void Update(TEntity entity);
         void Delete(TEntity entity);
         Task<TEntity> FindAsync(TKey id, CancellationToken cancellationToken = default);
+        Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

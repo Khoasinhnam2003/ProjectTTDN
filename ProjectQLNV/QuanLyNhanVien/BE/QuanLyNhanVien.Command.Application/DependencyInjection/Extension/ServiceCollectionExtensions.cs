@@ -38,7 +38,6 @@ namespace QuanLyNhanVien.Command.Application.DependencyInjection.Extension
             // Register MediatR
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
                 Assembly.GetExecutingAssembly(),
-                Assembly.GetAssembly(typeof(CreateEmployeeCommandHandler)),
                 Assembly.GetAssembly(typeof(CreateEmployeeCommandHandler))!));
             Console.WriteLine("MediatR registered successfully.");
 

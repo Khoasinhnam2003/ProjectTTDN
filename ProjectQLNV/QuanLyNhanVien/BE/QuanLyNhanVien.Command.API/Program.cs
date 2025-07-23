@@ -1,17 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using QuanLyNhanVien.Command.API.DependencyInjection.Extensions;
 using QuanLyNhanVien.Command.API.DependencyInjection.Options;
 using QuanLyNhanVien.Command.API.Middleware;
 using QuanLyNhanVien.Command.Application.DependencyInjection.Extension;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text;
 using System.Text.Json.Serialization;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Cấu hình Serilog
+builder.Host.UseSerilog((context, services, configuration) =>
+{
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services)
+        .MinimumLevel.Information()
+        .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.MSSqlServer(
+            connectionString: context.Configuration.GetConnectionString("DefaultConnection"),
+            sinkOptions: new MSSqlServerSinkOptions
+            {
+                TableName = "Logs",
+                AutoCreateSqlTable = true
+            });
+});
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -63,19 +84,17 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         builder => builder
-            .WithOrigins("http://localhost:3000") // Cho phép origin của frontend
+            .WithOrigins("http://localhost:3000")
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials()); // Nếu dùng cookie hoặc token
+            .AllowCredentials());
 });
-
-
 
 // Thêm Authentication và Authorization với JWT
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
@@ -83,9 +102,8 @@ builder.Services.AddAuthentication("Bearer")
             ValidAudience = builder.Configuration["Jwt:Audience"],
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(
+            IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
-            // Loại bỏ TokenDecryptionKey vì không cần mã hóa token
         };
     });
 
@@ -115,14 +133,25 @@ else
     app.UseHsts();
 }
 
-app.UseCors("AllowReactApp"); // Áp dụng CORS trước khi xử lý request
+app.UseCors("AllowReactApp");
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseGlobalExceptionHandler();
 app.UseValidationExceptionHandler();
-
 app.MapControllers();
 
-app.Run();
+try
+{
+    Log.Information("Application is starting...");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application failed to start");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

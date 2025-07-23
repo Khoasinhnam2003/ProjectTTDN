@@ -1,0 +1,63 @@
+2025-07-21 14:05:23.949 +07:00 [INF] Application is starting...
+2025-07-21 14:05:29.299 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:07:06.553 +07:00 [INF] Logout attempt for EmployeeId: 2
+2025-07-21 14:07:06.560 +07:00 [INF] Processing check-out for EmployeeId: 2
+2025-07-21 14:07:06.632 +07:00 [INF] Check-out successful for EmployeeId: 2 at "2025-07-21T14:07:06.5985688+07:00"
+2025-07-21 14:07:06.634 +07:00 [INF] Logout successful for EmployeeId: 2
+2025-07-21 14:07:36.803 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:07:36.811 +07:00 [INF] Processing login request for username: huy20032
+2025-07-21 14:07:37.099 +07:00 [INF] JWT token generated for user huy20032
+2025-07-21 14:07:37.147 +07:00 [INF] Check-in recorded for EmployeeId 2 at "2025-07-21T14:07:37.1096238+07:00"
+2025-07-21 14:07:37.149 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-21 14:10:45.068 +07:00 [INF] Logout attempt for EmployeeId: 2
+2025-07-21 14:10:45.070 +07:00 [INF] Processing check-out for EmployeeId: 2
+2025-07-21 14:10:45.081 +07:00 [INF] Check-out successful for EmployeeId: 2 at "2025-07-21T14:10:45.0762921+07:00"
+2025-07-21 14:10:45.082 +07:00 [INF] Logout successful for EmployeeId: 2
+2025-07-21 14:11:09.983 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:11:09.986 +07:00 [INF] Processing login request for username: huy20032
+2025-07-21 14:11:10.094 +07:00 [INF] JWT token generated for user huy20032
+2025-07-21 14:11:10.105 +07:00 [INF] Check-in recorded for EmployeeId 2 at "2025-07-21T14:11:10.0974492+07:00"
+2025-07-21 14:11:10.106 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-21 14:12:02.720 +07:00 [INF] Logout attempt for EmployeeId: 2
+2025-07-21 14:12:02.723 +07:00 [INF] Processing check-out for EmployeeId: 2
+2025-07-21 14:12:02.734 +07:00 [INF] Check-out successful for EmployeeId: 2 at "2025-07-21T14:12:02.7282527+07:00"
+2025-07-21 14:12:02.735 +07:00 [INF] Logout successful for EmployeeId: 2
+2025-07-21 14:12:23.446 +07:00 [INF] Login attempt for user with credentials: {"Username":"anhkhoa22022003","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:12:23.449 +07:00 [INF] Processing login request for username: anhkhoa22022003
+2025-07-21 14:12:23.560 +07:00 [INF] JWT token generated for user anhkhoa22022003
+2025-07-21 14:12:23.570 +07:00 [INF] Check-in recorded for EmployeeId 1 at "2025-07-21T14:12:23.5636902+07:00"
+2025-07-21 14:12:23.571 +07:00 [INF] Login successful for user anhkhoa22022003 with EmployeeId 1
+2025-07-21 14:13:15.264 +07:00 [INF] Logout attempt for EmployeeId: 1
+2025-07-21 14:13:15.265 +07:00 [INF] Processing check-out for EmployeeId: 1
+2025-07-21 14:13:15.280 +07:00 [INF] Check-out successful for EmployeeId: 1 at "2025-07-21T14:13:15.2713598+07:00"
+2025-07-21 14:13:15.281 +07:00 [INF] Logout successful for EmployeeId: 1
+2025-07-21 14:13:20.562 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:13:20.565 +07:00 [INF] Processing login request for username: huy20032
+2025-07-21 14:13:20.671 +07:00 [INF] JWT token generated for user huy20032
+2025-07-21 14:13:20.679 +07:00 [INF] Check-in recorded for EmployeeId 2 at "2025-07-21T14:13:20.6747053+07:00"
+2025-07-21 14:13:20.680 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-21 14:17:10.752 +07:00 [INF] Logout attempt for EmployeeId: 2
+2025-07-21 14:17:10.753 +07:00 [INF] Processing check-out for EmployeeId: 2
+2025-07-21 14:17:10.773 +07:00 [INF] Check-out successful for EmployeeId: 2 at "2025-07-21T14:17:10.7639561+07:00"
+2025-07-21 14:17:10.775 +07:00 [INF] Logout successful for EmployeeId: 2
+2025-07-21 14:17:18.770 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20033","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:17:18.773 +07:00 [INF] Processing login request for username: dat20033
+2025-07-21 14:17:18.881 +07:00 [INF] JWT token generated for user dat20033
+2025-07-21 14:17:18.890 +07:00 [INF] Check-in recorded for EmployeeId 1002 at "2025-07-21T14:17:18.8849972+07:00"
+2025-07-21 14:17:18.891 +07:00 [INF] Login successful for user dat20033 with EmployeeId 1002
+2025-07-21 14:17:21.309 +07:00 [INF] Logout attempt for EmployeeId: 1002
+2025-07-21 14:17:21.310 +07:00 [INF] Processing check-out for EmployeeId: 1002
+2025-07-21 14:17:21.318 +07:00 [INF] Check-out successful for EmployeeId: 1002 at "2025-07-21T14:17:21.3144304+07:00"
+2025-07-21 14:17:21.321 +07:00 [INF] Logout successful for EmployeeId: 1002
+2025-07-21 14:17:29.352 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:17:29.355 +07:00 [INF] Processing login request for username: huy20032
+2025-07-21 14:17:29.464 +07:00 [INF] JWT token generated for user huy20032
+2025-07-21 14:17:29.469 +07:00 [INF] Check-in recorded for EmployeeId 2 at "2025-07-21T14:17:29.4663478+07:00"
+2025-07-21 14:17:29.470 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-21 14:18:59.695 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 14:18:59.698 +07:00 [INF] Processing login request for username: huy20032
+2025-07-21 14:18:59.806 +07:00 [INF] JWT token generated for user huy20032
+2025-07-21 14:18:59.816 +07:00 [INF] Check-in updated for EmployeeId 2 at "2025-07-21T14:18:59.8108029+07:00"
+2025-07-21 14:18:59.818 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-21 14:22:26.982 +07:00 [INF] Application services registered successfully.
+2025-07-21 14:22:27.031 +07:00 [INF] Swagger services registered successfully.

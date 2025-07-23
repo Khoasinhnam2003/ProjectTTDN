@@ -12,5 +12,7 @@ namespace QuanLyNhanVien.Command.Domain.Abstractions.Repositories
         IGenericRepository<TEntity, TKey> Repository<TEntity, TKey>() where TEntity : class;
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
+        void Commit();
+        void Rollback();
     }
 }

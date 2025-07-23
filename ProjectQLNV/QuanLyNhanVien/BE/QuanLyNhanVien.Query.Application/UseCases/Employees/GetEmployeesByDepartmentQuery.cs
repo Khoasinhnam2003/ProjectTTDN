@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Contracts.DTOs;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
@@ -36,16 +37,19 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Employees
     public class GetEmployeesByDepartmentQueryHandler : IRequestHandler<GetEmployeesByDepartmentQuery, List<EmployeeDTO>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger<GetEmployeesByDepartmentQueryHandler> _logger;
 
-        public GetEmployeesByDepartmentQueryHandler(IUnitOfWork unitOfWork)
+        public GetEmployeesByDepartmentQueryHandler(IUnitOfWork unitOfWork, ILogger<GetEmployeesByDepartmentQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<EmployeeDTO>> Handle(GetEmployeesByDepartmentQuery request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Fetching employees for DepartmentId={DepartmentId} with PageNumber={PageNumber} and PageSize={PageSize}", request.DepartmentId, request.PageNumber, request.PageSize);
             var repository = _unitOfWork.Repository<Employee>();
-            return await repository.GetAll()
+            var employees = await repository.GetAll()
                 .Include(e => e.Department)
                 .Include(e => e.Position)
                 .Where(e => e.DepartmentId == request.DepartmentId)
@@ -66,6 +70,8 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Employees
                     PositionName = e.Position != null ? e.Position.PositionName : null
                 })
                 .ToListAsync(cancellationToken);
+            _logger.LogInformation("Successfully fetched {Count} employees for DepartmentId={DepartmentId}", employees.Count, request.DepartmentId);
+            return employees;
         }
     }
 }

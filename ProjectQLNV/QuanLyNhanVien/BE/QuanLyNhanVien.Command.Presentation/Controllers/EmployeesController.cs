@@ -24,7 +24,7 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<Employee>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Result<Employee>))]
@@ -40,7 +40,7 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
             return BadRequest(result);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPut("{employeeId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<Employee>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Result<Employee>))]

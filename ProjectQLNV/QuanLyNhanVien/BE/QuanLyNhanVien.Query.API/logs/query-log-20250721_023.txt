@@ -1,0 +1,25 @@
+2025-07-21 15:55:31.027 +07:00 [INF] Query application is starting...
+2025-07-21 15:55:41.973 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 15:56:24.718 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:56:24.859 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:56:25.889 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:56:26.056 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:56:26.061 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:56:26.145 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:56:26.146 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:56:26.151 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:56:26.155 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:56:26.183 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:56:26.187 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:56:26.190 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:56:27.399 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:56:27.402 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:56:27.408 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:56:27.412 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:56:27.414 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:56:34.212 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:56:34.215 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:56:34.221 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:56:34.225 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:56:34.226 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:57:20.694 +07:00 [INF] Query application is starting...

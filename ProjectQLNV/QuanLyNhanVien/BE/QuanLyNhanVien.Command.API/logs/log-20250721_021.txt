@@ -1,0 +1,33 @@
+2025-07-21 10:30:35.836 +07:00 [INF] Application is starting...
+2025-07-21 10:30:48.224 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:30:48.312 +07:00 [INF] Login attempt for user with credentials: {"Username":"anhkhoa22022003","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:30:48.439 +07:00 [INF] Processing login request for username: anhkhoa22022003
+2025-07-21 10:30:49.584 +07:00 [INF] JWT token generated for user anhkhoa22022003
+2025-07-21 10:30:49.769 +07:00 [INF] Check-in recorded for EmployeeId 1 at "2025-07-21T10:30:49.5990463+07:00"
+2025-07-21 10:30:49.775 +07:00 [INF] Login successful for user anhkhoa22022003 with EmployeeId 1
+2025-07-21 10:31:29.731 +07:00 [INF] Logout attempt for EmployeeId: 1
+2025-07-21 10:31:29.735 +07:00 [INF] Processing check-out for EmployeeId: 1
+2025-07-21 10:31:29.768 +07:00 [INF] Check-out successful for EmployeeId: 1 at "2025-07-21T10:31:29.7509882+07:00"
+2025-07-21 10:31:29.770 +07:00 [INF] Logout successful for EmployeeId: 1
+2025-07-21 10:31:38.045 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:31:38.049 +07:00 [INF] Processing login request for username: dat20032
+2025-07-21 10:31:38.330 +07:00 [INF] JWT token generated for user dat20032
+2025-07-21 10:31:38.345 +07:00 [INF] Check-in updated for EmployeeId 3 at "2025-07-21T10:31:38.3347927+07:00"
+2025-07-21 10:31:38.346 +07:00 [INF] Login successful for user dat20032 with EmployeeId 3
+2025-07-21 10:34:12.365 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:34:12.370 +07:00 [INF] Processing login request for username: dat20032
+2025-07-21 10:34:12.494 +07:00 [INF] JWT token generated for user dat20032
+2025-07-21 10:34:12.501 +07:00 [INF] Check-in updated for EmployeeId 3 at "2025-07-21T10:34:12.4983998+07:00"
+2025-07-21 10:34:12.503 +07:00 [INF] Login successful for user dat20032 with EmployeeId 3
+2025-07-21 10:35:20.123 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:35:20.126 +07:00 [INF] Processing login request for username: dat20032
+2025-07-21 10:35:20.240 +07:00 [INF] JWT token generated for user dat20032
+2025-07-21 10:35:20.248 +07:00 [INF] Check-in updated for EmployeeId 3 at "2025-07-21T10:35:20.2433742+07:00"
+2025-07-21 10:35:20.249 +07:00 [INF] Login successful for user dat20032 with EmployeeId 3
+2025-07-21 10:37:51.657 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:37:51.660 +07:00 [INF] Processing login request for username: dat20032
+2025-07-21 10:37:51.788 +07:00 [INF] JWT token generated for user dat20032
+2025-07-21 10:37:51.797 +07:00 [INF] Check-in updated for EmployeeId 3 at "2025-07-21T10:37:51.7919575+07:00"
+2025-07-21 10:37:51.798 +07:00 [INF] Login successful for user dat20032 with EmployeeId 3
+2025-07-21 10:43:40.964 +07:00 [INF] Application services registered successfully.
+2025-07-21 10:43:41.012 +07:00 [INF] Swagger services registered successfully.

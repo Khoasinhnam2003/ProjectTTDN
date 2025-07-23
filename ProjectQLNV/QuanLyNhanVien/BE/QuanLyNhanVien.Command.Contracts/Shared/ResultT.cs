@@ -32,5 +32,6 @@ namespace QuanLyNhanVien.Command.Contracts.Shared
         }
 
         string IResult.Error => Error?.Message ?? string.Empty;
+
     }
 }

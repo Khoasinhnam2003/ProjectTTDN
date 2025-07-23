@@ -1,0 +1,2 @@
+2025-07-21 10:30:35.552 +07:00 [INF] Application services registered successfully.
+2025-07-21 10:30:35.589 +07:00 [INF] Swagger services registered successfully.

@@ -1,18 +1,39 @@
-﻿using Microsoft.IdentityModel.Tokens; // Thêm namespace cho JWT
-using QuanLyNhanVien.Query.API.DependencyInjection.Extensions; // For Swagger
-using QuanLyNhanVien.Query.API.Middlewares; // For GlobalExceptionHandler
+﻿using Microsoft.IdentityModel.Tokens;
+using QuanLyNhanVien.Query.API.DependencyInjection.Extensions;
+using QuanLyNhanVien.Query.API.Middlewares;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 using System.Text;
-using System.Text.Json.Serialization; // Thêm namespace này để dùng ReferenceHandler
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Cấu hình Serilog
+builder.Host.UseSerilog((context, services, configuration) =>
+{
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services)
+        .MinimumLevel.Information()
+        .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.File("logs/query-log-.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.MSSqlServer(
+            connectionString: context.Configuration.GetConnectionString("DefaultConnection"),
+            sinkOptions: new MSSqlServerSinkOptions
+            {
+                TableName = "QueryLogs", // Sử dụng bảng riêng cho Query để tránh xung đột với Command
+                AutoCreateSqlTable = true
+            });
+});
 
 // Add services to the container
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // Thêm cấu hình để xử lý vòng lặp tham chiếu
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.MaxDepth = 64; // Tùy chọn tăng độ sâu nếu cần
+        options.JsonSerializerOptions.MaxDepth = 64;
     });
 
 builder.Services.AddCors(options =>
@@ -25,13 +46,11 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
-
-
 // Thêm Authentication với scheme mặc định "Bearer"
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
@@ -39,7 +58,7 @@ builder.Services.AddAuthentication("Bearer")
             ValidAudience = builder.Configuration["Jwt:Audience"],
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(
+            IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
         };
     });
@@ -48,16 +67,16 @@ builder.Services.AddAuthentication("Bearer")
 builder.Services.AddAuthorization();
 
 // Đăng ký các dịch vụ khác
-builder.Services.AddSwagger(); // Add Swagger services
-builder.Services.AddApplicationServices(builder.Configuration); // Register application services
-builder.Services.AddHttpContextAccessor(); // Thêm để hỗ trợ kiểm tra vai trò trong handler (nếu cần)
+builder.Services.AddSwagger();
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerWithUi(); // Use Swagger UI in development
+    app.UseSwaggerWithUi();
 }
 
 app.UseCors("AllowReactApp");
@@ -66,9 +85,20 @@ app.UseCors("AllowReactApp");
 app.UseGlobalExceptionHandler();
 
 app.UseHttpsRedirection();
-// Thêm UseAuthentication trước UseAuthorization
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
+try
+{
+    Log.Information("Query application is starting...");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Query application failed to start");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

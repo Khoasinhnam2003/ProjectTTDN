@@ -1,0 +1,12 @@
+2025-07-21 14:31:48.478 +07:00 [INF] Query application is starting...
+2025-07-21 14:31:54.878 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:31:54.993 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:31:55.122 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:31:55.983 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 14:31:55.986 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 14:39:39.778 +07:00 [INF] Query application is starting...
+2025-07-21 14:39:48.480 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:39:48.640 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:39:48.781 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:39:50.023 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 14:39:50.026 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032

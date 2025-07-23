@@ -1,0 +1,695 @@
+2025-07-21 14:52:12.025 +07:00 [INF] Query application is starting...
+2025-07-21 14:52:24.479 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:52:24.603 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:52:24.722 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:52:25.764 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:52:25.943 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:52:25.947 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:54:04.100 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:54:04.104 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:54:04.159 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:54:04.173 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:54:04.175 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:54:20.756 +07:00 [INF] User huy20032 requested employee with ID 2
+2025-07-21 14:54:20.761 +07:00 [INF] Fetching employee with ID 2
+2025-07-21 14:54:20.808 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 14:54:20.867 +07:00 [INF] Successfully fetched employee with ID 2
+2025-07-21 14:54:20.869 +07:00 [INF] Successfully returned employee with ID 2 for user huy20032
+2025-07-21 14:54:20.873 +07:00 [INF] User huy20032 requested employee with ID 2
+2025-07-21 14:54:20.875 +07:00 [INF] Fetching employee with ID 2
+2025-07-21 14:54:20.880 +07:00 [INF] Successfully fetched employee with ID 2
+2025-07-21 14:54:20.882 +07:00 [INF] Successfully returned employee with ID 2 for user huy20032
+2025-07-21 14:54:20.892 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 14:54:20.892 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 14:54:20.895 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 14:54:20.895 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 14:54:26.173 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:54:26.177 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:54:26.181 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:54:26.185 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:54:26.187 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:54:29.098 +07:00 [INF] User huy20032 requested employee with ID 2
+2025-07-21 14:54:29.100 +07:00 [INF] Fetching employee with ID 2
+2025-07-21 14:54:29.105 +07:00 [INF] Successfully fetched employee with ID 2
+2025-07-21 14:54:29.106 +07:00 [INF] Successfully returned employee with ID 2 for user huy20032
+2025-07-21 14:54:29.108 +07:00 [INF] User huy20032 requested employee with ID 2
+2025-07-21 14:54:29.110 +07:00 [INF] Fetching employee with ID 2
+2025-07-21 14:54:29.116 +07:00 [INF] Successfully fetched employee with ID 2
+2025-07-21 14:54:29.118 +07:00 [INF] Successfully returned employee with ID 2 for user huy20032
+2025-07-21 14:54:52.068 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:54:52.071 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:54:52.079 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:54:52.089 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:54:52.091 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:18.709 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:18.711 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:18.715 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:18.719 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:18.720 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:18.723 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:18.726 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:18.730 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:18.750 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:18.759 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:40.161 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:40.167 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:40.177 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:40.192 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:40.195 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:40.199 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:40.205 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:40.218 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:40.235 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:40.238 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:42.191 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:42.193 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:42.200 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:42.212 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:42.214 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:51.711 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:51.714 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:51.720 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:51.730 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:51.732 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:55:51.735 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:55:51.738 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:55:51.742 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:55:51.748 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:55:51.754 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:56:02.710 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:56:02.712 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:56:02.718 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:56:02.729 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:56:02.731 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:56:02.733 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:56:02.736 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:56:02.740 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:56:02.749 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:56:02.753 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:56:13.687 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:56:13.692 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:56:13.698 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:56:13.711 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:56:13.713 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 14:56:13.716 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 14:56:13.718 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 14:56:13.723 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:56:13.732 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 14:56:13.735 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:02:54.768 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:02:54.770 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:02:54.775 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:02:54.788 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:02:54.790 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:02:56.977 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:02:56.979 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:02:56.982 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:02:56.984 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:02:56.985 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:06:24.792 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:06:24.794 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:06:24.801 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:06:24.813 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:06:24.815 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:06:35.937 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:06:35.939 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:06:35.946 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:06:35.957 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:06:35.960 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:08:24.850 +07:00 [INF] Query application is starting...
+2025-07-21 15:08:31.942 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 15:08:32.096 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:08:32.227 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:08:33.327 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:08:33.517 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:08:33.521 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:08:36.655 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:08:36.659 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:08:36.669 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:08:36.684 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:08:36.686 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:08:36.707 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:08:36.708 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:08:53.737 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:08:53.741 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:08:53.747 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:08:53.760 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:08:53.762 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:09:15.134 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:09:15.136 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:09:15.142 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:09:15.152 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:09:15.154 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:09:18.657 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:09:18.661 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:09:18.670 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:09:18.678 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:09:18.680 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:09:19.934 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:09:19.937 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:09:19.941 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:09:19.944 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:09:19.947 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:09:26.184 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:09:26.187 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:09:26.193 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:09:26.205 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:09:26.207 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:09:29.412 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:09:29.415 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:09:29.421 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:09:29.433 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:09:29.435 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:16.735 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:16.738 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:16.747 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:16.760 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:16.762 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:23.813 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:23.815 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:23.819 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:23.822 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:23.824 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:24.553 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:24.556 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:24.563 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:24.568 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:24.570 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:29.827 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:29.829 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:29.833 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:29.836 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:29.839 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:31.460 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:31.463 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:31.467 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:31.471 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:31.473 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:32.896 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:32.898 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:32.902 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:32.905 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:32.907 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:11:39.253 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:11:39.255 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:11:39.259 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:11:39.263 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:11:39.265 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:03.116 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:03.118 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:03.122 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:03.129 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:03.131 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:10.268 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:10.270 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:10.278 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:10.297 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:10.299 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:11.507 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:11.509 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:11.516 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:11.529 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:11.531 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:14.682 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:14.684 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:14.691 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:14.700 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:14.702 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:15.629 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:15.631 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:15.636 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:15.639 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:15.641 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:12:16.629 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:12:16.631 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:12:16.636 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:12:16.639 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:12:16.641 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:08.324 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:08.326 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:08.332 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:08.343 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:08.345 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:09.810 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:09.813 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:09.817 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:09.823 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:09.825 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:37.205 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:37.207 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:37.213 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:37.225 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:37.230 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:39.581 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:39.583 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:39.587 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:39.590 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:39.592 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:40.332 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:40.335 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:40.339 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:40.343 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:40.344 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:41.202 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:41.204 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:41.208 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:41.211 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:41.213 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:42.064 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:42.068 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:42.072 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:42.075 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:42.077 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:43.528 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:43.530 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:43.534 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:43.538 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:43.539 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:44.152 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:44.155 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:44.158 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:44.162 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:44.164 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:44.687 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:44.690 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:44.694 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:44.697 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:44.699 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:47.264 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:47.266 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:47.270 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:47.274 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:47.276 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:13:49.785 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:13:49.788 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:13:49.792 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:13:49.795 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:13:49.796 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:12.716 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:12.719 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:12.764 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:12.808 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:12.822 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:12.827 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:12.834 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:12.840 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:12.847 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:12.849 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:14.423 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:14.426 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:14.432 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:14.435 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:14.437 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:16.206 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:16.208 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:16.213 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:16.225 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:16.228 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:20.599 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:20.602 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:20.606 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:20.618 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:20.620 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:27.687 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:27.690 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:27.694 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:27.697 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:27.699 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:28.657 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:28.660 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:28.663 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:28.667 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:28.669 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:15:32.265 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:15:32.267 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:15:32.272 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:15:32.274 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:15:32.276 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:16:15.175 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:16:15.177 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:16:15.182 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:16:15.197 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:16:15.199 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:17:09.278 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:17:09.290 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:17:09.296 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:17:09.312 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:17:09.314 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:07.714 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:07.719 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:07.722 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:07.733 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:07.735 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:07.738 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:07.740 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:07.743 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:07.749 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:07.751 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:09.714 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:09.716 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:09.719 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:09.722 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:09.723 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:09.726 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:09.728 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:09.732 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:09.735 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:09.737 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:16.721 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:16.724 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:16.727 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:16.730 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:16.732 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:16.734 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:16.736 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:16.740 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:16.744 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:16.746 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:18.710 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:18.714 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:18.720 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:18.723 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:18.725 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:18.728 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:18.731 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:18.743 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:18.750 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:18.752 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:19.719 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:19.721 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:19.725 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:19.727 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:19.729 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:18:19.732 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:18:19.735 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:18:19.738 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:18:19.741 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:18:19.743 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:52.714 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:52.716 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:52.723 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:52.737 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:52.739 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:52.742 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:52.744 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:52.753 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:52.760 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:52.761 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:54.709 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:54.711 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:54.714 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:54.716 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:54.717 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:54.719 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:54.721 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:54.725 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:54.728 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:54.729 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:59.713 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:59.715 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:59.721 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:59.737 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:59.739 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:19:59.741 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:19:59.743 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:19:59.747 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:19:59.751 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:19:59.753 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:01.707 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:01.709 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:01.712 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:01.723 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:01.725 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:01.727 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:01.729 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:01.733 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:01.736 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:01.738 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:04.721 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:04.723 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:04.728 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:04.740 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:04.742 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:04.744 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:04.747 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:04.751 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:04.754 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:04.756 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:06.579 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:06.582 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:06.585 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:06.588 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:06.590 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:26.714 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:26.716 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:26.720 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:26.723 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:26.724 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:26.727 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:26.729 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:26.733 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:26.736 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:26.742 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:29.726 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:29.728 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:29.731 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:29.734 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:29.735 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:29.737 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:29.739 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:29.743 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:29.749 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:29.752 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:31.719 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:31.721 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:31.724 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:31.726 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:31.728 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:31.730 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:31.732 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:31.736 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:31.742 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:31.745 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:34.724 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:34.726 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:34.730 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:34.733 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:34.734 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:34.737 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:34.738 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:34.742 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:34.748 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:34.751 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:36.725 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:36.727 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:36.731 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:36.734 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:36.736 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:36.738 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:36.740 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:36.743 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:36.749 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:36.752 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:40.181 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:40.183 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:40.187 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:40.189 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:40.190 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:20:46.100 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:20:46.102 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:20:46.106 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:20:46.109 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:20:46.110 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:40.130 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:40.132 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:40.135 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:40.148 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:40.149 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:41.144 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:41.145 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:41.149 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:41.155 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:41.157 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:42.168 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:42.170 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:42.173 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:42.175 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:42.177 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:44.165 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:44.167 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:44.171 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:44.173 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:44.175 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:46.156 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:46.158 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:46.161 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:46.163 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:46.165 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:21:56.835 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:21:56.837 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:21:56.840 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:21:56.842 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:21:56.844 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:22:12.598 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:22:12.601 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:22:12.604 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:22:12.618 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:22:12.621 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:24:49.716 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:24:49.718 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:24:49.728 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:24:49.743 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:24:49.745 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:24:49.748 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:24:49.750 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:24:49.757 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:24:49.761 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:24:49.763 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:25:04.236 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:25:04.239 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:25:04.244 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:25:04.246 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:25:04.248 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:25:12.757 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:25:12.759 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:25:12.762 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:25:12.765 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:25:12.766 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:25:16.396 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:25:16.397 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:25:16.402 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:25:16.404 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:25:16.405 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:21.713 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:21.715 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:21.722 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:21.738 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:21.741 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:21.743 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:21.747 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:21.758 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:21.761 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:21.762 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:36.726 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:36.728 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:36.731 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:36.733 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:36.735 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:36.737 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:36.739 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:36.742 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:36.746 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:36.747 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:39.732 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:39.734 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:39.741 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:39.754 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:39.757 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:39.760 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:39.762 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:39.767 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:39.771 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:39.774 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:41.736 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:41.738 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:41.744 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:41.759 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:41.760 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:42.139 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:42.141 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:42.147 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:42.160 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:42.162 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:42.659 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:42.663 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:42.670 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:42.683 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:42.685 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:43.313 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:43.315 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:43.318 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:43.331 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:43.333 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:27:55.840 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:27:55.841 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:27:55.861 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:27:55.876 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:27:55.878 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:31:21.021 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 15:31:21.025 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 15:31:21.030 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:31:21.031 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:31:21.052 +07:00 [INF] Successfully fetched 4 employees
+2025-07-21 15:31:21.055 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-07-21 15:31:34.567 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:31:34.568 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 15:31:42.494 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:31:42.495 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:31:42.498 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:31:42.508 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:31:42.509 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:32:19.693 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:32:19.695 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:32:19.702 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:32:19.717 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:32:19.719 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:32:22.355 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:32:22.357 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:32:22.360 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:32:22.363 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:32:22.364 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:32:24.193 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:32:24.195 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:32:24.198 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:32:24.200 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:32:24.202 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:32:40.744 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:32:40.746 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:32:40.752 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:32:40.756 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:32:40.759 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:32:40.761 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:32:40.784 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:32:40.793 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:32:40.796 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:32:40.798 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:33:04.445 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:33:04.448 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:33:04.451 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:33:04.461 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:33:04.463 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:33:22.870 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:33:22.872 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:33:22.875 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:33:22.885 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:33:22.887 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:33:24.129 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:33:24.131 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:33:24.134 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:33:24.137 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:33:24.138 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:33:36.788 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:33:36.790 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:33:36.793 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:33:36.796 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:33:36.797 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:34:01.523 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:34:01.525 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:34:01.528 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:34:01.534 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:34:01.535 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:34:05.528 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:34:05.530 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:34:05.533 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:34:05.536 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:34:05.537 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:39:09.210 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:39:09.213 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:39:09.224 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:39:09.234 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:39:09.236 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032
+2025-07-21 15:39:19.391 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 15:39:19.394 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 15:39:19.397 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 15:39:19.400 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 5, EmployeeIds: 2,3,3,1002,1002
+2025-07-21 15:39:19.402 +07:00 [INF] Successfully returned 5 employees with role User for user huy20032

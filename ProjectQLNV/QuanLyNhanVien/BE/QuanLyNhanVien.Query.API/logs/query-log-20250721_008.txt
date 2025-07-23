@@ -1,0 +1,70 @@
+2025-07-21 10:50:45.143 +07:00 [INF] Query application is starting...
+2025-07-21 10:51:02.375 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:51:02.458 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:02.538 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:03.167 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 10:51:03.321 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:03.324 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:04.277 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:04.279 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:04.315 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:04.317 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:04.323 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:04.327 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:04.339 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:04.341 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:24.509 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:24.512 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:24.523 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:24.524 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:27.852 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:27.855 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:27.860 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:27.861 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:29.069 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:29.072 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:29.076 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:29.077 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:51:29.080 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:51:29.082 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:51:29.089 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:51:29.090 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:52:43.299 +07:00 [INF] Query application is starting...
+2025-07-21 10:52:53.774 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:52:53.881 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:52:53.979 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:52:54.827 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 10:52:55.047 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:52:55.050 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:52:55.800 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:52:55.803 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:52:55.864 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:52:55.866 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:52:55.873 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:52:55.878 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:52:55.894 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:52:55.896 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:52:55.905 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:52:55.905 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:52:55.907 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:52:55.907 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:53:31.133 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:53:31.136 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:53:31.148 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:53:31.150 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:53:32.019 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:53:32.021 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:53:32.030 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:53:32.031 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:53:32.035 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:53:32.037 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:53:32.052 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:53:32.057 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:53:54.671 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:53:54.674 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:53:54.678 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:53:54.680 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:57:22.619 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:57:22.621 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:57:22.640 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:57:22.641 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032

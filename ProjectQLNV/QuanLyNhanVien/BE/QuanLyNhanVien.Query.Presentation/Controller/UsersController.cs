@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using QuanLyNhanVien.Query.Application.UseCases.Jwt;
-using QuanLyNhanVien.Query.Contracts.Shared;
-using QuanLyNhanVien.Query.Domain.Entities;
+using QuanLyNhanVien.Query.Application.UseCases.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,19 +23,92 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result<User>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Result<User>))]
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserQuery query)
+        public async Task<IActionResult> GetAllUsers([FromQuery] GetAllUsersQuery query)
         {
-            var result = await _mediator.Send(query);
-            if (result.IsSuccess)
+            var users = await _mediator.Send(query);
+            var response = users.Select(u => new
             {
-                return Ok(result);
+                userId = u.UserId,
+                employeeId = u.EmployeeId,
+                username = u.Username,
+                employeeName = u.Employee != null ? $"{u.Employee.FirstName} {u.Employee.LastName}" : null,
+                roles = u.UserRoles.Select(ur => new
+                {
+                    roleId = ur.RoleId,
+                    roleName = ur.Role?.RoleName
+                }).ToList()
+            }).ToList();
+            return Ok(response);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<IActionResult> GetUserById(int userId)
+        {
+            try
+            {
+                var query = new GetUserByIdQuery { UserId = userId };
+                var user = await _mediator.Send(query);
+                return Ok(new
+                {
+                    userId = user.UserId,
+                    employeeId = user.EmployeeId,
+                    username = user.Username,
+                    employeeName = user.Employee != null ? $"{user.Employee.FirstName} {user.Employee.LastName}" : null,
+                    roles = user.UserRoles.Select(ur => new
+                    {
+                        roleId = ur.RoleId,
+                        roleName = ur.Role?.RoleName
+                    }).ToList()
+                });
             }
-            return BadRequest(result);
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("search")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<IActionResult> GetUsersByEmployeeName([FromQuery] string name, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return BadRequest(new { Message = "Tên tìm kiếm không được để trống." });
+            }
+
+            var query = new GetUsersByEmployeeNameQuery
+            {
+                Name = name,
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+            var users = await _mediator.Send(query);
+            var response = users.Select(u => new
+            {
+                userId = u.UserId,
+                employeeId = u.EmployeeId,
+                username = u.Username,
+                employeeName = u.Employee != null ? $"{u.Employee.FirstName} {u.Employee.LastName}" : null,
+                roles = u.UserRoles.Select(ur => new
+                {
+                    roleId = ur.RoleId,
+                    roleName = ur.Role?.RoleName
+                }).ToList()
+            }).ToList();
+            return Ok(response);
         }
     }
 }

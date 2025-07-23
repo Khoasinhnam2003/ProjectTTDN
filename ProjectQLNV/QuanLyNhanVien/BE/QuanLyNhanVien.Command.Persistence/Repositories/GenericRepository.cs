@@ -44,5 +44,10 @@ namespace QuanLyNhanVien.Command.Persistence.Repositories
         {
             return await _context.SaveChangesAsync(cancellationToken);
         }
+
+        public async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return await _dbSet.ToListAsync(cancellationToken);
+        }
     }
 }

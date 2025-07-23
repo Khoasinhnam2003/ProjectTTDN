@@ -1,0 +1,378 @@
+2025-07-21 09:48:49.882 +07:00 [INF] Query application is starting...
+2025-07-21 09:49:39.088 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 09:49:39.206 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:49:39.356 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:49:40.290 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 09:49:40.528 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:49:40.531 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:53:00.414 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:53:00.417 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:53:00.482 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:53:00.484 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:55:35.631 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:55:35.635 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:55:35.653 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:55:35.655 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:55:41.374 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:55:41.376 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:55:41.381 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:55:41.383 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:57:38.719 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:57:38.722 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:57:38.740 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:57:38.742 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:57:38.747 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:57:38.749 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:57:38.753 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:57:38.755 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:57:48.505 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:57:48.507 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:57:48.517 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:57:48.518 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:58:06.860 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:58:06.862 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:58:06.873 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:58:06.874 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:59:36.788 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:59:36.790 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:59:36.799 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:59:36.800 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:59:36.805 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:59:36.812 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:59:36.816 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:59:36.818 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 09:59:59.014 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 09:59:59.016 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 09:59:59.020 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 09:59:59.022 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:00.367 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:00.369 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:00.373 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:00.375 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:00.378 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:00.381 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:00.385 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:00.387 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:02.947 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:02.949 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:02.953 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:02.954 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:02.960 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:02.962 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:02.967 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:02.968 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:06.302 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:06.304 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:06.308 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:06.309 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:07.262 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:07.264 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:07.268 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:07.270 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:07.273 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:07.276 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:07.280 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:07.282 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:09.835 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:09.837 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:09.841 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:09.842 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:09.845 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:09.846 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:09.850 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:09.852 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:00:59.680 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:00:59.682 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:00:59.692 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:00:59.694 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:01:06.777 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:01:06.779 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:01:06.782 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:01:06.783 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:01:07.881 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:01:07.882 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:01:07.886 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:01:07.888 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:01:07.891 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:01:07.893 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:01:07.898 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:01:07.899 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:01:11.402 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:01:11.405 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:01:11.408 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:01:11.409 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:02:17.044 +07:00 [INF] Query application is starting...
+2025-07-21 10:02:38.768 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:02:38.874 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:02:38.992 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:02:39.657 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 10:02:39.842 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:02:39.844 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:02:41.270 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:02:41.272 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:02:41.334 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:02:41.335 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:02:41.340 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:02:41.344 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:02:41.356 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:02:41.358 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:43.730 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:43.732 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:43.785 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:43.786 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:53.093 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:53.096 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:53.102 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:53.104 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:53.107 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:53.110 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:53.114 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:53.115 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:56.726 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:56.729 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:56.734 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:56.735 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:56.739 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:56.742 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:56.747 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:56.748 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:57.426 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:57.428 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:57.432 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:57.433 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:58.506 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:58.508 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:58.513 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:58.514 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:10:58.517 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:10:58.518 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:10:58.522 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:10:58.523 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:04.984 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:04.986 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:04.991 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:04.992 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:04.995 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:04.998 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:05.002 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:05.003 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:06.924 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:06.926 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:06.930 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:06.931 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:23.722 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:23.724 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:23.727 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:23.728 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:23.731 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:23.734 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:23.737 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:23.738 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:27.225 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:27.227 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:27.255 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:27.257 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:27.259 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:27.261 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:27.265 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:27.266 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:33.222 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:33.224 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:33.239 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:33.241 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:36.347 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:36.348 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:36.352 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:36.353 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:11:36.356 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:11:36.357 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:11:36.361 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:11:36.362 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:20.870 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:20.872 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:20.891 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:20.892 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:22.154 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:22.157 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:22.189 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:22.192 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:23.238 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:23.240 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:23.243 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:23.244 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:23.246 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:23.248 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:23.252 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:23.253 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:26.491 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:26.493 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:26.496 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:26.497 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:30.467 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:30.469 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:30.473 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:30.474 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:14:30.476 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:14:30.478 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:14:30.481 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:14:30.482 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:15:00.912 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:15:00.914 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:15:00.923 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:15:00.928 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:15:12.538 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:15:12.545 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:15:12.548 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:15:12.549 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:15:12.552 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:15:12.554 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:15:12.557 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:15:12.558 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:30:42.384 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:30:42.386 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:30:42.409 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:30:42.410 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:30:49.852 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:30:49.856 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:30:49.863 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:30:49.865 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:30:49.879 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 10:30:49.881 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 10:30:54.695 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:30:54.697 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:30:54.732 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:30:54.734 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:30:54.738 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:30:54.740 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:30:54.744 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:30:54.745 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:31:07.159 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:07.172 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:07.179 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 10:31:07.181 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 10:31:12.523 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:31:12.525 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:31:12.533 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:31:12.534 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:31:12.537 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:31:12.538 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:31:12.541 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:31:12.542 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:31:14.856 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:14.858 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:14.864 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 10:31:14.872 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 10:31:21.006 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:31:21.008 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:31:21.015 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:31:21.016 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:31:21.020 +07:00 [INF] User anhkhoa22022003 requested employee with ID 1
+2025-07-21 10:31:21.021 +07:00 [INF] Fetching employee with ID 1
+2025-07-21 10:31:21.024 +07:00 [INF] Successfully fetched employee with ID 1
+2025-07-21 10:31:21.025 +07:00 [INF] Successfully returned employee with ID 1 for user anhkhoa22022003
+2025-07-21 10:31:24.378 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:24.380 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:24.387 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 10:31:24.389 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 10:31:28.028 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:31:28.029 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:31:28.901 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:28.903 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 10:31:28.909 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 10:31:28.910 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 10:31:38.362 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:38.370 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:38.379 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:38.381 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:39.941 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:39.943 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:39.952 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:39.953 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:39.956 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:39.957 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:39.960 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:39.961 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:50.204 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:50.206 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:53.234 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:53.236 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:55.584 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:55.587 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:55.597 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:55.598 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:55.601 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:55.603 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:55.611 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:55.612 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:31:57.550 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:31:57.551 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:31:57.575 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:31:57.577 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:32:45.564 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:32:45.566 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:32:45.576 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:32:45.577 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:32:46.209 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:32:46.210 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:32:46.448 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:32:46.449 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:32:46.452 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:32:46.457 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:32:46.467 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:32:46.468 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:34:06.511 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:34:06.513 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:34:06.523 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:34:06.525 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:34:12.524 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:34:12.526 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:34:12.535 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:34:12.537 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:34:13.428 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:34:13.430 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:34:13.439 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:34:13.441 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:34:13.445 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:34:13.447 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:34:13.457 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:34:13.459 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:35:20.273 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:35:20.277 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:35:20.287 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:35:20.288 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:35:23.003 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:35:23.005 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:35:23.014 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:35:23.015 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:35:23.018 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:35:23.019 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:35:23.036 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:35:23.042 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:35:24.800 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:35:24.802 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:35:24.812 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:35:24.814 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:36:33.575 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:36:33.577 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:36:33.591 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:36:33.592 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:36:33.594 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:36:33.596 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:36:33.602 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:36:33.603 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:37:51.814 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:37:51.818 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:37:51.829 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:37:51.831 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:37:54.812 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:37:54.814 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:37:54.826 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:37:54.830 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:37:54.833 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:37:54.834 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:37:54.838 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:37:54.839 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:39:49.488 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:39:49.490 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:39:49.499 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:39:49.501 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032

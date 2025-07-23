@@ -1,0 +1,18 @@
+2025-07-21 14:39:39.778 +07:00 [INF] Query application is starting...
+2025-07-21 14:39:48.480 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:39:48.640 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:39:48.781 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:39:50.023 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 14:39:50.026 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 14:47:10.649 +07:00 [INF] Query application is starting...
+2025-07-21 14:47:11.800 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 14:47:11.976 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:47:12.138 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:47:13.395 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:47:13.595 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 2, EmployeeIds: 2,3
+2025-07-21 14:47:13.598 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 14:47:16.150 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10000
+2025-07-21 14:47:16.153 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10000
+2025-07-21 14:47:16.193 +07:00 [INF] Số lượng UserIds tìm thấy với vai trò User: 5, UserIds: 2,3,5,1003,1004
+2025-07-21 14:47:16.205 +07:00 [INF] Số lượng nhân viên trả về với vai trò User: 2, EmployeeIds: 2,3
+2025-07-21 14:47:16.207 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032

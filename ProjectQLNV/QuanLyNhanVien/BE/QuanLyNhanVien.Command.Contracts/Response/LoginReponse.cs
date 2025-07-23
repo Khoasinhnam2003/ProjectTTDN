@@ -13,5 +13,6 @@ namespace QuanLyNhanVien.Command.Contracts.Response
         public string Username { get; set; }
         public string Token { get; set; }
         public List<string> Roles { get; set; } = new List<string>();
+        public DateTime? CheckInTime { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -38,6 +38,32 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
                 BaseSalary = p.BaseSalary
             }).ToList();
             return Ok(response);
+        }
+
+        [Authorize]
+        [HttpGet("{positionId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<IActionResult> GetPositionById(int positionId)
+        {
+            try
+            {
+                var query = new GetPositionByIdQuery { PositionId = positionId };
+                var position = await _mediator.Send(query);
+                return Ok(new
+                {
+                    PositionId = position.PositionId,
+                    PositionName = position.PositionName,
+                    Description = position.Description,
+                    BaseSalary = position.BaseSalary
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
         }
     }
 }

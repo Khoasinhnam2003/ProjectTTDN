@@ -22,7 +22,7 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -41,7 +41,7 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
             return Ok(response);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpGet("{departmentId}/employee-count")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -54,6 +54,32 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
                 var query = new GetDepartmentEmployeeCountQuery { DepartmentId = departmentId };
                 var count = await _mediator.Send(query);
                 return Ok(new { DepartmentId = departmentId, EmployeeCount = count });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpGet("{departmentId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<IActionResult> GetDepartmentById(int departmentId)
+        {
+            try
+            {
+                var query = new GetDepartmentByIdQuery { DepartmentId = departmentId };
+                var department = await _mediator.Send(query);
+                return Ok(new
+                {
+                    DepartmentId = department.DepartmentId,
+                    DepartmentName = department.DepartmentName,
+                    Location = department.Location,
+                    ManagerName = department.Manager != null ? $"{department.Manager.FirstName} {department.Manager.LastName}" : null
+                });
             }
             catch (InvalidOperationException ex)
             {

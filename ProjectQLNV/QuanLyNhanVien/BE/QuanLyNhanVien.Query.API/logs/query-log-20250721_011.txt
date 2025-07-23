@@ -1,0 +1,228 @@
+2025-07-21 10:58:59.563 +07:00 [INF] Query application is starting...
+2025-07-21 10:59:03.141 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:59:03.243 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:59:03.327 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:59:03.951 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 10:59:04.126 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:59:04.128 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:59:16.719 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:59:16.721 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:59:16.728 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:59:16.730 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:59:16.734 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:59:16.736 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:59:16.742 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:59:16.743 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 10:59:16.758 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:59:16.758 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:59:16.760 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:59:16.760 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 10:59:19.478 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 10:59:19.480 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 10:59:19.486 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 10:59:19.488 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 11:00:03.974 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 11:00:03.977 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 11:00:03.987 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 11:00:03.989 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 11:27:44.429 +07:00 [INF] Query application is starting...
+2025-07-21 11:28:22.515 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 11:28:47.716 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=10
+2025-07-21 11:28:47.868 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=10
+2025-07-21 11:28:49.151 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:28:49.155 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:29:15.217 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:29:15.221 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:29:15.277 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:29:15.279 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:34:02.728 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:34:02.734 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:34:02.774 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:34:02.793 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:34:02.798 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:34:02.802 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:34:02.854 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:34:02.856 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:34:06.762 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:34:06.765 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:34:06.772 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:34:06.774 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:34:18.168 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:34:18.172 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:34:18.191 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:34:18.194 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:36:54.720 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:36:54.724 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:36:54.741 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:36:54.743 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:36:54.748 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:36:54.792 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:36:54.797 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:36:54.799 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:37:05.668 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:37:05.671 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:37:05.685 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:37:05.687 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:37:40.880 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:37:40.883 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:37:40.896 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:37:40.899 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:12.502 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:38:12.506 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:38:12.509 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:38:12.511 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:38:12.526 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:38:12.527 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:38:28.879 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:28.881 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:28.892 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:28.894 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:40.714 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:40.717 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:40.730 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:40.732 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:40.736 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:40.739 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:40.745 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:40.750 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:41.840 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:41.844 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:41.856 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:41.858 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:41.861 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:41.864 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:41.879 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:41.881 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:53.958 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:53.961 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:53.974 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:53.976 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:38:53.979 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:38:53.982 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:38:53.990 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:38:53.991 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:12.223 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:12.227 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:12.233 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:12.235 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:12.239 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:12.241 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:12.248 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:12.251 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:22.718 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:22.721 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:22.728 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:22.730 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:22.734 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:22.736 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:22.745 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:22.747 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:23.709 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:23.713 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:23.720 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:23.722 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:23.726 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:23.728 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:23.736 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:23.741 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:31.711 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:31.715 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:31.722 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:31.725 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:31.728 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:31.730 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:31.738 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:31.740 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:43.709 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:43.712 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:43.720 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:43.722 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:43.726 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:43.730 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:43.739 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:43.740 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:47.708 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:47.712 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:47.727 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:47.730 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:47.734 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:47.738 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:47.753 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:47.757 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:53.719 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:53.722 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:53.746 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:53.748 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:39:53.752 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:39:53.755 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:39:53.763 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:39:53.764 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:20.723 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:20.726 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:20.732 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:20.734 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:20.738 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:20.741 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:20.755 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:20.760 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:23.002 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:23.005 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:23.010 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:23.012 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:23.016 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:23.019 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:23.025 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:23.028 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:29.717 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:29.720 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:29.726 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:29.729 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:40:29.732 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:40:29.734 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:40:29.739 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:40:29.743 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:43:22.286 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:43:22.289 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:43:22.302 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:43:22.304 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032
+2025-07-21 11:43:30.113 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:43:30.116 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:43:30.122 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:43:30.124 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:43:31.359 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:43:31.361 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:43:35.934 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:43:35.936 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:43:50.055 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:43:50.058 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:43:50.062 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:43:50.063 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:43:56.746 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:43:56.747 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:02.463 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:02.465 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:02.468 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:44:02.470 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:44:19.108 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:19.109 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:22.339 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:22.340 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:27.378 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:27.379 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-21 11:44:34.814 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:34.817 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:34.822 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:44:34.823 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:44:55.946 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:55.948 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-21 11:44:55.952 +07:00 [INF] Successfully fetched 3 employees
+2025-07-21 11:44:55.954 +07:00 [INF] Successfully returned 3 employees for user anhkhoa22022003
+2025-07-21 11:45:44.384 +07:00 [INF] User dat20032 requested employee with ID 3
+2025-07-21 11:45:44.388 +07:00 [INF] Fetching employee with ID 3
+2025-07-21 11:45:44.409 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-21 11:45:44.428 +07:00 [INF] Successfully fetched employee with ID 3
+2025-07-21 11:45:44.430 +07:00 [INF] Successfully returned employee with ID 3 for user dat20032
+2025-07-21 11:45:50.917 +07:00 [INF] User huy20032 requested employees with role User with PageNumber=1 and PageSize=100
+2025-07-21 11:45:50.919 +07:00 [INF] Đang lấy nhân viên với vai trò User với PageNumber=1 và PageSize=100
+2025-07-21 11:45:50.929 +07:00 [INF] Đã lấy thành công 2 nhân viên với vai trò User
+2025-07-21 11:45:50.930 +07:00 [INF] Successfully returned 2 employees with role User for user huy20032

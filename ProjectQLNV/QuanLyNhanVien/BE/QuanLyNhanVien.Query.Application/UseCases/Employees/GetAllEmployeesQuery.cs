@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using QuanLyNhanVien.Query.Persistence;
@@ -29,21 +30,26 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Employees
     public class GetAllEmployeesQueryHandler : IRequestHandler<GetAllEmployeesQuery, List<Employee>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger<GetAllEmployeesQueryHandler> _logger;
 
-        public GetAllEmployeesQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllEmployeesQueryHandler(IUnitOfWork unitOfWork, ILogger<GetAllEmployeesQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<Employee>> Handle(GetAllEmployeesQuery request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Fetching all employees with PageNumber={PageNumber} and PageSize={PageSize}", request.PageNumber, request.PageSize);
             var repository = _unitOfWork.Repository<Employee>();
-            return await repository.GetAll()
+            var employees = await repository.GetAll()
                 .Include(e => e.Department)
-                .Include(e => e.Position)  
+                .Include(e => e.Position)
                 .Skip((request.PageNumber - 1) * request.PageSize)
                 .Take(request.PageSize)
                 .ToListAsync(cancellationToken);
+            _logger.LogInformation("Successfully fetched {Count} employees", employees.Count);
+            return employees;
         }
     }
 }

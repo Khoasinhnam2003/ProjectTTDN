@@ -1,0 +1,9 @@
+2025-07-21 10:02:19.147 +07:00 [INF] Application is starting...
+2025-07-21 10:02:37.193 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-21 10:02:37.281 +07:00 [INF] Login attempt for user with credentials: {"Username":"dat20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-21 10:02:37.403 +07:00 [INF] Processing login request for username: dat20032
+2025-07-21 10:02:38.521 +07:00 [INF] JWT token generated for user dat20032
+2025-07-21 10:02:38.711 +07:00 [INF] Check-in recorded for EmployeeId 3 at "2025-07-21T10:02:38.5394797+07:00"
+2025-07-21 10:02:38.716 +07:00 [INF] Login successful for user dat20032 with EmployeeId 3
+2025-07-21 10:30:35.552 +07:00 [INF] Application services registered successfully.
+2025-07-21 10:30:35.589 +07:00 [INF] Swagger services registered successfully.
