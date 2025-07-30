@@ -27,6 +27,125 @@ function ContractsManagerDashboard() {
     }
   };
 
+  // Hàm fetchContracts được định nghĩa độc lập
+  const fetchContracts = async () => {
+    try {
+      if (!token) {
+        setError('Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.');
+        navigate('/');
+        return;
+      }
+      setLoading(true);
+      let response;
+      if (viewMode === 'all') {
+        console.log('Fetching all contracts with queryApi...');
+        response = await queryApi.get('api/Contracts', {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { pageNumber: 1, pageSize: 100 }
+        });
+      } else if (viewMode === 'byEmployee' && employeeId) {
+        console.log(`Fetching contracts by EmployeeId ${employeeId} with queryApi...`);
+        response = await queryApi.get(`api/Contracts/employee/${employeeId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { pageNumber: 1, pageSize: 100 }
+        });
+      } else {
+        setContracts([]);
+        return;
+      }
+
+      console.log('API Contracts Response:', JSON.stringify(response.data, null, 2));
+
+      let contractData = [];
+      if (response.data && response.data.$values) {
+        const idMap = new Map();
+        const collectIds = (data) => {
+          if (Array.isArray(data)) {
+            data.forEach(item => collectIds(item));
+          } else if (data && typeof data === 'object') {
+            if (data.$id && data.contractId) {
+              idMap.set(data.$id, data);
+            }
+            Object.values(data).forEach(collectIds);
+          }
+        };
+        collectIds(response.data);
+
+        const employeeMap = new Map();
+        const collectEmployees = (data) => {
+          if (Array.isArray(data)) {
+            data.forEach(item => collectEmployees(item));
+          } else if (data && typeof data === 'object') {
+            if (data.$id && data.employeeId && data.firstName && data.lastName) {
+              employeeMap.set(data.employeeId, data);
+            }
+            Object.values(data).forEach(collectEmployees);
+          }
+        };
+        collectEmployees(response.data);
+
+        const allContracts = [
+          ...response.data.$values,
+          ...(response.data.$values[0]?.employee?.contracts?.$values || [])
+        ].filter(item => item.contractId !== undefined && item.contractId !== null);
+
+        contractData = allContracts
+          .filter(item => {
+            let contract = item;
+            if (item.$ref) {
+              contract = idMap.get(item.$ref) || item;
+            }
+            if (viewMode === 'byEmployee' && contract.employeeId !== parseInt(employeeId)) {
+              return false;
+            }
+            return userEmployeeIds.includes(contract.employeeId);
+          })
+          .map(item => {
+            let contract = item;
+            if (item.$ref) {
+              contract = idMap.get(item.$ref) || item;
+            }
+            const employee = employeeMap.get(contract.employeeId) || contract.employee || {};
+            return {
+              contractId: contract.contractId,
+              employeeId: contract.employeeId,
+              fullName: employee.firstName && employee.lastName 
+                ? `${employee.firstName} ${employee.lastName}`.trim() 
+                : 'Chưa có',
+              contractType: contract.contractType || 'Chưa có',
+              startDate: contract.startDate ? new Date(contract.startDate).toLocaleDateString('vi-VN') : 'Chưa có',
+              endDate: contract.endDate ? new Date(contract.endDate).toLocaleDateString('vi-VN') : 'Chưa có',
+              salary: contract.salary || 0,
+              status: contract.status || 'Chưa có'
+            };
+          });
+      } else {
+        console.warn('API response data or $values is missing:', JSON.stringify(response.data, null, 2));
+        setError('Dữ liệu từ API không hợp lệ hoặc không chứa hợp đồng.');
+      }
+
+      contractData = contractData.sort((a, b) => a.contractId - b.contractId);
+      console.log('Mapped contractData:', JSON.stringify(contractData, null, 2));
+      setContracts(contractData);
+      setError(null);
+    } catch (err) {
+      console.error('API Contracts Error:', err.response ? JSON.stringify(err.response.data, null, 2) : err.message);
+      if (err.response?.status === 404) {
+        setContracts([]);
+        setError('Không tìm thấy hợp đồng của nhân viên có vai trò User.');
+      } else if (err.response?.status === 401 || err.response?.status === 403) {
+        setError('Phiên đăng nhập hết hạn hoặc không có quyền truy cập.');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        navigate('/');
+      } else {
+        setError(err.response?.data?.Message || 'Không thể tải danh sách hợp đồng. Vui lòng thử lại.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (!token) {
       navigate('/');
@@ -78,111 +197,6 @@ function ContractsManagerDashboard() {
   }, [token]);
 
   useEffect(() => {
-    const fetchContracts = async () => {
-      try {
-        setLoading(true);
-        let response;
-        if (viewMode === 'all') {
-          console.log('Fetching all contracts with queryApi...');
-          response = await queryApi.get('api/Contracts', {
-            headers: { Authorization: `Bearer ${token}` },
-            params: { pageNumber: 1, pageSize: 100 }
-          });
-        } else if (viewMode === 'byEmployee' && employeeId) {
-          console.log(`Fetching contracts by EmployeeId ${employeeId} with queryApi...`);
-          response = await queryApi.get(`api/Contracts/employee/${employeeId}`, {
-            headers: { Authorization: `Bearer ${token}` },
-            params: { pageNumber: 1, pageSize: 100 }
-          });
-        }
-        console.log('API Contracts Response:', JSON.stringify(response.data, null, 2));
-
-        let contractData = [];
-        if (response.data && response.data.$values) {
-          const idMap = new Map();
-          const collectIds = (data) => {
-            if (Array.isArray(data)) {
-              data.forEach(item => collectIds(item));
-            } else if (data && typeof data === 'object') {
-              if (data.$id && data.contractId) {
-                idMap.set(data.$id, data);
-              }
-              Object.values(data).forEach(collectIds);
-            }
-          };
-          collectIds(response.data);
-
-          const employeeMap = new Map();
-          const collectEmployees = (data) => {
-            if (Array.isArray(data)) {
-              data.forEach(item => collectEmployees(item));
-            } else if (data && typeof data === 'object') {
-              if (data.$id && data.employeeId && data.firstName && data.lastName) {
-                employeeMap.set(data.employeeId, data);
-              }
-              Object.values(data).forEach(collectEmployees);
-            }
-          };
-          collectEmployees(response.data);
-
-          const allContracts = [
-            ...response.data.$values,
-            ...(response.data.$values[0]?.employee?.contracts?.$values || [])
-          ].filter(item => item.contractId !== undefined && item.contractId !== null);
-
-          contractData = allContracts
-            .filter(item => {
-              let contract = item;
-              if (item.$ref) {
-                contract = idMap.get(item.$ref) || item;
-              }
-              if (viewMode === 'byEmployee' && contract.employeeId !== parseInt(employeeId)) {
-                return false; // Chỉ hiển thị hợp đồng của employeeId được chọn
-              }
-              return userEmployeeIds.includes(contract.employeeId); // Chỉ giữ hợp đồng của nhân viên có vai trò User
-            })
-            .map(item => {
-              let contract = item;
-              if (item.$ref) {
-                contract = idMap.get(item.$ref) || item;
-              }
-              const employee = employeeMap.get(contract.employeeId) || contract.employee || {};
-              return {
-                contractId: contract.contractId,
-                employeeId: contract.employeeId,
-                fullName: employee.firstName && employee.lastName 
-                  ? `${employee.firstName} ${employee.lastName}`.trim() 
-                  : 'Chưa có',
-                contractType: contract.contractType || 'Chưa có',
-                startDate: contract.startDate ? new Date(contract.startDate).toLocaleDateString('vi-VN') : 'Chưa có',
-                endDate: contract.endDate ? new Date(contract.endDate).toLocaleDateString('vi-VN') : 'Chưa có',
-                salary: contract.salary || 0,
-                status: contract.status || 'Chưa có'
-              };
-            });
-        }
-        contractData = contractData.sort((a, b) => a.contractId - b.contractId);
-        console.log('Mapped contractData:', JSON.stringify(contractData, null, 2));
-        setContracts(contractData);
-        setError(null);
-      } catch (err) {
-        console.error('API Contracts Error:', err.response ? JSON.stringify(err.response.data, null, 2) : err.message);
-        if (err.response?.status === 404) {
-          setContracts([]);
-          setError('Không tìm thấy hợp đồng của nhân viên có vai trò User.');
-        } else if (err.response?.status === 401 || err.response?.status === 403) {
-          setError('Phiên đăng nhập hết hạn hoặc không có quyền truy cập.');
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          navigate('/');
-        } else {
-          setError(err.response?.data?.Message || 'Không thể tải danh sách hợp đồng. Vui lòng thử lại.');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
     if (token && user?.roles.includes('Manager') && userEmployeeIds.length > 0 && (viewMode === 'all' || (viewMode === 'byEmployee' && employeeId))) {
       fetchContracts();
     }
@@ -190,6 +204,7 @@ function ContractsManagerDashboard() {
 
   const handleDelete = async (contractId) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa hợp đồng này?')) {
+      setLoading(true); // Bắt đầu loading khi xóa
       try {
         console.log(`Deleting contract ID ${contractId} with commandApi...`);
         const response = await commandApi.delete(`api/Contracts/${contractId}`, {
@@ -197,8 +212,9 @@ function ContractsManagerDashboard() {
         });
         console.log('Delete Response:', JSON.stringify(response.data, null, 2));
         if (response.status === 200) {
-          setContracts(contracts.filter(c => c.contractId !== contractId));
           alert(`Hợp đồng với ID ${contractId} đã được xóa thành công!`);
+          // Tải lại danh sách hợp đồng sau khi xóa
+          await fetchContracts();
         } else {
           throw new Error(response.data?.Message || 'Xóa hợp đồng thất bại.');
         }
@@ -212,8 +228,10 @@ function ContractsManagerDashboard() {
           localStorage.removeItem('user');
           navigate('/');
         } else {
-          setError(err.response?.data?.Message || err.message || 'Đã xảy ra lỗi khi xóa hợp đồng.');
+          setError(`Đã xảy ra lỗi khi xóa hợp đồng ID ${contractId}: ${err.response?.data?.Message || err.message}`);
         }
+      } finally {
+        setLoading(false); // Kết thúc loading
       }
     }
   };
@@ -269,11 +287,11 @@ function ContractsManagerDashboard() {
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Danh sách hợp đồng của nhân viên có vai trò User (Quản lý)</h2>
+        <h2>Danh sách hợp đồng (User)</h2>
         <div>
           <button
             className="btn btn-success me-2"
-            onClick={() => navigate('/add-contract')}
+            onClick={() => navigate('/add-contract-role-manager')}
             disabled={loading}
           >
             Thêm hợp đồng
@@ -404,13 +422,15 @@ function ContractsManagerDashboard() {
                       <td>
                         <button
                           className="btn btn-warning me-2"
-                          onClick={() => navigate(`/update-contract/${c.contractId}`)}
+                          onClick={() => navigate(`/update-contract-role-manager/${c.contractId}`)}
+                          disabled={loading}
                         >
                           Chỉnh sửa
                         </button>
                         <button
                           className="btn btn-danger"
                           onClick={() => handleDelete(c.contractId)}
+                          disabled={loading}
                         >
                           Xóa
                         </button>

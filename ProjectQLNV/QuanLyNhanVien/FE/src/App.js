@@ -32,6 +32,15 @@ import AddEmployeesRoleManager from './Pages/Manager/Employees/AddEmployeesRoleM
 import AttendanceManagerDashboard from './Pages/Manager/Attendances/AttendanceManagerDashboard.js';
 import ContractsManagerDashboard from './Pages/Manager/Contracts/ContractsManagerDashboard.js';
 import UpdateContractRoleManager from './Pages/Manager/Contracts/UpdateContractRoleManager.js';
+import AddContractRoleManager from './Pages/Manager/Contracts/AddContractRoleManager.js';
+import SalaryHistoriesManagerDashboard from './Pages/Manager/SalaryHistories/SalaryHistoriesManagerDashboard.js';
+import UpdateSalaryHistoryRoleManager from './Pages/Manager/SalaryHistories/UpdateSalaryHistoryRoleManager.js';
+import AddSalaryHistoryRoleManager from './Pages/Manager/SalaryHistories/AddSalaryHistoryRoleManager.js';
+import SkillsManagerDashboard from './Pages/Manager/Skills/SkillsManagerDashboard.js';
+import UpdateSkillRoleManager from './Pages/Manager/Skills/UpdateSkillRoleManager.js';
+import AddSkillsRoleManager from './Pages/Manager/Skills/AddSkillsRoleManager.js';
+import AccountManagementManagerDashboard from './Pages/Manager/Accounts/AccountManagementManagerDashboard.js';
+import UpdateAccountRoleManager from './Pages/Manager/Accounts/UpdateAccountRoleManager.js';
 
 function App() {
   const navigate = useNavigate();
@@ -100,6 +109,15 @@ function App() {
       <Route path="/attendances-manager" element={<AttendanceManagerDashboard />} />
       <Route path="/contracts-manager" element={<ContractsManagerDashboard />} />
       <Route path="/update-contract-role-manager/:contractId" element={<UpdateContractRoleManager />} />
+      <Route path="/add-contract-role-manager" element={<AddContractRoleManager />} />
+      <Route path="/salary-histories-manager" element={<SalaryHistoriesManagerDashboard />} />
+      <Route path="/update-salary-history-role-manager/:salaryHistoryId" element={<UpdateSalaryHistoryRoleManager />} />
+      <Route path="/add-salary-history-role-manager" element={<AddSalaryHistoryRoleManager />} />
+      <Route path="/skills-manager" element={<SkillsManagerDashboard />} />
+      <Route path="/update-skill-role-manager/:skillId" element={<UpdateSkillRoleManager />} />
+      <Route path="/add-skills-role-manager" element={<AddSkillsRoleManager />} />
+      <Route path="/account-management-manager" element={<AccountManagementManagerDashboard />} />
+      <Route path="/update-account-role-manager/:userId" element={<UpdateAccountRoleManager />} />
     </Routes>
   );
 }

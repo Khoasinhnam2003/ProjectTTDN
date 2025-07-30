@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { queryApi, commandApi } from '../../../api';
 
-function ManagerDashboard() {
-  const [user, setUser] = useState(null);
-  const [userRoleEmployees, setUserRoleEmployees] = useState([]);
+function SkillsManagerDashboard() {
+  const [userRoleSkills, setUserRoleSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const token = localStorage.getItem('token');
@@ -36,7 +36,10 @@ function ManagerDashboard() {
         const parsedUser = JSON.parse(storedUser);
         const roleArray = parsedUser.roles && parsedUser.roles.$values ? parsedUser.roles.$values : parsedUser.roles || [];
         setUser({ ...parsedUser, roles: roleArray });
-        console.log('User Roles:', roleArray); // Debug vai trò người dùng
+        if (!roleArray.includes('Manager')) {
+          setError('You do not have permission to view this page.');
+          navigate('/');
+        }
       } catch (err) {
         console.error('Error parsing user data:', err);
         setError('Invalid user data in storage. Please log in again.');
@@ -50,7 +53,7 @@ function ManagerDashboard() {
   }, [navigate, token]);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
+    const fetchSkillsForUserRole = async () => {
       if (!user || !user.roles.includes('Manager')) return;
       try {
         setLoading(true);
@@ -60,78 +63,51 @@ function ManagerDashboard() {
           params: { PageNumber: 1, PageSize: 100 },
         });
 
-        console.log('API Employees Response:', employeesResponse.data); // Debug phản hồi API
         const employeesData = employeesResponse.data.values?.['$values'] || [];
-
         if (!Array.isArray(employeesData)) {
           throw new Error('Employee data is not an array.');
         }
 
-        const employeesWithHours = await Promise.all(
+        const skillsData = await Promise.all(
           employeesData.map(async (emp) => {
             try {
-              const attendanceResponse = await queryApi.get(`api/Attendance/by-employee/${emp.employeeId}`, {
+              const skillsResponse = await queryApi.get(`api/Skill/by-employee/${emp.employeeId}`, {
                 headers: { Authorization: `Bearer ${token}` },
                 params: { PageNumber: 1, PageSize: 100 },
               });
 
-              console.log(`Attendance Response for Employee ${emp.employeeId}:`, attendanceResponse.data); // Debug
-              const attendanceData = attendanceResponse.data.$values || attendanceResponse.data;
-              if (!Array.isArray(attendanceData)) {
-                throw new Error('Attendance data is not an array.');
+              const skills = skillsResponse.data.$values || skillsResponse.data;
+              if (!Array.isArray(skills)) {
+                throw new Error('Skills data is not an array.');
               }
 
-              const totalHours = await Promise.all(
-                attendanceData.map(async (att) => {
-                  if (att.checkOutTime) {
-                    try {
-                      const workHoursResponse = await queryApi.get(`api/Attendance/${att.attendanceId}/work-hours`, {
-                        headers: { Authorization: `Bearer ${token}` },
-                      });
-                      return parseFloat(workHoursResponse.data.workHours) || 0;
-                    } catch (err) {
-                      console.error(`Error calculating work hours for attendance ${att.attendanceId}:`, err);
-                      return 0;
-                    }
-                  }
-                  return 0;
-                })
-              );
-
-              const total = totalHours.reduce((sum, hours) => sum + hours, 0).toFixed(2);
-              return {
+              return skills.map(skill => ({
+                skillId: skill.skillId,
                 employeeId: emp.employeeId,
-                fullName: emp.fullName || 'Not available',
-                email: emp.email || 'Not available',
-                departmentName: emp.departmentName || 'Not available',
-                positionName: emp.positionName || 'Not available',
-                totalWorkHours: total,
-              };
+                employeeName: emp.fullName || 'Not available',
+                skillName: skill.skillName || 'Not available',
+                proficiencyLevel: skill.proficiencyLevel || 'Not available',
+                description: skill.description || 'No description',
+              }));
             } catch (err) {
-              console.error(`Error fetching attendance for employee ${emp.employeeId}:`, err);
-              return {
-                employeeId: emp.employeeId,
-                fullName: emp.fullName || 'Not available',
-                email: emp.email || 'Not available',
-                departmentName: emp.departmentName || 'Not available',
-                positionName: emp.positionName || 'Not available',
-                totalWorkHours: 'Error',
-              };
+              console.error(`Error fetching skills for employee ${emp.employeeId}:`, err);
+              return [];
             }
           })
         );
 
-        setUserRoleEmployees(employeesWithHours);
+        const flattenedSkills = skillsData.flat();
+        setUserRoleSkills(flattenedSkills);
         setLoading(false);
       } catch (err) {
         console.error('API Error:', err.response ? err.response.data : err.message);
         if (err.response?.status === 403) {
-          setError('You do not have permission to view this information. Please contact Admin.');
+          setError('You do not have permission to view this information.');
         } else if (err.response?.status === 404) {
-          setUserRoleEmployees([]);
-          setError('No employees with User role found.');
+          setUserRoleSkills([]);
+          setError('No skills found for employees with User role.');
         } else {
-          setError(err.response?.data?.Message || 'Unable to load employee information. Please try again.');
+          setError(err.response?.data?.Message || 'Unable to load skills information.');
         }
         setLoading(false);
         if (err.response?.status === 401 || err.response?.status === 403) {
@@ -143,10 +119,9 @@ function ManagerDashboard() {
     };
 
     if (token && user?.roles.includes('Manager')) {
-      fetchEmployees();
+      fetchSkillsForUserRole();
     }
   }, [token, user, navigate]);
-
 
   const handleLogout = async () => {
     if (!token) {
@@ -155,18 +130,16 @@ function ManagerDashboard() {
     }
     setLoading(true);
     try {
-      console.log('Sending logout request with token:', token);
       const logoutResponse = await commandApi.post('api/Authentication/logout', {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log('Logout Response:', JSON.stringify(logoutResponse.data, null, 2));
 
       if (!logoutResponse.data || typeof logoutResponse.data !== 'object') {
-        throw new Error('Phản hồi từ server không hợp lệ.');
+        throw new Error('Invalid server response.');
       }
 
       if (!logoutResponse.data.isSuccess) {
-        throw new Error(logoutResponse.data.error?.message || 'Đăng xuất thất bại.');
+        throw new Error(logoutResponse.data.error?.message || 'Logout failed.');
       }
 
       const data = logoutResponse.data.data || logoutResponse.data;
@@ -174,15 +147,6 @@ function ManagerDashboard() {
 
       if (checkOutTime) {
         localStorage.setItem('checkOutTime', checkOutTime);
-      } else {
-        console.warn('No CheckOutTime received from API.');
-      }
-
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('checkInTime');
-
-      if (checkOutTime) {
         alert(`Đăng xuất thành công! Thời gian check-out: ${new Date(checkOutTime).toLocaleString('vi-VN', {
           timeZone: 'Asia/Ho_Chi_Minh',
           dateStyle: 'short',
@@ -192,10 +156,39 @@ function ManagerDashboard() {
         alert('Đăng xuất thành công! Không có thời gian check-out.');
       }
 
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      localStorage.removeItem('checkInTime');
       navigate('/');
     } catch (err) {
-      console.error('Logout error:', err.response ? JSON.stringify(err.response.data, null, 2) : err.message);
-      setError(err.response?.data?.error?.message || err.message || 'Đăng xuất thất bại. Vui lòng thử lại.');
+      console.error('Logout error:', err.response ? err.response.data : err.message);
+      setError(err.response?.data?.error?.message || err.message || 'Logout failed.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteSkill = async (skillId) => {
+    if (!window.confirm('Bạn có chắc muốn xóa kỹ năng này?')) return;
+    setLoading(true);
+    try {
+      const response = await commandApi.delete(`api/Skills/${skillId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!response.data || typeof response.data !== 'object') {
+        throw new Error('Invalid server response.');
+      }
+
+      if (!response.data.isSuccess) {
+        throw new Error(response.data.error?.message || 'Delete skill failed.');
+      }
+
+      setUserRoleSkills(userRoleSkills.filter(skill => skill.skillId !== skillId));
+      alert('Xóa kỹ năng thành công!');
+    } catch (err) {
+      console.error('Delete skill error:', err.response ? err.response.data : err.message);
+      setError(err.response?.data?.error?.message || err.message || 'Xóa kỹ năng thất bại.');
     } finally {
       setLoading(false);
     }
@@ -204,14 +197,14 @@ function ManagerDashboard() {
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Danh sách nhân viên (User)</h2>
+        <h2>Danh sách kỹ năng vai trò User</h2>
         <div>
           <button
             className="btn btn-success me-2"
-            onClick={() => navigate('/add-employees-role-manager')}
+            onClick={() => navigate('/add-skills-role-manager')}
             disabled={loading}
           >
-            Thêm nhân viên
+            Thêm kỹ năng
           </button>
           <button
             className="btn btn-danger"
@@ -282,31 +275,39 @@ function ManagerDashboard() {
           <table className="table table-striped table-bordered">
             <thead className="thead-dark">
               <tr>
+                <th>Skill ID</th>
                 <th>Employee ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Position</th>
-                <th>Total Work Hours</th>
+                <th>Employee Name</th>
+                <th>Skill Name</th>
+                <th>Proficiency Level</th>
+                <th>Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {userRoleEmployees.length > 0 ? (
-                userRoleEmployees.map((emp) => (
-                  <tr key={emp.employeeId}>
-                    <td>{emp.employeeId}</td>
-                    <td>{emp.fullName}</td>
-                    <td>{emp.email}</td>
-                    <td>{emp.departmentName}</td>
-                    <td>{emp.positionName}</td>
-                    <td>{emp.totalWorkHours !== 'Error' ? `${emp.totalWorkHours} hours` : 'Error'}</td>
+              {userRoleSkills.length > 0 ? (
+                userRoleSkills.map((skill) => (
+                  <tr key={skill.skillId}>
+                    <td>{skill.skillId}</td>
+                    <td>{skill.employeeId}</td>
+                    <td>{skill.employeeName}</td>
+                    <td>{skill.skillName}</td>
+                    <td>{skill.proficiencyLevel}</td>
+                    <td>{skill.description}</td>
                     <td>
                       <button
                         className="btn btn-warning me-2"
-                        onClick={() => navigate(`/update-employee-role-manager/${emp.employeeId}`)}
+                        onClick={() => navigate(`/update-skill-role-manager/${skill.skillId}`)}
+                        disabled={loading}
                       >
                         Chỉnh sửa
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDeleteSkill(skill.skillId)}
+                        disabled={loading}
+                      >
+                        Xóa
                       </button>
                     </td>
                   </tr>
@@ -314,7 +315,7 @@ function ManagerDashboard() {
               ) : (
                 <tr>
                   <td colSpan="7" className="text-center">
-                    Không có nhân viên nào với vai trò User.
+                    Không có kỹ năng nào cho nhân viên với vai trò User.
                   </td>
                 </tr>
               )}
@@ -326,4 +327,4 @@ function ManagerDashboard() {
   );
 }
 
-export default ManagerDashboard;
+export default SkillsManagerDashboard;

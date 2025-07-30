@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { queryApi, commandApi } from '../../../api';
 
-function ManagerDashboard() {
+function SalaryHistoriesManager() {
   const [user, setUser] = useState(null);
-  const [userRoleEmployees, setUserRoleEmployees] = useState([]);
+  const [salaryHistories, setSalaryHistories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -36,7 +36,6 @@ function ManagerDashboard() {
         const parsedUser = JSON.parse(storedUser);
         const roleArray = parsedUser.roles && parsedUser.roles.$values ? parsedUser.roles.$values : parsedUser.roles || [];
         setUser({ ...parsedUser, roles: roleArray });
-        console.log('User Roles:', roleArray); // Debug vai trò người dùng
       } catch (err) {
         console.error('Error parsing user data:', err);
         setError('Invalid user data in storage. Please log in again.');
@@ -50,88 +49,58 @@ function ManagerDashboard() {
   }, [navigate, token]);
 
   useEffect(() => {
-    const fetchEmployees = async () => {
+    const fetchSalaryHistories = async () => {
       if (!user || !user.roles.includes('Manager')) return;
       try {
         setLoading(true);
 
+        // Lấy danh sách nhân viên có role User
         const employeesResponse = await queryApi.get('api/Employees/by-role/User', {
           headers: { Authorization: `Bearer ${token}` },
           params: { PageNumber: 1, PageSize: 100 },
         });
-
-        console.log('API Employees Response:', employeesResponse.data); // Debug phản hồi API
         const employeesData = employeesResponse.data.values?.['$values'] || [];
-
         if (!Array.isArray(employeesData)) {
           throw new Error('Employee data is not an array.');
         }
+        const userEmployeeIds = employeesData.map(emp => emp.employeeId);
 
-        const employeesWithHours = await Promise.all(
-          employeesData.map(async (emp) => {
-            try {
-              const attendanceResponse = await queryApi.get(`api/Attendance/by-employee/${emp.employeeId}`, {
-                headers: { Authorization: `Bearer ${token}` },
-                params: { PageNumber: 1, PageSize: 100 },
-              });
+        // Lấy tất cả lịch sử lương
+        const salaryResponse = await queryApi.get('api/Salary', {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { PageNumber: 1, PageSize: 100 },
+        });
 
-              console.log(`Attendance Response for Employee ${emp.employeeId}:`, attendanceResponse.data); // Debug
-              const attendanceData = attendanceResponse.data.$values || attendanceResponse.data;
-              if (!Array.isArray(attendanceData)) {
-                throw new Error('Attendance data is not an array.');
-              }
+        console.log('Raw API Response:', JSON.stringify(salaryResponse.data, null, 2));
+        const salaryData = salaryResponse.data.$values || [];
 
-              const totalHours = await Promise.all(
-                attendanceData.map(async (att) => {
-                  if (att.checkOutTime) {
-                    try {
-                      const workHoursResponse = await queryApi.get(`api/Attendance/${att.attendanceId}/work-hours`, {
-                        headers: { Authorization: `Bearer ${token}` },
-                      });
-                      return parseFloat(workHoursResponse.data.workHours) || 0;
-                    } catch (err) {
-                      console.error(`Error calculating work hours for attendance ${att.attendanceId}:`, err);
-                      return 0;
-                    }
-                  }
-                  return 0;
-                })
-              );
+        if (!Array.isArray(salaryData)) {
+          throw new Error('Salary history data is not an array.');
+        }
 
-              const total = totalHours.reduce((sum, hours) => sum + hours, 0).toFixed(2);
-              return {
-                employeeId: emp.employeeId,
-                fullName: emp.fullName || 'Not available',
-                email: emp.email || 'Not available',
-                departmentName: emp.departmentName || 'Not available',
-                positionName: emp.positionName || 'Not available',
-                totalWorkHours: total,
-              };
-            } catch (err) {
-              console.error(`Error fetching attendance for employee ${emp.employeeId}:`, err);
-              return {
-                employeeId: emp.employeeId,
-                fullName: emp.fullName || 'Not available',
-                email: emp.email || 'Not available',
-                departmentName: emp.departmentName || 'Not available',
-                positionName: emp.positionName || 'Not available',
-                totalWorkHours: 'Error',
-              };
-            }
-          })
-        );
+        console.log('Processed Salary Data:', JSON.stringify(salaryData, null, 2));
+        const formattedSalaries = salaryData
+          .filter(salary => userEmployeeIds.includes(salary.employeeId))
+          .map((salary, index) => ({
+            salaryHistoryId: salary.salaryHistoryId || `fallback-${index}`,
+            employeeId: salary.employeeId || 'N/A',
+            fullName: salary.employeeName || 'Not available',
+            salaryAmount: typeof salary.salary === 'number' ? `${salary.salary.toLocaleString('vi-VN').replace(/,/g, '.')}` : 'Not available',
+            effectiveDate: salary.effectiveDate ? new Date(salary.effectiveDate).toLocaleDateString('vi-VN') : 'Not available',
+          }));
 
-        setUserRoleEmployees(employeesWithHours);
+        console.log('Formatted Salaries:', JSON.stringify(formattedSalaries, null, 2));
+        setSalaryHistories(formattedSalaries);
         setLoading(false);
       } catch (err) {
         console.error('API Error:', err.response ? err.response.data : err.message);
         if (err.response?.status === 403) {
           setError('You do not have permission to view this information. Please contact Admin.');
         } else if (err.response?.status === 404) {
-          setUserRoleEmployees([]);
-          setError('No employees with User role found.');
+          setSalaryHistories([]);
+          setError('No salary histories found.');
         } else {
-          setError(err.response?.data?.Message || 'Unable to load employee information. Please try again.');
+          setError(err.response?.data?.Message || 'Unable to load salary history information. Please try again.');
         }
         setLoading(false);
         if (err.response?.status === 401 || err.response?.status === 403) {
@@ -143,10 +112,9 @@ function ManagerDashboard() {
     };
 
     if (token && user?.roles.includes('Manager')) {
-      fetchEmployees();
+      fetchSalaryHistories();
     }
   }, [token, user, navigate]);
-
 
   const handleLogout = async () => {
     if (!token) {
@@ -201,17 +169,46 @@ function ManagerDashboard() {
     }
   };
 
+  const handleDelete = async (salaryHistoryId) => {
+    if (window.confirm('Bạn có chắc chắn muốn xóa lịch sử lương này?')) {
+      try {
+        console.log(`Deleting salary history ID ${salaryHistoryId} with commandApi...`);
+        const response = await commandApi.delete(`api/Salary/${salaryHistoryId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        console.log('Delete Response:', JSON.stringify(response.data, null, 2));
+        if (response.status === 200) {
+          setSalaryHistories(salaryHistories.filter(sh => sh.salaryHistoryId !== salaryHistoryId));
+          alert(`Lịch sử lương với ID ${salaryHistoryId} đã được xóa thành công!`);
+        } else {
+          throw new Error(response.data?.Message || 'Xóa lịch sử lương thất bại.');
+        }
+      } catch (err) {
+        console.error('Delete Error:', err.response ? JSON.stringify(err.response.data, null, 2) : err.message);
+        if (err.response?.status === 404) {
+          setError(`Lịch sử lương với ID ${salaryHistoryId} không tồn tại.`);
+        } else if (err.response?.status === 401 || err.response?.status === 403) {
+          setError('Phiên đăng nhập hết hạn hoặc không có quyền truy cập.');
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          navigate('/');
+        } else {
+          setError(err.response?.data?.Message || err.message || 'Đã xảy ra lỗi khi xóa lịch sử lương.');
+        }
+      }
+    }
+  };
+
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Danh sách nhân viên (User)</h2>
+        <h2 className="fw-bold">Lịch sử lương (User)</h2>
         <div>
           <button
             className="btn btn-success me-2"
-            onClick={() => navigate('/add-employees-role-manager')}
-            disabled={loading}
+            onClick={() => navigate('/add-salary-history-role-manager')}
           >
-            Thêm nhân viên
+            Thêm lịch sử lương
           </button>
           <button
             className="btn btn-danger"
@@ -224,7 +221,7 @@ function ManagerDashboard() {
       </div>
 
       {user && (
-        <p className="mb-4">
+        <p className="mb-4 text-muted">
           Xin chào, {user.username}! Bạn có vai trò: {Array.isArray(user.roles) ? user.roles.join(', ') : 'Không có vai trò'}
         </p>
       )}
@@ -278,52 +275,59 @@ function ManagerDashboard() {
       {error && <div className="alert alert-danger">{error}</div>}
 
       {!loading && !error && (
-        <div className="table-responsive">
-          <table className="table table-striped table-bordered">
-            <thead className="thead-dark">
-              <tr>
-                <th>Employee ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Position</th>
-                <th>Total Work Hours</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userRoleEmployees.length > 0 ? (
-                userRoleEmployees.map((emp) => (
-                  <tr key={emp.employeeId}>
-                    <td>{emp.employeeId}</td>
-                    <td>{emp.fullName}</td>
-                    <td>{emp.email}</td>
-                    <td>{emp.departmentName}</td>
-                    <td>{emp.positionName}</td>
-                    <td>{emp.totalWorkHours !== 'Error' ? `${emp.totalWorkHours} hours` : 'Error'}</td>
-                    <td>
-                      <button
-                        className="btn btn-warning me-2"
-                        onClick={() => navigate(`/update-employee-role-manager/${emp.employeeId}`)}
-                      >
-                        Chỉnh sửa
-                      </button>
+        <div>
+          <p>Tổng số lịch sử lương hiện có: {salaryHistories.length}</p>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="thead-dark">
+                <tr>
+                  <th>Salary History ID</th>
+                  <th>Employee ID</th>
+                  <th>Full Name</th>
+                  <th>Salary Amount</th>
+                  <th>Effective Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {salaryHistories.length > 0 ? (
+                  salaryHistories.map((salary) => (
+                    <tr key={salary.salaryHistoryId}>
+                      <td>{salary.salaryHistoryId}</td>
+                      <td>{salary.employeeId}</td>
+                      <td>{salary.fullName}</td>
+                      <td>{salary.salaryAmount}</td>
+                      <td>{salary.effectiveDate}</td>
+                      <td>
+                        <button
+                          className="btn btn-warning me-2"
+                          onClick={() => navigate(`/update-salary-history-role-manager/${salary.salaryHistoryId}`)}
+                        >
+                          Chỉnh sửa
+                        </button>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(salary.salaryHistoryId)}
+                        >
+                          Xóa
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="6" className="text-center">
+                      Không có lịch sử lương nào cho nhân viên có vai trò User.
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="7" className="text-center">
-                    Không có nhân viên nào với vai trò User.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-export default ManagerDashboard;
+export default SalaryHistoriesManager;

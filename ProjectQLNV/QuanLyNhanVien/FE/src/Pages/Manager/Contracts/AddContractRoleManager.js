@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { queryApi, commandApi } from '../../../api';
 
-function UpdateContractRoleManager() {
+function AddContractRoleManager() {
   const [user, setUser] = useState(null);
-  const [contract, setContract] = useState(null);
   const [userEmployeeIds, setUserEmployeeIds] = useState([]);
+  const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
+    employeeId: '',
     contractType: '',
     startDate: '',
     endDate: '',
@@ -16,7 +17,6 @@ function UpdateContractRoleManager() {
     status: ''
   });
   const navigate = useNavigate();
-  const { contractId } = useParams();
   const token = localStorage.getItem('token');
 
   // Check token and Manager role
@@ -47,16 +47,22 @@ function UpdateContractRoleManager() {
     }
   }, [navigate, token]);
 
-  // Fetch employee IDs with User role
+  // Fetch employee data with User role
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setLoading(true);
         const response = await queryApi.get('api/Employees/by-role/User', {
           headers: { Authorization: `Bearer ${token}` },
           params: { pageNumber: 1, pageSize: 10000 }
         });
-        const employeeIds = response.data.values?.$values?.map(employee => employee.employeeId) || [];
-        setUserEmployeeIds([...new Set(employeeIds)]);
+        const employeeData = response.data.values?.$values || [];
+        const employeeList = employeeData.map(emp => ({
+          employeeId: emp.employeeId
+        }));
+        setEmployees(employeeList);
+        setUserEmployeeIds(employeeList.map(emp => emp.employeeId));
+        setError(null);
       } catch (err) {
         if (err.response?.status === 401 || err.response?.status === 403) {
           setError('Phiên đăng nhập hết hạn hoặc không có quyền truy cập danh sách nhân viên.');
@@ -66,6 +72,8 @@ function UpdateContractRoleManager() {
         } else {
           setError('Không thể tải danh sách nhân viên.');
         }
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -73,55 +81,6 @@ function UpdateContractRoleManager() {
       fetchUsers();
     }
   }, [token, user, navigate]);
-
-  // Fetch contract details
-  useEffect(() => {
-    const fetchContract = async () => {
-      try {
-        setLoading(true);
-        const response = await queryApi.get(`api/Contracts/${contractId}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        const contractData = response.data;
-        if (!contractData || !contractData.employeeId) {
-          throw new Error('Dữ liệu hợp đồng không hợp lệ.');
-        }
-
-        if (userEmployeeIds.length > 0 && !userEmployeeIds.includes(contractData.employeeId)) {
-          setError('Hợp đồng này thuộc về nhân viên không có vai trò User.');
-          navigate('/contracts-manager');
-          return;
-        }
-
-        setContract(contractData);
-        setFormData({
-          contractType: contractData.contractType || '',
-          startDate: contractData.startDate ? new Date(contractData.startDate).toISOString().split('T')[0] : '',
-          endDate: contractData.endDate ? new Date(contractData.endDate).toISOString().split('T')[0] : '',
-          salary: contractData.salary || '',
-          status: contractData.status || ''
-        });
-        setError(null);
-      } catch (err) {
-        if (err.response?.status === 404) {
-          setError('Hợp đồng không tồn tại.');
-        } else if (err.response?.status === 401 || err.response?.status === 403) {
-          setError('Phiên đăng nhập hết hạn.');
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          navigate('/');
-        } else {
-          setError(err.response?.data?.Message || 'Không thể tải thông tin hợp đồng.');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (token && user?.roles.includes('Manager') && userEmployeeIds.length > 0) {
-      fetchContract();
-    }
-  }, [token, user, contractId, userEmployeeIds, navigate]);
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -133,17 +92,13 @@ function UpdateContractRoleManager() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!contract) {
-      setError('Không có thông tin hợp đồng để cập nhật.');
-      return;
-    }
     if (!token) {
       setError('Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.');
       navigate('/');
       return;
     }
     // Client-side validation
-    if (!formData.contractType || !formData.startDate || !formData.salary || !formData.status) {
+    if (!formData.employeeId || !formData.contractType || !formData.startDate || !formData.salary || !formData.status) {
       setError('Vui lòng điền đầy đủ các trường bắt buộc.');
       return;
     }
@@ -165,39 +120,42 @@ function UpdateContractRoleManager() {
       setError('Trạng thái tối đa 50 ký tự.');
       return;
     }
+    if (!userEmployeeIds.includes(parseInt(formData.employeeId))) {
+      setError('Nhân viên được chọn phải có vai trò User.');
+      return;
+    }
 
     try {
       setLoading(true);
-      const updateData = {
-        contractId: parseInt(contractId),
-        employeeId: contract.employeeId,
+      const createData = {
+        employeeId: parseInt(formData.employeeId),
         contractType: formData.contractType,
         startDate: `${formData.startDate}T00:00:00`,
         endDate: formData.endDate ? `${formData.endDate}T00:00:00` : null,
         salary: parseFloat(formData.salary),
         status: formData.status
       };
-      const response = await commandApi.put(`api/Contracts/${contractId}`, updateData, {
+      const response = await commandApi.post('api/Contracts', createData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (response.data && response.data.isSuccess) {
-        alert('Cập nhật hợp đồng thành công!');
+        alert('Thêm hợp đồng thành công!');
         navigate('/contracts-manager');
       } else {
-        throw new Error(response.data?.Message || 'Cập nhật thất bại.');
+        throw new Error(response.data?.Message || 'Thêm hợp đồng thất bại.');
       }
     } catch (err) {
       if (err.response?.status === 400) {
         setError(err.response.data?.Message || 'Dữ liệu không hợp lệ.');
-      } else if (err.response?.status === 401 || err.response?.status === 403) {
-        setError('Phiên đăng nhập hết hạn.');
+      } else if (err.response?.status === 401) {
+        setError('Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.');
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate('/');
-      } else if (err.response?.status === 404) {
-        setError('Hợp đồng không tồn tại.');
+      } else if (err.response?.status === 403) {
+        setError('Bạn không có quyền thêm hợp đồng này.');
       } else {
-        setError(err.response?.data?.Message || 'Cập nhật hợp đồng thất bại.');
+        setError(err.response?.data?.Message || 'Thêm hợp đồng thất bại.');
       }
     } finally {
       setLoading(false);
@@ -208,7 +166,7 @@ function UpdateContractRoleManager() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Chỉnh sửa hợp đồng (ID: {contractId})</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Thêm hợp đồng mới</h2>
           <button
             className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 disabled:bg-gray-300"
             onClick={() => navigate('/contracts-manager')}
@@ -224,41 +182,39 @@ function UpdateContractRoleManager() {
         )}
         {loading && <div className="text-center text-gray-600">Đang tải...</div>}
         {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
-        {!loading && !error && contract && (
+        {!loading && !error && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Mã nhân viên</label>
-              <input
-                type="text"
-                className="mt-1 block w-full border border-gray-300 rounded p-2 bg-gray-100"
-                value={contract.employeeId}
-                disabled
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Họ và tên</label>
-              <input
-                type="text"
-                className="mt-1 block w-full border border-gray-300 rounded p-2 bg-gray-100"
-                value={contract.employee ? `${contract.employee.firstName} ${contract.employee.lastName}` : 'Chưa có'}
-                disabled
-              />
+              <label className="block text-sm font-medium text-gray-700">Nhân viên (ID)</label>
+              <select
+                name="employeeId"
+                className="mt-1 block w-full border border-gray-300 rounded p-2"
+                value={formData.employeeId}
+                onChange={handleInputChange}
+                required
+                disabled={loading}
+              >
+                <option value="">Chọn ID nhân viên</option>
+                {employees.map(emp => (
+                  <option key={emp.employeeId} value={emp.employeeId}>
+                    {emp.employeeId}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Loại hợp đồng</label>
-              <select
+              <input
+                type="text"
                 name="contractType"
                 className="mt-1 block w-full border border-gray-300 rounded p-2"
                 value={formData.contractType}
                 onChange={handleInputChange}
                 required
                 disabled={loading}
-              >
-                <option value="">Chọn loại hợp đồng</option>
-                <option value="Hợp Đồng Làm Việc">Hợp Đồng Làm Việc</option>
-                <option value="Hợp Đồng Thử Việc">Hợp Đồng Thử Việc</option>
-                <option value="Hợp Đồng Thời Vụ">Hợp Đồng Thời Vụ</option>
-              </select>
+                maxLength={50}
+                placeholder="Nhập loại hợp đồng"
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Ngày bắt đầu</label>
@@ -321,7 +277,7 @@ function UpdateContractRoleManager() {
                 className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-blue-300"
                 disabled={loading}
               >
-                {loading ? 'Đang lưu...' : 'Lưu'}
+                {loading ? 'Đang lưu...' : 'Thêm hợp đồng'}
               </button>
               <button
                 type="button"
@@ -339,4 +295,4 @@ function UpdateContractRoleManager() {
   );
 }
 
-export default UpdateContractRoleManager;
+export default AddContractRoleManager;
