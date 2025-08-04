@@ -33,9 +33,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Contracts
     public class GetAllContractsQueryHandler : IRequestHandler<GetAllContractsQuery, List<Contract>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetAllContractsQueryHandler> _logger;
 
-        public GetAllContractsQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetAllContractsQueryHandler(IUnitOfWork unitOfWork, ILogger<GetAllContractsQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

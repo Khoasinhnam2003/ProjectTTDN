@@ -33,9 +33,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.UserRoles
     public class GetUserRoleByIdQueryHandler : IRequestHandler<GetUserRoleByIdQuery, UserRole>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetUserRoleByIdQueryHandler> _logger;
 
-        public GetUserRoleByIdQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetUserRoleByIdQueryHandler(IUnitOfWork unitOfWork, ILogger<GetUserRoleByIdQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

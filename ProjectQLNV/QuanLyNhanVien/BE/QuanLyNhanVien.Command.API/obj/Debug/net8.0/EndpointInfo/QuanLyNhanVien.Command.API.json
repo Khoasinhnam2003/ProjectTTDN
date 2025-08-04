@@ -4178,19 +4178,13 @@
         "additionalProperties": false
       },
       "CreateRoleCommand": {
-        "required": [
-          "roleName"
-        ],
         "type": "object",
         "properties": {
           "roleName": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "maxLength": 200,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           }

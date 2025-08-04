@@ -34,9 +34,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Users
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<User>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetAllUsersQueryHandler> _logger;
 
-        public GetAllUsersQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetAllUsersQueryHandler(IUnitOfWork unitOfWork, ILogger<GetAllUsersQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

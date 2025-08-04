@@ -17,9 +17,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class PositionsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<PositionsController> _logger;
 
-        public PositionsController(IMediator mediator, ILogger logger)
+        public PositionsController(IMediator mediator, ILogger<PositionsController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

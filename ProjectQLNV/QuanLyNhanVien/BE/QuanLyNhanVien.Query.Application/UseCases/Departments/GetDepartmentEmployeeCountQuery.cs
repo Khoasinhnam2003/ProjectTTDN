@@ -29,9 +29,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Departments
     public class GetDepartmentEmployeeCountQueryHandler : IRequestHandler<GetDepartmentEmployeeCountQuery, int>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetDepartmentEmployeeCountQueryHandler> _logger;
 
-        public GetDepartmentEmployeeCountQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetDepartmentEmployeeCountQueryHandler(IUnitOfWork unitOfWork, ILogger<GetDepartmentEmployeeCountQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

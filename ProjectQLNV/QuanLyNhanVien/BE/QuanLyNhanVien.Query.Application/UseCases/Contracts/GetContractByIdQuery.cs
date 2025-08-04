@@ -29,9 +29,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Contracts
     public class GetContractByIdQueryHandler : IRequestHandler<GetContractByIdQuery, Contract>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetContractByIdQueryHandler> _logger;
 
-        public GetContractByIdQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetContractByIdQueryHandler(IUnitOfWork unitOfWork, ILogger<GetContractByIdQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

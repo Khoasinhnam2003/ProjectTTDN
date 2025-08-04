@@ -34,9 +34,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Positions
     public class GetAllPositionsQueryHandler : IRequestHandler<GetAllPositionsQuery, List<Position>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetAllPositionsQueryHandler> _logger;
 
-        public GetAllPositionsQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetAllPositionsQueryHandler(IUnitOfWork unitOfWork, ILogger<GetAllPositionsQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

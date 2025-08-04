@@ -1,0 +1,866 @@
+2025-08-04 14:49:11.084 +07:00 [INF] Query application is starting...
+2025-08-04 14:49:37.048 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-08-04 14:50:02.767 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:03.274 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:03.983 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-04 14:50:03.987 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-04 14:50:04.349 +07:00 [INF] Successfully fetched 4 employees
+2025-08-04 14:50:04.352 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-08-04 14:50:06.333 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.DepartmentsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method215(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:08.116 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.UsersController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method223(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:08.691 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:08.695 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:08.752 +07:00 [INF] Successfully fetched 4 employees
+2025-08-04 14:50:08.753 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-08-04 14:50:09.418 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.DepartmentsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method215(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:10.127 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.PositionsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method231(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:10.705 +07:00 [INF] Received GetAllAttendance request with PageNumber: 1, PageSize: 100
+2025-08-04 14:50:10.709 +07:00 [INF] Starting retrieval of all attendance records with PageNumber: 1, PageSize: 100
+2025-08-04 14:50:10.743 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-04 14:50:10.745 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-04 14:50:10.778 +07:00 [INF] Successfully retrieved 86 attendance records
+2025-08-04 14:50:10.780 +07:00 [INF] Successfully retrieved 86 attendance records
+2025-08-04 14:50:10.849 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 4
+2025-08-04 14:50:10.852 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 2
+2025-08-04 14:50:10.852 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 3
+2025-08-04 14:50:10.849 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 6
+2025-08-04 14:50:10.849 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1
+2025-08-04 14:50:10.849 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 5
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 4
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 2
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 3
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 6
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1
+2025-08-04 14:50:10.871 +07:00 [INF] Starting calculation of work hours for AttendanceId: 5
+2025-08-04 14:50:10.920 +07:00 [INF] Successfully calculated work hours for AttendanceId 1: 0.11011305555555556 hours
+2025-08-04 14:50:10.920 +07:00 [INF] Successfully calculated work hours for AttendanceId 6: 0.0024638888888888887 hours
+2025-08-04 14:50:10.920 +07:00 [INF] Successfully calculated work hours for AttendanceId 2: 0.06887777777777777 hours
+2025-08-04 14:50:10.930 +07:00 [INF] Successfully calculated work hours for AttendanceId 3: 0.009008333333333333 hours
+2025-08-04 14:50:10.938 +07:00 [INF] Successfully calculated work hours for AttendanceId: 6: 0.0024638888888888887 hours
+2025-08-04 14:50:10.939 +07:00 [INF] Successfully calculated work hours for AttendanceId: 2: 0.06887777777777777 hours
+2025-08-04 14:50:10.941 +07:00 [INF] Successfully calculated work hours for AttendanceId: 3: 0.009008333333333333 hours
+2025-08-04 14:50:10.920 +07:00 [INF] Successfully calculated work hours for AttendanceId 5: 0.011610277777777778 hours
+2025-08-04 14:50:10.920 +07:00 [INF] Successfully calculated work hours for AttendanceId 4: 0.005078888888888889 hours
+2025-08-04 14:50:10.946 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1: 0.11011305555555556 hours
+2025-08-04 14:50:10.951 +07:00 [INF] Successfully calculated work hours for AttendanceId: 5: 0.011610277777777778 hours
+2025-08-04 14:50:10.953 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 8
+2025-08-04 14:50:10.953 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 7
+2025-08-04 14:50:10.953 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 9
+2025-08-04 14:50:10.955 +07:00 [INF] Starting calculation of work hours for AttendanceId: 8
+2025-08-04 14:50:10.956 +07:00 [INF] Starting calculation of work hours for AttendanceId: 7
+2025-08-04 14:50:10.962 +07:00 [INF] Successfully calculated work hours for AttendanceId 8: 0.0034269444444444443 hours
+2025-08-04 14:50:10.961 +07:00 [INF] Starting calculation of work hours for AttendanceId: 9
+2025-08-04 14:50:10.963 +07:00 [INF] Successfully calculated work hours for AttendanceId 7: 0.007602777777777778 hours
+2025-08-04 14:50:10.966 +07:00 [INF] Successfully calculated work hours for AttendanceId: 8: 0.0034269444444444443 hours
+2025-08-04 14:50:10.969 +07:00 [INF] Successfully calculated work hours for AttendanceId 9: 0.00830638888888889 hours
+2025-08-04 14:50:10.969 +07:00 [INF] Successfully calculated work hours for AttendanceId: 7: 0.007602777777777778 hours
+2025-08-04 14:50:10.966 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 10
+2025-08-04 14:50:10.973 +07:00 [INF] Successfully calculated work hours for AttendanceId: 9: 0.00830638888888889 hours
+2025-08-04 14:50:10.972 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 13
+2025-08-04 14:50:10.975 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 12
+2025-08-04 14:50:10.953 +07:00 [INF] Successfully calculated work hours for AttendanceId: 4: 0.005078888888888889 hours
+2025-08-04 14:50:10.954 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 11
+2025-08-04 14:50:10.975 +07:00 [INF] Starting calculation of work hours for AttendanceId: 10
+2025-08-04 14:50:10.978 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 15
+2025-08-04 14:50:10.980 +07:00 [INF] Starting calculation of work hours for AttendanceId: 13
+2025-08-04 14:50:10.980 +07:00 [INF] Starting calculation of work hours for AttendanceId: 12
+2025-08-04 14:50:10.982 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1002
+2025-08-04 14:50:10.985 +07:00 [INF] Successfully calculated work hours for AttendanceId 10: 0.0046611111111111115 hours
+2025-08-04 14:50:10.984 +07:00 [INF] Starting calculation of work hours for AttendanceId: 15
+2025-08-04 14:50:10.989 +07:00 [INF] Successfully calculated work hours for AttendanceId: 10: 0.0046611111111111115 hours
+2025-08-04 14:50:10.989 +07:00 [INF] Successfully calculated work hours for AttendanceId 12: 0.09695833333333333 hours
+2025-08-04 14:50:10.982 +07:00 [INF] Starting calculation of work hours for AttendanceId: 11
+2025-08-04 14:50:10.991 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1002
+2025-08-04 14:50:10.991 +07:00 [INF] Successfully calculated work hours for AttendanceId 13: 0.8064647222222222 hours
+2025-08-04 14:50:10.995 +07:00 [INF] Successfully calculated work hours for AttendanceId 15: 0.5115702777777777 hours
+2025-08-04 14:50:10.997 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 14
+2025-08-04 14:50:11.000 +07:00 [INF] Successfully calculated work hours for AttendanceId 11: 0.0040305555555555555 hours
+2025-08-04 14:50:11.002 +07:00 [INF] Successfully calculated work hours for AttendanceId 1002: 0.003323888888888889 hours
+2025-08-04 14:50:11.002 +07:00 [INF] Successfully calculated work hours for AttendanceId: 13: 0.8064647222222222 hours
+2025-08-04 14:50:10.997 +07:00 [INF] Successfully calculated work hours for AttendanceId: 12: 0.09695833333333333 hours
+2025-08-04 14:50:11.005 +07:00 [INF] Starting calculation of work hours for AttendanceId: 14
+2025-08-04 14:50:11.006 +07:00 [INF] Successfully calculated work hours for AttendanceId: 15: 0.5115702777777777 hours
+2025-08-04 14:50:11.008 +07:00 [INF] Successfully calculated work hours for AttendanceId: 11: 0.0040305555555555555 hours
+2025-08-04 14:50:11.008 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1002: 0.003323888888888889 hours
+2025-08-04 14:50:11.013 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1004
+2025-08-04 14:50:11.018 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1005
+2025-08-04 14:50:11.013 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1003
+2025-08-04 14:50:11.018 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1004
+2025-08-04 14:50:11.020 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1005
+2025-08-04 14:50:11.022 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1003
+2025-08-04 14:50:11.024 +07:00 [INF] Successfully calculated work hours for AttendanceId 1004: 0.0035655555555555558 hours
+2025-08-04 14:50:11.026 +07:00 [INF] Successfully calculated work hours for AttendanceId 1005: 0.17279166666666668 hours
+2025-08-04 14:50:11.029 +07:00 [INF] Successfully calculated work hours for AttendanceId 1003: 0.0020705555555555555 hours
+2025-08-04 14:50:11.030 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1005: 0.17279166666666668 hours
+2025-08-04 14:50:11.033 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1003: 0.0020705555555555555 hours
+2025-08-04 14:50:11.029 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1004: 0.0035655555555555558 hours
+2025-08-04 14:50:11.032 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1007
+2025-08-04 14:50:11.035 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1009
+2025-08-04 14:50:11.037 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1008
+2025-08-04 14:50:11.038 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1010
+2025-08-04 14:50:11.039 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1007
+2025-08-04 14:50:11.039 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1008
+2025-08-04 14:50:11.042 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1010
+2025-08-04 14:50:11.046 +07:00 [INF] Successfully calculated work hours for AttendanceId 1007: 0.004856388888888889 hours
+2025-08-04 14:50:11.046 +07:00 [INF] Successfully calculated work hours for AttendanceId 1008: 0.03510666666666667 hours
+2025-08-04 14:50:11.049 +07:00 [INF] Successfully calculated work hours for AttendanceId 1010: 0.006336111111111111 hours
+2025-08-04 14:50:11.051 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1007: 0.004856388888888889 hours
+2025-08-04 14:50:11.052 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1008: 0.03510666666666667 hours
+2025-08-04 14:50:11.047 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1009
+2025-08-04 14:50:11.017 +07:00 [INF] Successfully calculated work hours for AttendanceId 14: 0.0019527777777777777 hours
+2025-08-04 14:50:11.019 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1006
+2025-08-04 14:50:11.057 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1011
+2025-08-04 14:50:11.056 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1010: 0.006336111111111111 hours
+2025-08-04 14:50:11.059 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1015
+2025-08-04 14:50:11.062 +07:00 [INF] Successfully calculated work hours for AttendanceId: 14: 0.0019527777777777777 hours
+2025-08-04 14:50:11.065 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1015
+2025-08-04 14:50:11.064 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1011
+2025-08-04 14:50:11.067 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1013
+2025-08-04 14:50:11.064 +07:00 [INF] Successfully calculated work hours for AttendanceId 1009: 0.05333611111111111 hours
+2025-08-04 14:50:11.072 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1013
+2025-08-04 14:50:11.072 +07:00 [INF] Successfully calculated work hours for AttendanceId 1015: 0.0005083333333333333 hours
+2025-08-04 14:50:11.076 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1015: 0.0005083333333333333 hours
+2025-08-04 14:50:11.078 +07:00 [INF] Successfully calculated work hours for AttendanceId 1013: 0.019038055555555555 hours
+2025-08-04 14:50:11.078 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1009: 0.05333611111111111 hours
+2025-08-04 14:50:11.073 +07:00 [INF] Successfully calculated work hours for AttendanceId 1011: 0.0003 hours
+2025-08-04 14:50:11.082 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1013: 0.019038055555555555 hours
+2025-08-04 14:50:11.084 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1012
+2025-08-04 14:50:11.087 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1014
+2025-08-04 14:50:11.087 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1011: 0.0003 hours
+2025-08-04 14:50:11.089 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1016
+2025-08-04 14:50:11.090 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1014
+2025-08-04 14:50:11.092 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1016
+2025-08-04 14:50:11.087 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1017
+2025-08-04 14:50:11.095 +07:00 [INF] Successfully calculated work hours for AttendanceId 1014: 0.0031694444444444443 hours
+2025-08-04 14:50:11.093 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1012
+2025-08-04 14:50:11.098 +07:00 [INF] Successfully calculated work hours for AttendanceId 1016: 0.008569444444444444 hours
+2025-08-04 14:50:11.098 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1014: 0.0031694444444444443 hours
+2025-08-04 14:50:11.101 +07:00 [INF] Successfully calculated work hours for AttendanceId 1012: 0.011152777777777777 hours
+2025-08-04 14:50:11.102 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1016: 0.008569444444444444 hours
+2025-08-04 14:50:11.106 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1019
+2025-08-04 14:50:11.105 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1012: 0.011152777777777777 hours
+2025-08-04 14:50:11.108 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1020
+2025-08-04 14:50:11.109 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1019
+2025-08-04 14:50:11.107 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1017
+2025-08-04 14:50:11.112 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1021
+2025-08-04 14:50:11.112 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1020
+2025-08-04 14:50:11.115 +07:00 [INF] Successfully calculated work hours for AttendanceId 1019: 0.0006786111111111111 hours
+2025-08-04 14:50:11.115 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1021
+2025-08-04 14:50:11.118 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1019: 0.0006786111111111111 hours
+2025-08-04 14:50:11.120 +07:00 [INF] Successfully calculated work hours for AttendanceId 1020: 0.01829638888888889 hours
+2025-08-04 14:50:11.123 +07:00 [INF] Successfully calculated work hours for AttendanceId 1021: 0.011892777777777778 hours
+2025-08-04 14:50:11.124 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1022
+2025-08-04 14:50:11.125 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1020: 0.01829638888888889 hours
+2025-08-04 14:50:11.126 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1021: 0.011892777777777778 hours
+2025-08-04 14:50:11.128 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1022
+2025-08-04 14:50:11.130 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1023
+2025-08-04 14:50:11.092 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1018
+2025-08-04 14:50:11.134 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1024
+2025-08-04 14:50:11.133 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1023
+2025-08-04 14:50:11.136 +07:00 [INF] Successfully calculated work hours for AttendanceId 1022: 0.00035194444444444444 hours
+2025-08-04 14:50:11.136 +07:00 [INF] Successfully calculated work hours for AttendanceId 1017: 0.002275 hours
+2025-08-04 14:50:11.067 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1006
+2025-08-04 14:50:11.140 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1022: 0.00035194444444444444 hours
+2025-08-04 14:50:11.142 +07:00 [INF] Successfully calculated work hours for AttendanceId 1023: 0.0051333333333333335 hours
+2025-08-04 14:50:11.145 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1023: 0.0051333333333333335 hours
+2025-08-04 14:50:11.139 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1024
+2025-08-04 14:50:11.146 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1017: 0.002275 hours
+2025-08-04 14:50:11.141 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1018
+2025-08-04 14:50:11.153 +07:00 [INF] Successfully calculated work hours for AttendanceId 1024: 0.29881944444444447 hours
+2025-08-04 14:50:11.154 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1025
+2025-08-04 14:50:11.156 +07:00 [INF] Successfully calculated work hours for AttendanceId 1006: 0.04447583333333333 hours
+2025-08-04 14:50:11.154 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1026
+2025-08-04 14:50:11.157 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1024: 0.29881944444444447 hours
+2025-08-04 14:50:11.158 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1025
+2025-08-04 14:50:11.164 +07:00 [INF] Successfully calculated work hours for AttendanceId 1018: 0.0007936111111111111 hours
+2025-08-04 14:50:11.164 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1027
+2025-08-04 14:50:11.164 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1006: 0.04447583333333333 hours
+2025-08-04 14:50:11.170 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1027
+2025-08-04 14:50:11.168 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1018: 0.0007936111111111111 hours
+2025-08-04 14:50:11.167 +07:00 [INF] Successfully calculated work hours for AttendanceId 1025: 0.052213055555555554 hours
+2025-08-04 14:50:11.180 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1030
+2025-08-04 14:50:11.180 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1026
+2025-08-04 14:50:11.181 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1025: 0.052213055555555554 hours
+2025-08-04 14:50:11.183 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1030
+2025-08-04 14:50:11.154 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1028
+2025-08-04 14:50:11.180 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1029
+2025-08-04 14:50:11.188 +07:00 [INF] Successfully calculated work hours for AttendanceId 1026: 0.014619444444444444 hours
+2025-08-04 14:50:11.190 +07:00 [INF] Successfully calculated work hours for AttendanceId 1030: 0.13460444444444444 hours
+2025-08-04 14:50:11.191 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1032
+2025-08-04 14:50:11.192 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1026: 0.014619444444444444 hours
+2025-08-04 14:50:11.196 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1030: 0.13460444444444444 hours
+2025-08-04 14:50:11.192 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1028
+2025-08-04 14:50:11.199 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1031
+2025-08-04 14:50:11.198 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1032
+2025-08-04 14:50:11.202 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1035
+2025-08-04 14:50:11.202 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1031
+2025-08-04 14:50:11.205 +07:00 [INF] Successfully calculated work hours for AttendanceId 1032: 0.06454083333333334 hours
+2025-08-04 14:50:11.205 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1035
+2025-08-04 14:50:11.208 +07:00 [INF] Successfully calculated work hours for AttendanceId 1031: 0.07915083333333334 hours
+2025-08-04 14:50:11.209 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1032: 0.06454083333333334 hours
+2025-08-04 14:50:11.212 +07:00 [INF] Successfully calculated work hours for AttendanceId 1035: 0.004243611111111111 hours
+2025-08-04 14:50:11.215 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1035: 0.004243611111111111 hours
+2025-08-04 14:50:11.216 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1034
+2025-08-04 14:50:11.220 +07:00 [INF] Successfully calculated work hours for AttendanceId 1028: 0.0639138888888889 hours
+2025-08-04 14:50:11.216 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1031: 0.07915083333333334 hours
+2025-08-04 14:50:11.221 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1034
+2025-08-04 14:50:11.223 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1028: 0.0639138888888889 hours
+2025-08-04 14:50:11.222 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1036
+2025-08-04 14:50:11.227 +07:00 [INF] Successfully calculated work hours for AttendanceId 1034: 0.36646194444444447 hours
+2025-08-04 14:50:11.227 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1037
+2025-08-04 14:50:11.230 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1033
+2025-08-04 14:50:11.177 +07:00 [INF] Successfully calculated work hours for AttendanceId 1027: 0.014363055555555556 hours
+2025-08-04 14:50:11.231 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1036
+2025-08-04 14:50:11.231 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1029
+2025-08-04 14:50:11.232 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1037
+2025-08-04 14:50:11.233 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1034: 0.36646194444444447 hours
+2025-08-04 14:50:11.236 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1033
+2025-08-04 14:50:11.242 +07:00 [INF] Successfully calculated work hours for AttendanceId 1036: 0.11471305555555555 hours
+2025-08-04 14:50:11.243 +07:00 [INF] Successfully calculated work hours for AttendanceId 1029: 0.000675 hours
+2025-08-04 14:50:11.247 +07:00 [INF] Successfully calculated work hours for AttendanceId 1033: 0.012827777777777778 hours
+2025-08-04 14:50:11.245 +07:00 [INF] Successfully calculated work hours for AttendanceId 1037: 0.0035694444444444445 hours
+2025-08-04 14:50:11.238 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1027: 0.014363055555555556 hours
+2025-08-04 14:50:11.250 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1039
+2025-08-04 14:50:11.250 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1036: 0.11471305555555555 hours
+2025-08-04 14:50:11.250 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1029: 0.000675 hours
+2025-08-04 14:50:11.253 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1033: 0.012827777777777778 hours
+2025-08-04 14:50:11.255 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1037: 0.0035694444444444445 hours
+2025-08-04 14:50:11.258 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1039
+2025-08-04 14:50:11.258 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1038
+2025-08-04 14:50:11.259 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1040
+2025-08-04 14:50:11.260 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1042
+2025-08-04 14:50:11.261 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1041
+2025-08-04 14:50:11.263 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1045
+2025-08-04 14:50:11.264 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1038
+2025-08-04 14:50:11.266 +07:00 [INF] Successfully calculated work hours for AttendanceId 1039: 0.12853333333333333 hours
+2025-08-04 14:50:11.266 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1040
+2025-08-04 14:50:11.267 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1042
+2025-08-04 14:50:11.268 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1041
+2025-08-04 14:50:11.268 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1045
+2025-08-04 14:50:11.273 +07:00 [INF] Successfully calculated work hours for AttendanceId 1038: 0.03245111111111111 hours
+2025-08-04 14:50:11.276 +07:00 [INF] Successfully calculated work hours for AttendanceId 1040: 0.004925 hours
+2025-08-04 14:50:11.276 +07:00 [INF] Successfully calculated work hours for AttendanceId 1045: 0.0025508333333333333 hours
+2025-08-04 14:50:11.280 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1038: 0.03245111111111111 hours
+2025-08-04 14:50:11.281 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1045: 0.0025508333333333333 hours
+2025-08-04 14:50:11.281 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1040: 0.004925 hours
+2025-08-04 14:50:11.285 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1039: 0.12853333333333333 hours
+2025-08-04 14:50:11.287 +07:00 [INF] Successfully calculated work hours for AttendanceId 1042: 0.0009436111111111111 hours
+2025-08-04 14:50:11.289 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1044
+2025-08-04 14:50:11.290 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1043
+2025-08-04 14:50:11.291 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1046
+2025-08-04 14:50:11.294 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1044
+2025-08-04 14:50:11.295 +07:00 [INF] Successfully calculated work hours for AttendanceId 1041: 0.32824722222222225 hours
+2025-08-04 14:50:11.297 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1046
+2025-08-04 14:50:11.298 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1041: 0.32824722222222225 hours
+2025-08-04 14:50:11.297 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1042: 0.0009436111111111111 hours
+2025-08-04 14:50:11.304 +07:00 [INF] Successfully calculated work hours for AttendanceId 1046: 0.19432777777777777 hours
+2025-08-04 14:50:11.294 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1047
+2025-08-04 14:50:11.305 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1049
+2025-08-04 14:50:11.308 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1046: 0.19432777777777777 hours
+2025-08-04 14:50:11.306 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1043
+2025-08-04 14:50:11.301 +07:00 [INF] Successfully calculated work hours for AttendanceId 1044: 0.021270555555555556 hours
+2025-08-04 14:50:11.310 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1049
+2025-08-04 14:50:11.311 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1048
+2025-08-04 14:50:11.312 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1047
+2025-08-04 14:50:11.316 +07:00 [INF] Successfully calculated work hours for AttendanceId 1043: 0.00835 hours
+2025-08-04 14:50:11.316 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1050
+2025-08-04 14:50:11.319 +07:00 [INF] Successfully calculated work hours for AttendanceId 1049: 0.007269444444444445 hours
+2025-08-04 14:50:11.318 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1048
+2025-08-04 14:50:11.316 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1044: 0.021270555555555556 hours
+2025-08-04 14:50:11.321 +07:00 [INF] Successfully calculated work hours for AttendanceId 1047: 0.0017047222222222223 hours
+2025-08-04 14:50:11.322 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1043: 0.00835 hours
+2025-08-04 14:50:11.322 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1050
+2025-08-04 14:50:11.325 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1049: 0.007269444444444445 hours
+2025-08-04 14:50:11.329 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1047: 0.0017047222222222223 hours
+2025-08-04 14:50:11.330 +07:00 [INF] Successfully calculated work hours for AttendanceId 1048: 0.009435277777777779 hours
+2025-08-04 14:50:11.332 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1053
+2025-08-04 14:50:11.330 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1051
+2025-08-04 14:50:11.335 +07:00 [INF] Successfully calculated work hours for AttendanceId 1050: 0.0030377777777777777 hours
+2025-08-04 14:50:11.336 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1048: 0.009435277777777779 hours
+2025-08-04 14:50:11.337 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1054
+2025-08-04 14:50:11.338 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1060
+2025-08-04 14:50:11.340 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1053
+2025-08-04 14:50:11.340 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1051
+2025-08-04 14:50:11.341 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1050: 0.0030377777777777777 hours
+2025-08-04 14:50:11.342 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1054
+2025-08-04 14:50:11.343 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1052
+2025-08-04 14:50:11.343 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1060
+2025-08-04 14:50:11.348 +07:00 [INF] Successfully calculated work hours for AttendanceId 1051: 0.012279444444444445 hours
+2025-08-04 14:50:11.348 +07:00 [INF] Successfully calculated work hours for AttendanceId 1053: 0.4355436111111111 hours
+2025-08-04 14:50:11.352 +07:00 [INF] Successfully calculated work hours for AttendanceId 1060: 0.06082777777777778 hours
+2025-08-04 14:50:11.352 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1056
+2025-08-04 14:50:11.352 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1051: 0.012279444444444445 hours
+2025-08-04 14:50:11.354 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1053: 0.4355436111111111 hours
+2025-08-04 14:50:11.356 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1052
+2025-08-04 14:50:11.358 +07:00 [INF] Successfully calculated work hours for AttendanceId 1054: 0.010667777777777778 hours
+2025-08-04 14:50:11.358 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1060: 0.06082777777777778 hours
+2025-08-04 14:50:11.360 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1056
+2025-08-04 14:50:11.365 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1054: 0.010667777777777778 hours
+2025-08-04 14:50:11.365 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1055
+2025-08-04 14:50:11.363 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1058
+2025-08-04 14:50:11.367 +07:00 [INF] Successfully calculated work hours for AttendanceId 1052: 0.0018333333333333333 hours
+2025-08-04 14:50:11.368 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1064
+2025-08-04 14:50:11.372 +07:00 [INF] Successfully calculated work hours for AttendanceId 1056: 0.008892777777777777 hours
+2025-08-04 14:50:11.373 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1055
+2025-08-04 14:50:11.373 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1065
+2025-08-04 14:50:11.373 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1058
+2025-08-04 14:50:11.374 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1052: 0.0018333333333333333 hours
+2025-08-04 14:50:11.375 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1064
+2025-08-04 14:50:11.378 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1056: 0.008892777777777777 hours
+2025-08-04 14:50:11.385 +07:00 [INF] Successfully calculated work hours for AttendanceId 1058: 0.132175 hours
+2025-08-04 14:50:11.383 +07:00 [INF] Successfully calculated work hours for AttendanceId 1055: 0.040780555555555556 hours
+2025-08-04 14:50:11.380 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1065
+2025-08-04 14:50:11.387 +07:00 [INF] Successfully calculated work hours for AttendanceId 1064: 0.0015544444444444444 hours
+2025-08-04 14:50:11.391 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1066
+2025-08-04 14:50:11.394 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1055: 0.040780555555555556 hours
+2025-08-04 14:50:11.393 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1058: 0.132175 hours
+2025-08-04 14:50:11.394 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1061
+2025-08-04 14:50:11.398 +07:00 [INF] Successfully calculated work hours for AttendanceId 1065: 0.34587694444444445 hours
+2025-08-04 14:50:11.398 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1064: 0.0015544444444444444 hours
+2025-08-04 14:50:11.400 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1066
+2025-08-04 14:50:11.405 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1061
+2025-08-04 14:50:11.405 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1059
+2025-08-04 14:50:11.405 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1063
+2025-08-04 14:50:11.405 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1065: 0.34587694444444445 hours
+2025-08-04 14:50:11.407 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1062
+2025-08-04 14:50:11.409 +07:00 [INF] Successfully calculated work hours for AttendanceId 1066: 0.06198694444444444 hours
+2025-08-04 14:50:11.410 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1059
+2025-08-04 14:50:11.414 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1063
+2025-08-04 14:50:11.415 +07:00 [INF] Successfully calculated work hours for AttendanceId 1061: 0.001486111111111111 hours
+2025-08-04 14:50:11.416 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1066: 0.06198694444444444 hours
+2025-08-04 14:50:11.418 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1070
+2025-08-04 14:50:11.417 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1062
+2025-08-04 14:50:11.420 +07:00 [INF] Successfully calculated work hours for AttendanceId 1059: 0.06310194444444445 hours
+2025-08-04 14:50:11.422 +07:00 [INF] Successfully calculated work hours for AttendanceId 1063: 0.6459241666666666 hours
+2025-08-04 14:50:11.424 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1070
+2025-08-04 14:50:11.424 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1061: 0.001486111111111111 hours
+2025-08-04 14:50:11.425 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1069
+2025-08-04 14:50:11.431 +07:00 [INF] Successfully calculated work hours for AttendanceId 1062: 0.0010555555555555555 hours
+2025-08-04 14:50:11.431 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1069
+2025-08-04 14:50:11.434 +07:00 [INF] Successfully calculated work hours for AttendanceId 1070: 0.006097222222222223 hours
+2025-08-04 14:50:11.434 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1063: 0.6459241666666666 hours
+2025-08-04 14:50:11.430 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1059: 0.06310194444444445 hours
+2025-08-04 14:50:11.439 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1062: 0.0010555555555555555 hours
+2025-08-04 14:50:11.435 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1067
+2025-08-04 14:50:11.440 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1068
+2025-08-04 14:50:11.440 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1070: 0.006097222222222223 hours
+2025-08-04 14:50:11.442 +07:00 [INF] Successfully calculated work hours for AttendanceId 1069: 0.000475 hours
+2025-08-04 14:50:11.448 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1067
+2025-08-04 14:50:11.448 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1068
+2025-08-04 14:50:11.450 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1069: 0.000475 hours
+2025-08-04 14:50:11.455 +07:00 [INF] Successfully calculated work hours for AttendanceId 1067: 0.12957305555555557 hours
+2025-08-04 14:50:11.455 +07:00 [INF] Successfully calculated work hours for AttendanceId 1068: 0.38807694444444446 hours
+2025-08-04 14:50:11.459 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1067: 0.12957305555555557 hours
+2025-08-04 14:50:11.460 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1068: 0.38807694444444446 hours
+2025-08-04 14:50:12.190 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.ContractsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method336(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:13.440 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.SalaryController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method344(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:14.196 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.SkillController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method352(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:15.071 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.UsersController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method223(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:17.383 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:17.386 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:17.408 +07:00 [INF] Successfully fetched 4 employees
+2025-08-04 14:50:17.410 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-08-04 14:50:24.330 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.DepartmentsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method215(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:24.974 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.PositionsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method231(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:25.660 +07:00 [INF] Received GetAllAttendance request with PageNumber: 1, PageSize: 100
+2025-08-04 14:50:25.663 +07:00 [INF] Starting retrieval of all attendance records with PageNumber: 1, PageSize: 100
+2025-08-04 14:50:25.673 +07:00 [INF] Successfully retrieved 86 attendance records
+2025-08-04 14:50:25.675 +07:00 [INF] Successfully retrieved 86 attendance records
+2025-08-04 14:50:25.698 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1
+2025-08-04 14:50:25.699 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1
+2025-08-04 14:50:25.704 +07:00 [INF] Successfully calculated work hours for AttendanceId 1: 0.11011305555555556 hours
+2025-08-04 14:50:25.706 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1: 0.11011305555555556 hours
+2025-08-04 14:50:25.706 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 2
+2025-08-04 14:50:25.709 +07:00 [INF] Starting calculation of work hours for AttendanceId: 2
+2025-08-04 14:50:25.713 +07:00 [INF] Successfully calculated work hours for AttendanceId 2: 0.06887777777777777 hours
+2025-08-04 14:50:25.714 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 4
+2025-08-04 14:50:25.715 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 5
+2025-08-04 14:50:25.715 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 7
+2025-08-04 14:50:25.718 +07:00 [INF] Starting calculation of work hours for AttendanceId: 5
+2025-08-04 14:50:25.719 +07:00 [INF] Starting calculation of work hours for AttendanceId: 7
+2025-08-04 14:50:25.719 +07:00 [INF] Starting calculation of work hours for AttendanceId: 4
+2025-08-04 14:50:25.725 +07:00 [INF] Successfully calculated work hours for AttendanceId 7: 0.007602777777777778 hours
+2025-08-04 14:50:25.725 +07:00 [INF] Successfully calculated work hours for AttendanceId 5: 0.011610277777777778 hours
+2025-08-04 14:50:25.728 +07:00 [INF] Successfully calculated work hours for AttendanceId 4: 0.005078888888888889 hours
+2025-08-04 14:50:25.729 +07:00 [INF] Successfully calculated work hours for AttendanceId: 7: 0.007602777777777778 hours
+2025-08-04 14:50:25.730 +07:00 [INF] Successfully calculated work hours for AttendanceId: 5: 0.011610277777777778 hours
+2025-08-04 14:50:25.732 +07:00 [INF] Successfully calculated work hours for AttendanceId: 4: 0.005078888888888889 hours
+2025-08-04 14:50:25.725 +07:00 [INF] Successfully calculated work hours for AttendanceId: 2: 0.06887777777777777 hours
+2025-08-04 14:50:25.715 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 3
+2025-08-04 14:50:25.738 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 8
+2025-08-04 14:50:25.715 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 6
+2025-08-04 14:50:25.740 +07:00 [INF] Starting calculation of work hours for AttendanceId: 8
+2025-08-04 14:50:25.742 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 9
+2025-08-04 14:50:25.741 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 10
+2025-08-04 14:50:25.741 +07:00 [INF] Starting calculation of work hours for AttendanceId: 3
+2025-08-04 14:50:25.746 +07:00 [INF] Successfully calculated work hours for AttendanceId 8: 0.0034269444444444443 hours
+2025-08-04 14:50:25.745 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 13
+2025-08-04 14:50:25.745 +07:00 [INF] Starting calculation of work hours for AttendanceId: 9
+2025-08-04 14:50:25.748 +07:00 [INF] Successfully calculated work hours for AttendanceId: 8: 0.0034269444444444443 hours
+2025-08-04 14:50:25.749 +07:00 [INF] Starting calculation of work hours for AttendanceId: 13
+2025-08-04 14:50:25.746 +07:00 [INF] Starting calculation of work hours for AttendanceId: 10
+2025-08-04 14:50:25.753 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 12
+2025-08-04 14:50:25.756 +07:00 [INF] Successfully calculated work hours for AttendanceId 9: 0.00830638888888889 hours
+2025-08-04 14:50:25.756 +07:00 [INF] Successfully calculated work hours for AttendanceId 13: 0.8064647222222222 hours
+2025-08-04 14:50:25.761 +07:00 [INF] Successfully calculated work hours for AttendanceId: 9: 0.00830638888888889 hours
+2025-08-04 14:50:25.761 +07:00 [INF] Successfully calculated work hours for AttendanceId: 13: 0.8064647222222222 hours
+2025-08-04 14:50:25.763 +07:00 [INF] Starting calculation of work hours for AttendanceId: 12
+2025-08-04 14:50:25.759 +07:00 [INF] Successfully calculated work hours for AttendanceId 10: 0.0046611111111111115 hours
+2025-08-04 14:50:25.766 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 11
+2025-08-04 14:50:25.767 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 15
+2025-08-04 14:50:25.771 +07:00 [INF] Successfully calculated work hours for AttendanceId: 10: 0.0046611111111111115 hours
+2025-08-04 14:50:25.772 +07:00 [INF] Starting calculation of work hours for AttendanceId: 15
+2025-08-04 14:50:25.772 +07:00 [INF] Starting calculation of work hours for AttendanceId: 11
+2025-08-04 14:50:25.770 +07:00 [INF] Successfully calculated work hours for AttendanceId 12: 0.09695833333333333 hours
+2025-08-04 14:50:25.776 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 14
+2025-08-04 14:50:25.777 +07:00 [INF] Successfully calculated work hours for AttendanceId 15: 0.5115702777777777 hours
+2025-08-04 14:50:25.781 +07:00 [INF] Successfully calculated work hours for AttendanceId 3: 0.009008333333333333 hours
+2025-08-04 14:50:25.781 +07:00 [INF] Successfully calculated work hours for AttendanceId 11: 0.0040305555555555555 hours
+2025-08-04 14:50:25.782 +07:00 [INF] Starting calculation of work hours for AttendanceId: 14
+2025-08-04 14:50:25.784 +07:00 [INF] Successfully calculated work hours for AttendanceId: 15: 0.5115702777777777 hours
+2025-08-04 14:50:25.785 +07:00 [INF] Successfully calculated work hours for AttendanceId: 12: 0.09695833333333333 hours
+2025-08-04 14:50:25.786 +07:00 [INF] Starting calculation of work hours for AttendanceId: 6
+2025-08-04 14:50:25.787 +07:00 [INF] Successfully calculated work hours for AttendanceId: 3: 0.009008333333333333 hours
+2025-08-04 14:50:25.789 +07:00 [INF] Successfully calculated work hours for AttendanceId: 11: 0.0040305555555555555 hours
+2025-08-04 14:50:25.793 +07:00 [INF] Successfully calculated work hours for AttendanceId 14: 0.0019527777777777777 hours
+2025-08-04 14:50:25.796 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1002
+2025-08-04 14:50:25.795 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1003
+2025-08-04 14:50:25.797 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1006
+2025-08-04 14:50:25.799 +07:00 [INF] Successfully calculated work hours for AttendanceId 6: 0.0024638888888888887 hours
+2025-08-04 14:50:25.800 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1005
+2025-08-04 14:50:25.800 +07:00 [INF] Successfully calculated work hours for AttendanceId: 14: 0.0019527777777777777 hours
+2025-08-04 14:50:25.802 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1002
+2025-08-04 14:50:25.802 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1003
+2025-08-04 14:50:25.803 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1006
+2025-08-04 14:50:25.804 +07:00 [INF] Successfully calculated work hours for AttendanceId: 6: 0.0024638888888888887 hours
+2025-08-04 14:50:25.807 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1005
+2025-08-04 14:50:25.809 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1004
+2025-08-04 14:50:25.811 +07:00 [INF] Successfully calculated work hours for AttendanceId 1002: 0.003323888888888889 hours
+2025-08-04 14:50:25.811 +07:00 [INF] Successfully calculated work hours for AttendanceId 1003: 0.0020705555555555555 hours
+2025-08-04 14:50:25.816 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1004
+2025-08-04 14:50:25.814 +07:00 [INF] Successfully calculated work hours for AttendanceId 1006: 0.04447583333333333 hours
+2025-08-04 14:50:25.818 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1002: 0.003323888888888889 hours
+2025-08-04 14:50:25.819 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1003: 0.0020705555555555555 hours
+2025-08-04 14:50:25.824 +07:00 [INF] Successfully calculated work hours for AttendanceId 1005: 0.17279166666666668 hours
+2025-08-04 14:50:25.819 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1007
+2025-08-04 14:50:25.827 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1008
+2025-08-04 14:50:25.829 +07:00 [INF] Successfully calculated work hours for AttendanceId 1004: 0.0035655555555555558 hours
+2025-08-04 14:50:25.828 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1005: 0.17279166666666668 hours
+2025-08-04 14:50:25.832 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1008
+2025-08-04 14:50:25.833 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1004: 0.0035655555555555558 hours
+2025-08-04 14:50:25.838 +07:00 [INF] Successfully calculated work hours for AttendanceId 1008: 0.03510666666666667 hours
+2025-08-04 14:50:25.838 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1009
+2025-08-04 14:50:25.839 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1011
+2025-08-04 14:50:25.841 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1008: 0.03510666666666667 hours
+2025-08-04 14:50:25.842 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1009
+2025-08-04 14:50:25.839 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1007
+2025-08-04 14:50:25.845 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1012
+2025-08-04 14:50:25.847 +07:00 [INF] Successfully calculated work hours for AttendanceId 1009: 0.05333611111111111 hours
+2025-08-04 14:50:25.845 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1011
+2025-08-04 14:50:25.850 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1012
+2025-08-04 14:50:25.850 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1009: 0.05333611111111111 hours
+2025-08-04 14:50:25.848 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1006: 0.04447583333333333 hours
+2025-08-04 14:50:25.857 +07:00 [INF] Successfully calculated work hours for AttendanceId 1012: 0.011152777777777777 hours
+2025-08-04 14:50:25.859 +07:00 [INF] Successfully calculated work hours for AttendanceId 1007: 0.004856388888888889 hours
+2025-08-04 14:50:25.859 +07:00 [INF] Successfully calculated work hours for AttendanceId 1011: 0.0003 hours
+2025-08-04 14:50:25.861 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1012: 0.011152777777777777 hours
+2025-08-04 14:50:25.857 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1015
+2025-08-04 14:50:25.828 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1010
+2025-08-04 14:50:25.863 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1007: 0.004856388888888889 hours
+2025-08-04 14:50:25.864 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1011: 0.0003 hours
+2025-08-04 14:50:25.870 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1013
+2025-08-04 14:50:25.868 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1014
+2025-08-04 14:50:25.870 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1016
+2025-08-04 14:50:25.872 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1014
+2025-08-04 14:50:25.872 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1016
+2025-08-04 14:50:25.873 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1013
+2025-08-04 14:50:25.877 +07:00 [INF] Successfully calculated work hours for AttendanceId 1016: 0.008569444444444444 hours
+2025-08-04 14:50:25.880 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1015
+2025-08-04 14:50:25.880 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1017
+2025-08-04 14:50:25.882 +07:00 [INF] Successfully calculated work hours for AttendanceId 1013: 0.019038055555555555 hours
+2025-08-04 14:50:25.885 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1013: 0.019038055555555555 hours
+2025-08-04 14:50:25.886 +07:00 [INF] Successfully calculated work hours for AttendanceId 1015: 0.0005083333333333333 hours
+2025-08-04 14:50:25.887 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1017
+2025-08-04 14:50:25.891 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1019
+2025-08-04 14:50:25.891 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1015: 0.0005083333333333333 hours
+2025-08-04 14:50:25.893 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1019
+2025-08-04 14:50:25.896 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1018
+2025-08-04 14:50:25.897 +07:00 [INF] Successfully calculated work hours for AttendanceId 1017: 0.002275 hours
+2025-08-04 14:50:25.900 +07:00 [INF] Successfully calculated work hours for AttendanceId 1019: 0.0006786111111111111 hours
+2025-08-04 14:50:25.901 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1018
+2025-08-04 14:50:25.901 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1017: 0.002275 hours
+2025-08-04 14:50:25.904 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1019: 0.0006786111111111111 hours
+2025-08-04 14:50:25.897 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1016: 0.008569444444444444 hours
+2025-08-04 14:50:25.908 +07:00 [INF] Successfully calculated work hours for AttendanceId 1018: 0.0007936111111111111 hours
+2025-08-04 14:50:25.907 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1020
+2025-08-04 14:50:25.910 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1021
+2025-08-04 14:50:25.912 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1018: 0.0007936111111111111 hours
+2025-08-04 14:50:25.912 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1021
+2025-08-04 14:50:25.913 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1020
+2025-08-04 14:50:25.918 +07:00 [INF] Successfully calculated work hours for AttendanceId 1021: 0.011892777777777778 hours
+2025-08-04 14:50:25.918 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1023
+2025-08-04 14:50:25.922 +07:00 [INF] Successfully calculated work hours for AttendanceId 1020: 0.01829638888888889 hours
+2025-08-04 14:50:25.922 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1021: 0.011892777777777778 hours
+2025-08-04 14:50:25.923 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1023
+2025-08-04 14:50:25.919 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1022
+2025-08-04 14:50:25.927 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1020: 0.01829638888888889 hours
+2025-08-04 14:50:25.928 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1025
+2025-08-04 14:50:25.931 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1022
+2025-08-04 14:50:25.933 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1024
+2025-08-04 14:50:25.934 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1025
+2025-08-04 14:50:25.936 +07:00 [INF] Successfully calculated work hours for AttendanceId 1022: 0.00035194444444444444 hours
+2025-08-04 14:50:25.937 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1024
+2025-08-04 14:50:25.939 +07:00 [INF] Successfully calculated work hours for AttendanceId 1025: 0.052213055555555554 hours
+2025-08-04 14:50:25.942 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1022: 0.00035194444444444444 hours
+2025-08-04 14:50:25.942 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1025: 0.052213055555555554 hours
+2025-08-04 14:50:25.929 +07:00 [INF] Successfully calculated work hours for AttendanceId 1023: 0.0051333333333333335 hours
+2025-08-04 14:50:25.946 +07:00 [INF] Successfully calculated work hours for AttendanceId 1024: 0.29881944444444447 hours
+2025-08-04 14:50:25.877 +07:00 [INF] Successfully calculated work hours for AttendanceId 1014: 0.0031694444444444443 hours
+2025-08-04 14:50:25.949 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1027
+2025-08-04 14:50:25.950 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1026
+2025-08-04 14:50:25.951 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1010
+2025-08-04 14:50:25.951 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1023: 0.0051333333333333335 hours
+2025-08-04 14:50:25.952 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1024: 0.29881944444444447 hours
+2025-08-04 14:50:25.954 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1014: 0.0031694444444444443 hours
+2025-08-04 14:50:25.956 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1027
+2025-08-04 14:50:25.958 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1026
+2025-08-04 14:50:25.961 +07:00 [INF] Successfully calculated work hours for AttendanceId 1010: 0.006336111111111111 hours
+2025-08-04 14:50:25.962 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1028
+2025-08-04 14:50:25.965 +07:00 [INF] Successfully calculated work hours for AttendanceId 1027: 0.014363055555555556 hours
+2025-08-04 14:50:25.966 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1029
+2025-08-04 14:50:25.967 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1031
+2025-08-04 14:50:25.969 +07:00 [INF] Successfully calculated work hours for AttendanceId 1026: 0.014619444444444444 hours
+2025-08-04 14:50:25.970 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1010: 0.006336111111111111 hours
+2025-08-04 14:50:25.971 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1028
+2025-08-04 14:50:25.971 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1027: 0.014363055555555556 hours
+2025-08-04 14:50:25.973 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1029
+2025-08-04 14:50:25.981 +07:00 [INF] Successfully calculated work hours for AttendanceId 1028: 0.0639138888888889 hours
+2025-08-04 14:50:25.981 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1030
+2025-08-04 14:50:25.983 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1032
+2025-08-04 14:50:25.978 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1026: 0.014619444444444444 hours
+2025-08-04 14:50:25.976 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1031
+2025-08-04 14:50:25.984 +07:00 [INF] Successfully calculated work hours for AttendanceId 1029: 0.000675 hours
+2025-08-04 14:50:25.985 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1028: 0.0639138888888889 hours
+2025-08-04 14:50:25.989 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1032
+2025-08-04 14:50:25.992 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1033
+2025-08-04 14:50:25.990 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1030
+2025-08-04 14:50:25.997 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1033
+2025-08-04 14:50:25.994 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1029: 0.000675 hours
+2025-08-04 14:50:26.002 +07:00 [INF] Successfully calculated work hours for AttendanceId 1030: 0.13460444444444444 hours
+2025-08-04 14:50:26.003 +07:00 [INF] Successfully calculated work hours for AttendanceId 1033: 0.012827777777777778 hours
+2025-08-04 14:50:25.994 +07:00 [INF] Successfully calculated work hours for AttendanceId 1031: 0.07915083333333334 hours
+2025-08-04 14:50:26.006 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1030: 0.13460444444444444 hours
+2025-08-04 14:50:26.008 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1034
+2025-08-04 14:50:25.999 +07:00 [INF] Successfully calculated work hours for AttendanceId 1032: 0.06454083333333334 hours
+2025-08-04 14:50:25.996 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1035
+2025-08-04 14:50:26.011 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1034
+2025-08-04 14:50:26.012 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1036
+2025-08-04 14:50:26.012 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1033: 0.012827777777777778 hours
+2025-08-04 14:50:26.017 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1036
+2025-08-04 14:50:26.019 +07:00 [INF] Successfully calculated work hours for AttendanceId 1034: 0.36646194444444447 hours
+2025-08-04 14:50:26.022 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1034: 0.36646194444444447 hours
+2025-08-04 14:50:26.014 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1031: 0.07915083333333334 hours
+2025-08-04 14:50:26.024 +07:00 [INF] Successfully calculated work hours for AttendanceId 1036: 0.11471305555555555 hours
+2025-08-04 14:50:26.026 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1037
+2025-08-04 14:50:26.030 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1038
+2025-08-04 14:50:26.032 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1036: 0.11471305555555555 hours
+2025-08-04 14:50:26.032 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1039
+2025-08-04 14:50:26.033 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1032: 0.06454083333333334 hours
+2025-08-04 14:50:26.036 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1037
+2025-08-04 14:50:26.038 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1038
+2025-08-04 14:50:26.039 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1040
+2025-08-04 14:50:26.040 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1039
+2025-08-04 14:50:26.041 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1042
+2025-08-04 14:50:26.048 +07:00 [INF] Successfully calculated work hours for AttendanceId 1038: 0.03245111111111111 hours
+2025-08-04 14:50:26.045 +07:00 [INF] Successfully calculated work hours for AttendanceId 1037: 0.0035694444444444445 hours
+2025-08-04 14:50:26.050 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1042
+2025-08-04 14:50:26.052 +07:00 [INF] Successfully calculated work hours for AttendanceId 1039: 0.12853333333333333 hours
+2025-08-04 14:50:26.049 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1040
+2025-08-04 14:50:26.034 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1035
+2025-08-04 14:50:26.053 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1038: 0.03245111111111111 hours
+2025-08-04 14:50:26.058 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1039: 0.12853333333333333 hours
+2025-08-04 14:50:26.062 +07:00 [INF] Successfully calculated work hours for AttendanceId 1040: 0.004925 hours
+2025-08-04 14:50:26.060 +07:00 [INF] Successfully calculated work hours for AttendanceId 1042: 0.0009436111111111111 hours
+2025-08-04 14:50:26.056 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1037: 0.0035694444444444445 hours
+2025-08-04 14:50:26.063 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1041
+2025-08-04 14:50:26.067 +07:00 [INF] Successfully calculated work hours for AttendanceId 1035: 0.004243611111111111 hours
+2025-08-04 14:50:26.067 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1043
+2025-08-04 14:50:26.068 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1040: 0.004925 hours
+2025-08-04 14:50:26.069 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1041
+2025-08-04 14:50:26.069 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1042: 0.0009436111111111111 hours
+2025-08-04 14:50:26.072 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1044
+2025-08-04 14:50:26.074 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1035: 0.004243611111111111 hours
+2025-08-04 14:50:26.075 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1043
+2025-08-04 14:50:26.077 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1045
+2025-08-04 14:50:26.079 +07:00 [INF] Successfully calculated work hours for AttendanceId 1041: 0.32824722222222225 hours
+2025-08-04 14:50:26.079 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1046
+2025-08-04 14:50:26.081 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1044
+2025-08-04 14:50:26.084 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1045
+2025-08-04 14:50:26.085 +07:00 [INF] Successfully calculated work hours for AttendanceId 1043: 0.00835 hours
+2025-08-04 14:50:26.084 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1047
+2025-08-04 14:50:26.087 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1046
+2025-08-04 14:50:26.092 +07:00 [INF] Successfully calculated work hours for AttendanceId 1044: 0.021270555555555556 hours
+2025-08-04 14:50:26.092 +07:00 [INF] Successfully calculated work hours for AttendanceId 1045: 0.0025508333333333333 hours
+2025-08-04 14:50:26.094 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1043: 0.00835 hours
+2025-08-04 14:50:26.089 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1041: 0.32824722222222225 hours
+2025-08-04 14:50:26.098 +07:00 [INF] Successfully calculated work hours for AttendanceId 1046: 0.19432777777777777 hours
+2025-08-04 14:50:26.098 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1044: 0.021270555555555556 hours
+2025-08-04 14:50:26.099 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1045: 0.0025508333333333333 hours
+2025-08-04 14:50:26.100 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1047
+2025-08-04 14:50:26.107 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1046: 0.19432777777777777 hours
+2025-08-04 14:50:26.107 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1049
+2025-08-04 14:50:26.109 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1051
+2025-08-04 14:50:26.108 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1050
+2025-08-04 14:50:26.107 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1048
+2025-08-04 14:50:26.111 +07:00 [INF] Successfully calculated work hours for AttendanceId 1047: 0.0017047222222222223 hours
+2025-08-04 14:50:26.113 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1049
+2025-08-04 14:50:26.115 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1053
+2025-08-04 14:50:26.115 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1051
+2025-08-04 14:50:26.116 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1050
+2025-08-04 14:50:26.117 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1048
+2025-08-04 14:50:26.118 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1047: 0.0017047222222222223 hours
+2025-08-04 14:50:26.123 +07:00 [INF] Successfully calculated work hours for AttendanceId 1049: 0.007269444444444445 hours
+2025-08-04 14:50:26.126 +07:00 [INF] Successfully calculated work hours for AttendanceId 1051: 0.012279444444444445 hours
+2025-08-04 14:50:26.126 +07:00 [INF] Successfully calculated work hours for AttendanceId 1050: 0.0030377777777777777 hours
+2025-08-04 14:50:26.132 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1051: 0.012279444444444445 hours
+2025-08-04 14:50:26.133 +07:00 [INF] Successfully calculated work hours for AttendanceId 1048: 0.009435277777777779 hours
+2025-08-04 14:50:26.129 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1049: 0.007269444444444445 hours
+2025-08-04 14:50:26.130 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1053
+2025-08-04 14:50:26.134 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1050: 0.0030377777777777777 hours
+2025-08-04 14:50:26.134 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1052
+2025-08-04 14:50:26.139 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1048: 0.009435277777777779 hours
+2025-08-04 14:50:26.141 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1055
+2025-08-04 14:50:26.140 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1054
+2025-08-04 14:50:26.143 +07:00 [INF] Successfully calculated work hours for AttendanceId 1053: 0.4355436111111111 hours
+2025-08-04 14:50:26.143 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1056
+2025-08-04 14:50:26.143 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1052
+2025-08-04 14:50:26.148 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1055
+2025-08-04 14:50:26.149 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1054
+2025-08-04 14:50:26.149 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1058
+2025-08-04 14:50:26.149 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1053: 0.4355436111111111 hours
+2025-08-04 14:50:26.155 +07:00 [INF] Successfully calculated work hours for AttendanceId 1055: 0.040780555555555556 hours
+2025-08-04 14:50:26.153 +07:00 [INF] Successfully calculated work hours for AttendanceId 1052: 0.0018333333333333333 hours
+2025-08-04 14:50:26.150 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1056
+2025-08-04 14:50:26.161 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1055: 0.040780555555555556 hours
+2025-08-04 14:50:26.158 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1058
+2025-08-04 14:50:26.160 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1059
+2025-08-04 14:50:26.162 +07:00 [INF] Successfully calculated work hours for AttendanceId 1054: 0.010667777777777778 hours
+2025-08-04 14:50:26.162 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1052: 0.0018333333333333333 hours
+2025-08-04 14:50:26.171 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1060
+2025-08-04 14:50:26.171 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1061
+2025-08-04 14:50:26.171 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1054: 0.010667777777777778 hours
+2025-08-04 14:50:26.169 +07:00 [INF] Successfully calculated work hours for AttendanceId 1056: 0.008892777777777777 hours
+2025-08-04 14:50:26.174 +07:00 [INF] Successfully calculated work hours for AttendanceId 1058: 0.132175 hours
+2025-08-04 14:50:26.174 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1059
+2025-08-04 14:50:26.174 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1060
+2025-08-04 14:50:26.179 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1061
+2025-08-04 14:50:26.181 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1062
+2025-08-04 14:50:26.183 +07:00 [INF] Successfully calculated work hours for AttendanceId 1059: 0.06310194444444445 hours
+2025-08-04 14:50:26.186 +07:00 [INF] Successfully calculated work hours for AttendanceId 1060: 0.06082777777777778 hours
+2025-08-04 14:50:26.181 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1058: 0.132175 hours
+2025-08-04 14:50:26.180 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1056: 0.008892777777777777 hours
+2025-08-04 14:50:26.189 +07:00 [INF] Successfully calculated work hours for AttendanceId 1061: 0.001486111111111111 hours
+2025-08-04 14:50:26.190 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1062
+2025-08-04 14:50:26.191 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1059: 0.06310194444444445 hours
+2025-08-04 14:50:26.194 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1060: 0.06082777777777778 hours
+2025-08-04 14:50:26.198 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1063
+2025-08-04 14:50:26.198 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1061: 0.001486111111111111 hours
+2025-08-04 14:50:26.198 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1065
+2025-08-04 14:50:26.203 +07:00 [INF] Successfully calculated work hours for AttendanceId 1062: 0.0010555555555555555 hours
+2025-08-04 14:50:26.203 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1064
+2025-08-04 14:50:26.204 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1066
+2025-08-04 14:50:26.206 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1063
+2025-08-04 14:50:26.208 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1065
+2025-08-04 14:50:26.208 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1067
+2025-08-04 14:50:26.209 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1062: 0.0010555555555555555 hours
+2025-08-04 14:50:26.210 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1064
+2025-08-04 14:50:26.211 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1066
+2025-08-04 14:50:26.215 +07:00 [INF] Successfully calculated work hours for AttendanceId 1063: 0.6459241666666666 hours
+2025-08-04 14:50:26.217 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1067
+2025-08-04 14:50:26.219 +07:00 [INF] Successfully calculated work hours for AttendanceId 1066: 0.06198694444444444 hours
+2025-08-04 14:50:26.220 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1063: 0.6459241666666666 hours
+2025-08-04 14:50:26.220 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1068
+2025-08-04 14:50:26.225 +07:00 [INF] Successfully calculated work hours for AttendanceId 1065: 0.34587694444444445 hours
+2025-08-04 14:50:26.227 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1068
+2025-08-04 14:50:26.224 +07:00 [INF] Successfully calculated work hours for AttendanceId 1064: 0.0015544444444444444 hours
+2025-08-04 14:50:26.230 +07:00 [INF] Successfully calculated work hours for AttendanceId 1067: 0.12957305555555557 hours
+2025-08-04 14:50:26.228 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1069
+2025-08-04 14:50:26.230 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1066: 0.06198694444444444 hours
+2025-08-04 14:50:26.232 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1065: 0.34587694444444445 hours
+2025-08-04 14:50:26.238 +07:00 [INF] Successfully calculated work hours for AttendanceId 1068: 0.38807694444444446 hours
+2025-08-04 14:50:26.238 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1064: 0.0015544444444444444 hours
+2025-08-04 14:50:26.240 +07:00 [INF] Received CalculateWorkHours request for AttendanceId: 1070
+2025-08-04 14:50:26.241 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1067: 0.12957305555555557 hours
+2025-08-04 14:50:26.241 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1069
+2025-08-04 14:50:26.245 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1068: 0.38807694444444446 hours
+2025-08-04 14:50:26.247 +07:00 [INF] Starting calculation of work hours for AttendanceId: 1070
+2025-08-04 14:50:26.251 +07:00 [INF] Successfully calculated work hours for AttendanceId 1069: 0.000475 hours
+2025-08-04 14:50:26.255 +07:00 [INF] Successfully calculated work hours for AttendanceId 1070: 0.006097222222222223 hours
+2025-08-04 14:50:26.256 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1069: 0.000475 hours
+2025-08-04 14:50:26.258 +07:00 [INF] Successfully calculated work hours for AttendanceId: 1070: 0.006097222222222223 hours
+2025-08-04 14:50:32.691 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:32.693 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:32.701 +07:00 [INF] Successfully fetched 4 employees
+2025-08-04 14:50:32.703 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-08-04 14:50:33.187 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.DepartmentsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method215(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2025-08-04 14:50:49.279 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:49.281 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-08-04 14:50:49.288 +07:00 [INF] Successfully fetched 4 employees
+2025-08-04 14:50:49.290 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003
+2025-08-04 14:50:49.780 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'QuanLyNhanVien.Query.Presentation.Controller.DepartmentsController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method215(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)

@@ -29,9 +29,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Positions
     public class GetPositionByIdQueryHandler : IRequestHandler<GetPositionByIdQuery, Position>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetPositionByIdQueryHandler> _logger;
 
-        public GetPositionByIdQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetPositionByIdQueryHandler(IUnitOfWork unitOfWork, ILogger<GetPositionByIdQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

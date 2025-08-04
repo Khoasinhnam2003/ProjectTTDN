@@ -1,0 +1,17 @@
+2025-08-04 14:54:16.659 +07:00 [INF] Application is starting...
+2025-08-04 14:54:31.865 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-08-04 14:54:32.001 +07:00 [INF] Logout attempt for EmployeeId: 1
+2025-08-04 14:54:32.142 +07:00 [INF] Processing check-out for EmployeeId: 1
+2025-08-04 14:54:33.401 +07:00 [INF] Check-out successful for EmployeeId: 1 at "2025-08-04T14:54:33.1696904+07:00"
+2025-08-04 14:54:33.407 +07:00 [INF] Logout successful for EmployeeId: 1
+2025-08-04 14:54:39.500 +07:00 [INF] Login attempt for user with credentials: {"Username":"anhkhoa22022003","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-08-04 14:54:39.520 +07:00 [INF] Processing login request for username: anhkhoa22022003
+2025-08-04 14:54:40.066 +07:00 [INF] JWT token generated for user anhkhoa22022003
+2025-08-04 14:54:40.083 +07:00 [INF] Starting creation of attendance for EmployeeId: 1
+2025-08-04 14:54:40.200 +07:00 [INF] Successfully created attendance for EmployeeId: 1 with ID: 1073
+2025-08-04 14:54:40.203 +07:00 [INF] Check-in recorded for EmployeeId 1 at "2025-08-04T14:54:40.0804087+07:00"
+2025-08-04 14:54:40.205 +07:00 [INF] Login successful for user anhkhoa22022003 with EmployeeId 1
+2025-08-04 14:55:01.265 +07:00 [INF] Logout attempt for EmployeeId: 1
+2025-08-04 14:55:01.267 +07:00 [INF] Processing check-out for EmployeeId: 1
+2025-08-04 14:55:01.340 +07:00 [INF] Check-out successful for EmployeeId: 1 at "2025-08-04T14:55:01.3244118+07:00"
+2025-08-04 14:55:01.341 +07:00 [INF] Logout successful for EmployeeId: 1

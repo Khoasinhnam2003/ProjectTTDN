@@ -17,9 +17,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<UsersController> _logger;
 
-        public UsersController(IMediator mediator, ILogger logger)
+        public UsersController(IMediator mediator, ILogger<UsersController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

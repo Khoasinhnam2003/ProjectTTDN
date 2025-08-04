@@ -29,9 +29,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Users
     public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, User>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetUserByIdQueryHandler> _logger;
 
-        public GetUserByIdQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetUserByIdQueryHandler(IUnitOfWork unitOfWork, ILogger<GetUserByIdQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

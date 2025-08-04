@@ -17,9 +17,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class SkillController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<SkillController> _logger;
 
-        public SkillController(IMediator mediator, ILogger logger)
+        public SkillController(IMediator mediator, ILogger<SkillController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

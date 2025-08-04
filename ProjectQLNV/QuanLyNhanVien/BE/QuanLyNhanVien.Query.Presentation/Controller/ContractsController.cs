@@ -18,9 +18,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class ContractsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<ContractsController> _logger;
 
-        public ContractsController(IMediator mediator, ILogger logger)
+        public ContractsController(IMediator mediator, ILogger<ContractsController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

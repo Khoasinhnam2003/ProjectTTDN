@@ -21,9 +21,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<RolesController> _logger;
 
-        public RolesController(IUnitOfWork unitOfWork, IMediator mediator, ILogger logger)
+        public RolesController(IUnitOfWork unitOfWork, IMediator mediator, ILogger<RolesController> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));

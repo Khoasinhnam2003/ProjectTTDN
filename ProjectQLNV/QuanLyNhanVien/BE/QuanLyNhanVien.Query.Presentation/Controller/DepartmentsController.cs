@@ -17,9 +17,9 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class DepartmentsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger _logger;
+        private readonly ILogger<DepartmentsController> _logger;
 
-        public DepartmentsController(IMediator mediator, ILogger logger)
+        public DepartmentsController(IMediator mediator, ILogger<DepartmentsController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

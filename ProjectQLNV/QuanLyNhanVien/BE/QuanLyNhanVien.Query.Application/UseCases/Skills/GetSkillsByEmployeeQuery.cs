@@ -36,9 +36,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Skills
     public class GetSkillsByEmployeeQueryHandler : IRequestHandler<GetSkillsByEmployeeQuery, List<Skill>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetSkillsByEmployeeQueryHandler> _logger;
 
-        public GetSkillsByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetSkillsByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger<GetSkillsByEmployeeQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

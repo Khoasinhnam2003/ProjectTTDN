@@ -34,9 +34,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Departments
     public class GetAllDepartmentsQueryHandler : IRequestHandler<GetAllDepartmentsQuery, List<DepartmentDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetAllDepartmentsQueryHandler> _logger;
 
-        public GetAllDepartmentsQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetAllDepartmentsQueryHandler(IUnitOfWork unitOfWork, ILogger<GetAllDepartmentsQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

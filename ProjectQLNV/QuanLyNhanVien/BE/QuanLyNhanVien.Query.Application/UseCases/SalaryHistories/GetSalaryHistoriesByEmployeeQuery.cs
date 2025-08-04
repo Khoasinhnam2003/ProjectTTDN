@@ -37,9 +37,9 @@ namespace QuanLyNhanVien.Query.Application.UseCases.SalaryHistories
     public class GetSalaryHistoriesByEmployeeQueryHandler : IRequestHandler<GetSalaryHistoriesByEmployeeQuery, List<SalaryHistoryDTO>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<GetSalaryHistoriesByEmployeeQueryHandler> _logger;
 
-        public GetSalaryHistoriesByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
+        public GetSalaryHistoriesByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger<GetSalaryHistoriesByEmployeeQueryHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
