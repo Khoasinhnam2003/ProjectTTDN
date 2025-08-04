@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -84,20 +85,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateAttendanceCommandHandler> _logger;
 
-        public UpdateAttendanceCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateAttendanceCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateAttendanceCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Attendance>> Handle(UpdateAttendanceCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for attendance with ID: {AttendanceId}", request.AttendanceId);
+
             var validator = new UpdateAttendanceCommandValidator(_context);
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for attendance ID {AttendanceId}: {Errors}", request.AttendanceId, errorMessages);
                 return Result<Attendance>.Failure(new Error(errorMessages));
             }
 
@@ -105,6 +111,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
             var attendance = await repository.FindAsync(request.AttendanceId, cancellationToken);
             if (attendance == null)
             {
+                _logger.LogWarning("Attendance with ID {AttendanceId} not found", request.AttendanceId);
                 return Result<Attendance>.Failure(new Error("Bản ghi điểm danh không tồn tại."));
             }
 
@@ -127,12 +134,14 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
                     .Include(a => a.Employee)
                     .FirstOrDefaultAsync(a => a.AttendanceId == attendance.AttendanceId, cancellationToken);
 
+                _logger.LogInformation("Successfully updated attendance with ID: {AttendanceId}", request.AttendanceId);
                 return Result<Attendance>.Success(updatedAttendance);
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback();
                 transaction.Dispose();
+                _logger.LogError(ex, "Error updating attendance with ID: {AttendanceId}", request.AttendanceId);
                 return Result<Attendance>.Failure(new Error($"Lỗi khi cập nhật điểm danh: {ex.Message}"));
             }
         }

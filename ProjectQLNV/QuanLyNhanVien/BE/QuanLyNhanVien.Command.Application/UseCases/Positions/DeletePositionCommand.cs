@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -41,20 +42,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
         private readonly IUnitOfWork _unitOfWork;
         private readonly DeletePositionCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<DeletePositionCommandHandler> _logger;
 
-        public DeletePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public DeletePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<DeletePositionCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new DeletePositionCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(DeletePositionCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting deletion of position with ID: {PositionId}", request.PositionId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for position ID {PositionId}: {Errors}", request.PositionId, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -66,6 +72,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 if (position == null)
                 {
                     transaction.Rollback();
+                    _logger.LogWarning("Position with ID {PositionId} not found", request.PositionId);
                     return Result<bool>.Failure(new Error("Vị trí không tồn tại."));
                 }
 
@@ -75,11 +82,12 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    Console.WriteLine("Thành công");
+                    _logger.LogInformation("Successfully deleted position with ID: {PositionId}", request.PositionId);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when deleting position with ID: {PositionId}", request.PositionId);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi xóa vị trí."));
             }
             catch (Exception ex)
@@ -87,8 +95,10 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 transaction.Rollback();
                 if (ex.InnerException?.Message.Contains("FOREIGN KEY constraint") == true)
                 {
+                    _logger.LogWarning("Cannot delete position with ID {PositionId} due to foreign key constraint", request.PositionId);
                     return Result<bool>.Failure(new Error("Không thể xóa vị trí vì có nhân viên đang giữ vị trí này."));
                 }
+                _logger.LogError(ex, "Error deleting position with ID: {PositionId}", request.PositionId);
                 return Result<bool>.Failure(new Error($"Lỗi khi xóa vị trí: {ex.Message}"));
             }
         }

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -30,7 +31,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
-            // Quy tắc kiểm tra dữ liệu đầu vào
             RuleFor(x => x.DepartmentName)
                 .NotEmpty().WithMessage("Tên phòng ban không được để trống.")
                 .MaximumLength(100).WithMessage("Tên phòng ban tối đa 100 ký tự.")
@@ -41,7 +41,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
                 .Matches(new Regex("^[\\p{L}\\s0-9,.-]+$")).When(x => !string.IsNullOrEmpty(x.Location))
                 .WithMessage("Địa điểm chỉ được chứa chữ cái, số, khoảng trắng, dấu phẩy, dấu chấm và dấu gạch ngang.");
 
-            // Kiểm tra trùng lặp DepartmentName
             RuleFor(x => x.DepartmentName)
                 .CustomAsync(async (name, context, cancellationToken) =>
                 {
@@ -53,7 +52,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
                     }
                 });
 
-            // Kiểm tra ManagerId tồn tại
             RuleFor(x => x.ManagerId)
                 .CustomAsync(async (managerId, context, cancellationToken) =>
                 {
@@ -75,21 +73,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateDepartmentCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateDepartmentCommandHandler> _logger;
 
-        public CreateDepartmentCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateDepartmentCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateDepartmentCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateDepartmentCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
-            // Thực hiện validation
+            _logger.LogInformation("Starting creation of department with name: {DepartmentName}", request.DepartmentName);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for department name {DepartmentName}: {Errors}", request.DepartmentName, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -112,16 +114,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    Console.WriteLine("Thành công");
+                    _logger.LogInformation("Successfully created department with name: {DepartmentName}", request.DepartmentName);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating department with name: {DepartmentName}", request.DepartmentName);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo phòng ban."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating department with name: {DepartmentName}", request.DepartmentName);
                 return Result<bool>.Failure(new Error($"Lỗi khi tạo phòng ban: {ex.Message}"));
             }
         }

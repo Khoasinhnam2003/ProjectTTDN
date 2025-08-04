@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -76,20 +77,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Contracts
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdateContractCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateContractCommandHandler> _logger;
 
-        public UpdateContractCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateContractCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateContractCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new UpdateContractCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Contract>> Handle(UpdateContractCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for contract with ID: {ContractId}", request.ContractId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for contract ID {ContractId}: {Errors}", request.ContractId, errorMessages);
                 return Result<Contract>.Failure(new Error(errorMessages));
             }
 
@@ -97,6 +103,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Contracts
             var contract = await contractRepository.FindAsync(request.ContractId, cancellationToken);
             if (contract == null)
             {
+                _logger.LogWarning("Contract with ID {ContractId} not found", request.ContractId);
                 return Result<Contract>.Failure(new Error("Hợp đồng không tồn tại."));
             }
 
@@ -117,14 +124,17 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Contracts
                 if (changes > 0)
                 {
                     transaction.Commit();
+                    _logger.LogInformation("Successfully updated contract with ID: {ContractId}", request.ContractId);
                     return Result<Contract>.Success(contract);
                 }
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when updating contract with ID: {ContractId}", request.ContractId);
                 return Result<Contract>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật hợp đồng."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error updating contract with ID: {ContractId}", request.ContractId);
                 return Result<Contract>.Failure(new Error($"Lỗi khi cập nhật hợp đồng: {ex.Message}"));
             }
         }

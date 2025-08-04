@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -21,7 +22,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
         public DateTime? CheckOutTime { get; set; }
         public string Status { get; set; }
         public string Notes { get; set; }
-        public bool IsAutoCheckIn { get; set; } // Thêm flag để xác định check-in tự động
+        public bool IsAutoCheckIn { get; set; }
     }
 
     public class CreateAttendanceCommandValidator : AbstractValidator<CreateAttendanceCommand>
@@ -58,7 +59,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
                 .MaximumLength(200).WithMessage("Ghi chú không được vượt quá 200 ký tự.")
                 .When(x => x.Notes != null);
 
-            // Chỉ kiểm tra trùng lặp nếu không phải check-in tự động
             RuleFor(x => x).CustomAsync(async (command, context, cancellation) =>
             {
                 if (!command.IsAutoCheckIn)
@@ -82,20 +82,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateAttendanceCommandHandler> _logger;
 
-        public CreateAttendanceCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateAttendanceCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateAttendanceCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Attendance>> Handle(CreateAttendanceCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of attendance for EmployeeId: {EmployeeId}", request.EmployeeId);
+
             var validator = new CreateAttendanceCommandValidator(_context);
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for EmployeeId {EmployeeId}: {Errors}", request.EmployeeId, errorMessages);
                 return Result<Attendance>.Failure(new Error(errorMessages));
             }
 
@@ -123,12 +128,14 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Attandances
                     .Include(a => a.Employee)
                     .FirstOrDefaultAsync(a => a.AttendanceId == attendance.AttendanceId, cancellationToken);
 
+                _logger.LogInformation("Successfully created attendance for EmployeeId: {EmployeeId} with ID: {AttendanceId}", request.EmployeeId, createdAttendance.AttendanceId);
                 return Result<Attendance>.Success(createdAttendance);
             }
             catch (Exception ex)
             {
                 _unitOfWork.Rollback();
                 transaction.Dispose();
+                _logger.LogError(ex, "Error creating attendance for EmployeeId: {EmployeeId}", request.EmployeeId);
                 return Result<Attendance>.Failure(new Error($"Lỗi khi thêm điểm danh: {ex.Message}"));
             }
         }

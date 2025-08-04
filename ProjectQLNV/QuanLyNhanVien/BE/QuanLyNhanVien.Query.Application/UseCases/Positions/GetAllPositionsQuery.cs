@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using System;
@@ -33,19 +34,32 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Positions
     public class GetAllPositionsQueryHandler : IRequestHandler<GetAllPositionsQuery, List<Position>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetAllPositionsQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllPositionsQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<Position>> Handle(GetAllPositionsQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<Position>();
-            return await repository.GetAll()
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ToListAsync(cancellationToken);
+            _logger.LogInformation("Handling GetAllPositionsQuery with PageNumber={PageNumber}, PageSize={PageSize}", request.PageNumber, request.PageSize);
+            try
+            {
+                var repository = _unitOfWork.Repository<Position>();
+                var positions = await repository.GetAll()
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToListAsync(cancellationToken);
+                _logger.LogInformation("Retrieved {Count} positions", positions.Count);
+                return positions;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetAllPositionsQuery");
+                throw;
+            }
         }
     }
 }

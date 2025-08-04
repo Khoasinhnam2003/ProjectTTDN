@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Application.UseCases.Roles;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
@@ -21,11 +22,13 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
+        private readonly ILogger<RolesController> _logger;
 
-        public RolesController(IUnitOfWork unitOfWork, IMediator mediator)
+        public RolesController(IUnitOfWork unitOfWork, IMediator mediator, ILogger<RolesController> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [Authorize(Roles = "Admin")]
@@ -36,11 +39,15 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> CreateRole([FromBody] CreateRoleCommand command)
         {
+            _logger.LogInformation("Received CreateRole request for role name: {RoleName}", command.RoleName);
+
             var result = await _mediator.Send(command);
             if (result.IsSuccess)
             {
+                _logger.LogInformation("Successfully created role with name: {RoleName}, ID: {RoleId}", command.RoleName, result.Data?.RoleId);
                 return Ok(result);
             }
+            _logger.LogWarning("Failed to create role with name {RoleName}, Error: {Error}", command.RoleName, result.Error.Message);
             return BadRequest(result);
         }
 
@@ -53,16 +60,27 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> UpdateRole(int roleId, [FromBody] UpdateRoleCommand command)
         {
+            _logger.LogInformation("Received UpdateRole request for role ID: {RoleId}", roleId);
+
             if (roleId != command.RoleId)
             {
+                _logger.LogWarning("RoleId mismatch: URL RoleId {UrlRoleId} does not match body RoleId {BodyRoleId}", roleId, command.RoleId);
                 return BadRequest(Result<Role>.Failure(new Error("RoleId trong URL và body phải khớp.")));
             }
+
             var result = await _mediator.Send(command);
             if (result.IsSuccess)
             {
+                _logger.LogInformation("Successfully updated role with ID: {RoleId}", roleId);
                 return Ok(result);
             }
-            return result.Error.Message.Contains("không tồn tại") ? NotFound(result) : BadRequest(result);
+            if (result.Error.Message.Contains("không tồn tại"))
+            {
+                _logger.LogWarning("Role with ID {RoleId} not found", roleId);
+                return NotFound(result);
+            }
+            _logger.LogWarning("Failed to update role with ID {RoleId}, Error: {Error}", roleId, result.Error.Message);
+            return BadRequest(result);
         }
 
         [Authorize(Roles = "Admin")]
@@ -74,13 +92,23 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> DeleteRole(int roleId)
         {
+            _logger.LogInformation("Received DeleteRole request for role ID: {RoleId}", roleId);
+
             var command = new DeleteRoleCommand { RoleId = roleId };
             var result = await _mediator.Send(command);
+
             if (result.IsSuccess)
             {
+                _logger.LogInformation("Successfully deleted role with ID: {RoleId}", roleId);
                 return Ok(result);
             }
-            return result.Error.Message.Contains("không tồn tại") ? NotFound(result) : BadRequest(result);
+            if (result.Error.Message.Contains("không tồn tại"))
+            {
+                _logger.LogWarning("Role with ID {RoleId} not found", roleId);
+                return NotFound(result);
+            }
+            _logger.LogWarning("Failed to delete role with ID {RoleId}, Error: {Error}", roleId, result.Error.Message);
+            return BadRequest(result);
         }
     }
 }

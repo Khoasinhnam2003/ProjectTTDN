@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -48,20 +49,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
         private readonly IUnitOfWork _unitOfWork;
         private readonly DeleteRoleCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<DeleteRoleCommandHandler> _logger;
 
-        public DeleteRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public DeleteRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<DeleteRoleCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new DeleteRoleCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting deletion of role with ID: {RoleId}", request.RoleId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for role ID {RoleId}: {Errors}", request.RoleId, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -72,6 +78,8 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
                 var role = await roleRepository.FindAsync(request.RoleId, cancellationToken);
                 if (role == null)
                 {
+                    transaction.Rollback();
+                    _logger.LogWarning("Role with ID {RoleId} not found", request.RoleId);
                     return Result<bool>.Failure(new Error("Vai trò không tồn tại."));
                 }
 
@@ -81,15 +89,23 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
                 if (changes > 0)
                 {
                     transaction.Commit();
+                    _logger.LogInformation("Successfully deleted role with ID: {RoleId}", request.RoleId);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when deleting role with ID: {RoleId}", request.RoleId);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi xóa vai trò."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                if (ex.InnerException?.Message.Contains("FOREIGN KEY constraint") == true)
+                {
+                    _logger.LogWarning("Cannot delete role with ID {RoleId} due to foreign key constraint", request.RoleId);
+                    return Result<bool>.Failure(new Error("Không thể xóa vai trò vì đã có người dùng liên kết với vai trò này."));
+                }
+                _logger.LogError(ex, "Error deleting role with ID: {RoleId}", request.RoleId);
                 return Result<bool>.Failure(new Error($"Lỗi khi xóa vai trò: {ex.Message}"));
             }
         }

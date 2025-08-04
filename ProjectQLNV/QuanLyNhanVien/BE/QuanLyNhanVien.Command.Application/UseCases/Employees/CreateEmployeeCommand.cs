@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -35,7 +36,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
-            // Quy tắc với regex hỗ trợ tiếng Việt và kiểm tra trùng lặp
             RuleFor(x => x.FirstName).NotEmpty().MaximumLength(50).WithMessage("Tên không được để trống và tối đa 50 ký tự.")
                 .Matches(new Regex("^[\\p{L}\\s]+$")).WithMessage("Tên chỉ được chứa chữ cái và khoảng trắng.");
             RuleFor(x => x.LastName).NotEmpty().MaximumLength(50).WithMessage("Họ không được để trống và tối đa 50 ký tự.")
@@ -45,7 +45,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 .Matches(new Regex("^[0-9]+$")).WithMessage("Số điện thoại chỉ được chứa số.");
             RuleFor(x => x.HireDate).NotEmpty().LessThanOrEqualTo(DateTime.Now).WithMessage("Ngày nhận việc không được trong tương lai.");
 
-            // Kiểm tra trùng lặp FirstName + LastName
             RuleFor(x => x).CustomAsync(async (command, context, cancellationToken) =>
             {
                 var employees = await _context.Employees.ToListAsync(cancellationToken);
@@ -59,7 +58,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 }
             });
 
-            // Kiểm tra trùng lặp Phone
             RuleFor(x => x.Phone).CustomAsync(async (phone, context, cancellationToken) =>
             {
                 var employees = await _context.Employees.ToListAsync(cancellationToken);
@@ -71,7 +69,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 }
             });
 
-            // Kiểm tra trùng lặp Email
             RuleFor(x => x.Email).CustomAsync(async (email, context, cancellationToken) =>
             {
                 var employees = await _context.Employees.ToListAsync(cancellationToken);
@@ -83,7 +80,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 }
             });
 
-            // Kiểm tra DepartmentId và PositionId tồn tại
             RuleFor(x => x.DepartmentId).CustomAsync(async (deptId, context, cancellationToken) =>
             {
                 if (deptId.HasValue)
@@ -115,21 +111,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateEmployeeCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateEmployeeCommandHandler> _logger;
 
-        public CreateEmployeeCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateEmployeeCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateEmployeeCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
-            _validator = new CreateEmployeeCommandValidator(context); // Truyền context vào validator
+            _validator = new CreateEmployeeCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Employee>> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            // Thực hiện validation
+            _logger.LogInformation("Starting creation of employee with name: {FirstName} {LastName}", request.FirstName, request.LastName);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for employee name {FirstName} {LastName}: {Errors}", request.FirstName, request.LastName, errorMessages);
                 return Result<Employee>.Failure(new Error(errorMessages));
             }
 
@@ -159,7 +159,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 {
                     transaction.Commit();
 
-                    // Truy vấn lại employee để lấy ID và tải Department/Position
                     var createdEmployee = await _context.Employees
                         .Include(e => e.Department)
                         .Include(e => e.Position)
@@ -167,10 +166,10 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
 
                     if (createdEmployee == null)
                     {
+                        _logger.LogWarning("Could not find created employee with name {FirstName} {LastName}", request.FirstName, request.LastName);
                         return Result<Employee>.Failure(new Error("Không thể tìm thấy nhân viên vừa tạo."));
                     }
 
-                    // Tạo bản sao với thông tin chi tiết
                     var resultEmployee = new Employee
                     {
                         EmployeeId = createdEmployee.EmployeeId,
@@ -209,14 +208,17 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                         SalaryHistories = createdEmployee.SalaryHistories,
                         Skills = createdEmployee.Skills
                     };
+                    _logger.LogInformation("Successfully created employee with ID: {EmployeeId}", resultEmployee.EmployeeId);
                     return Result<Employee>.Success(resultEmployee);
                 }
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating employee with name {FirstName} {LastName}", request.FirstName, request.LastName);
                 return Result<Employee>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo nhân viên."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating employee with name {FirstName} {LastName}", request.FirstName, request.LastName);
                 return Result<Employee>.Failure(new Error($"Lỗi khi tạo nhân viên: {ex.Message}"));
             }
         }

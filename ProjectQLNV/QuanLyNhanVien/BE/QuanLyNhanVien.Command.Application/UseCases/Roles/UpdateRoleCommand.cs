@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -66,20 +67,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdateRoleCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateRoleCommandHandler> _logger;
 
-        public UpdateRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateRoleCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new UpdateRoleCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Role>> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for role with ID: {RoleId}", request.RoleId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for role ID {RoleId}: {Errors}", request.RoleId, errorMessages);
                 return Result<Role>.Failure(new Error(errorMessages));
             }
 
@@ -90,22 +96,33 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
                 var role = await roleRepository.FindAsync(request.RoleId, cancellationToken);
                 if (role == null)
                 {
+                    transaction.Rollback();
+                    _logger.LogWarning("Role with ID {RoleId} not found", request.RoleId);
                     return Result<Role>.Failure(new Error("Vai trò không tồn tại."));
                 }
 
                 role.RoleName = request.RoleName;
                 role.Description = request.Description;
-                role.UpdatedAt = DateTime.Now;
+                role.UpdatedAt = DateTime.Now; // 01:43 PM +07, 30/07/2025
 
                 roleRepository.Update(role);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                int changes = await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-                transaction.Commit();
-                return Result<Role>.Success(role);
+                if (changes > 0)
+                {
+                    transaction.Commit();
+                    _logger.LogInformation("Successfully updated role with ID: {RoleId}", request.RoleId);
+                    return Result<Role>.Success(role);
+                }
+
+                transaction.Rollback();
+                _logger.LogWarning("No changes made when updating role with ID: {RoleId}", request.RoleId);
+                return Result<Role>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật vai trò."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error updating role with ID: {RoleId}", request.RoleId);
                 return Result<Role>.Failure(new Error($"Lỗi khi cập nhật vai trò: {ex.Message}"));
             }
         }

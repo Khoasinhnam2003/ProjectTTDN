@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -50,20 +51,27 @@ namespace QuanLyNhanVien.Command.Application.UseCases.SalaryHistories
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateSalaryHistoryCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateSalaryHistoryCommandHandler> _logger;
 
-        public CreateSalaryHistoryCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateSalaryHistoryCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateSalaryHistoryCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateSalaryHistoryCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<SalaryHistory>> Handle(CreateSalaryHistoryCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of salary history for employee ID: {EmployeeId}, Salary: {Salary}, EffectiveDate: {EffectiveDate}",
+                request.EmployeeId, request.Salary, request.EffectiveDate);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for salary history creation for employee ID {EmployeeId}: {Errors}",
+                    request.EmployeeId, errorMessages);
                 return Result<SalaryHistory>.Failure(new Error(errorMessages));
             }
 
@@ -89,14 +97,19 @@ namespace QuanLyNhanVien.Command.Application.UseCases.SalaryHistories
                     var createdSalaryHistory = await _context.SalaryHistories
                         .Include(sh => sh.Employee)
                         .FirstOrDefaultAsync(sh => sh.SalaryHistoryId == salaryHistory.SalaryHistoryId, cancellationToken);
+                    _logger.LogInformation("Successfully created salary history with ID: {SalaryHistoryId} for employee ID: {EmployeeId}",
+                        createdSalaryHistory?.SalaryHistoryId, request.EmployeeId);
                     return Result<SalaryHistory>.Success(createdSalaryHistory);
                 }
+
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating salary history for employee ID: {EmployeeId}", request.EmployeeId);
                 return Result<SalaryHistory>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo lịch sử lương."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating salary history for employee ID: {EmployeeId}", request.EmployeeId);
                 return Result<SalaryHistory>.Failure(new Error($"Lỗi khi tạo lịch sử lương: {ex.Message}"));
             }
         }

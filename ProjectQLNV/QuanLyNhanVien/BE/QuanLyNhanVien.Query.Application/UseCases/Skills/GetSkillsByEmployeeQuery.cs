@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using System;
@@ -35,22 +36,35 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Skills
     public class GetSkillsByEmployeeQueryHandler : IRequestHandler<GetSkillsByEmployeeQuery, List<Skill>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetSkillsByEmployeeQueryHandler(IUnitOfWork unitOfWork)
+        public GetSkillsByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<Skill>> Handle(GetSkillsByEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<Skill>();
-            return await repository.GetAll()
-                .Include(s => s.Employee)
-                .Where(s => s.EmployeeId == request.EmployeeId)
-                .OrderBy(s => s.SkillId)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ToListAsync(cancellationToken);
+            _logger.LogInformation("Handling GetSkillsByEmployeeQuery for EmployeeId={EmployeeId}, PageNumber={PageNumber}, PageSize={PageSize}", request.EmployeeId, request.PageNumber, request.PageSize);
+            try
+            {
+                var repository = _unitOfWork.Repository<Skill>();
+                var skills = await repository.GetAll()
+                    .Include(s => s.Employee)
+                    .Where(s => s.EmployeeId == request.EmployeeId)
+                    .OrderBy(s => s.SkillId)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToListAsync(cancellationToken);
+                _logger.LogInformation("Retrieved {Count} skills for EmployeeId={EmployeeId}", skills.Count, request.EmployeeId);
+                return skills;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetSkillsByEmployeeQuery for EmployeeId={EmployeeId}", request.EmployeeId);
+                throw;
+            }
         }
     }
 }

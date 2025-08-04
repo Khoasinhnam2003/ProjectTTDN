@@ -1,0 +1,11 @@
+2025-07-28 11:47:46.345 +07:00 [INF] Application is starting...
+2025-07-28 11:47:55.558 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-28 11:47:55.742 +07:00 [INF] Login attempt for user with credentials: {"Username":"huy20032","Password":"AvgLucas2003","$type":"LoginCommand"}
+2025-07-28 11:47:55.915 +07:00 [INF] Processing login request for username: huy20032
+2025-07-28 11:47:57.714 +07:00 [INF] JWT token generated for user huy20032
+2025-07-28 11:47:57.894 +07:00 [INF] Check-in updated for EmployeeId 2 at "2025-07-28T11:47:57.7546251+07:00"
+2025-07-28 11:47:57.900 +07:00 [INF] Login successful for user huy20032 with EmployeeId 2
+2025-07-28 11:48:19.673 +07:00 [INF] Logout attempt for EmployeeId: 2
+2025-07-28 11:48:19.680 +07:00 [INF] Processing check-out for EmployeeId: 2
+2025-07-28 11:48:19.764 +07:00 [INF] Check-out successful for EmployeeId: 2 at "2025-07-28T11:48:19.7043012+07:00"
+2025-07-28 11:48:19.766 +07:00 [INF] Logout successful for EmployeeId: 2

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Application.UseCases.SalaryHistories;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,15 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
     public class SalaryController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<SalaryController> _logger;
 
-        public SalaryController(IMediator mediator)
+        public SalaryController(IMediator mediator, ILogger<SalaryController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -30,15 +33,15 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> CreateSalaryHistory([FromBody] CreateSalaryHistoryCommand command)
         {
-            try
-            {
-                var result = await _mediator.Send(command);
-                if (!result.IsSuccess)
-                {
-                    return BadRequest(new { Message = result.Error.Message });
-                }
+            _logger.LogInformation("Received CreateSalaryHistory request for employee ID: {EmployeeId}, Salary: {Salary}, EffectiveDate: {EffectiveDate}",
+                command.EmployeeId, command.Salary, command.EffectiveDate);
 
+            var result = await _mediator.Send(command);
+            if (result.IsSuccess)
+            {
                 var salaryHistory = result.Data;
+                _logger.LogInformation("Successfully created salary history with ID: {SalaryHistoryId} for employee ID: {EmployeeId}",
+                    salaryHistory.SalaryHistoryId, salaryHistory.EmployeeId);
                 return Ok(new
                 {
                     SalaryHistoryId = salaryHistory.SalaryHistoryId,
@@ -48,13 +51,13 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
                     EffectiveDate = salaryHistory.EffectiveDate
                 });
             }
-            catch (Exception ex)
-            {
-                return BadRequest(new { Message = ex.Message });
-            }
+
+            _logger.LogWarning("Failed to create salary history for employee ID {EmployeeId}, Error: {Error}",
+                command.EmployeeId, result.Error.Message);
+            return BadRequest(new { Message = result.Error.Message });
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPut("{salaryHistoryId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -63,20 +66,20 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> UpdateSalaryHistory(int salaryHistoryId, [FromBody] UpdateSalaryHistoryCommand command)
         {
-            try
+            _logger.LogInformation("Received UpdateSalaryHistory request for salary history ID: {SalaryHistoryId}", salaryHistoryId);
+
+            if (salaryHistoryId != command.SalaryHistoryId)
             {
-                if (salaryHistoryId != command.SalaryHistoryId)
-                {
-                    return BadRequest(new { Message = "SalaryHistoryId trong URL không khớp với command." });
-                }
+                _logger.LogWarning("SalaryHistoryId mismatch: URL SalaryHistoryId {UrlSalaryHistoryId} does not match body SalaryHistoryId {BodySalaryHistoryId}",
+                    salaryHistoryId, command.SalaryHistoryId);
+                return BadRequest(new { Message = "SalaryHistoryId trong URL không khớp với command." });
+            }
 
-                var result = await _mediator.Send(command);
-                if (!result.IsSuccess)
-                {
-                    return result.Error.Message.Contains("không tồn tại") ? NotFound(new { Message = result.Error.Message }) : BadRequest(new { Message = result.Error.Message });
-                }
-
+            var result = await _mediator.Send(command);
+            if (result.IsSuccess)
+            {
                 var salaryHistory = result.Data;
+                _logger.LogInformation("Successfully updated salary history with ID: {SalaryHistoryId}", salaryHistory.SalaryHistoryId);
                 return Ok(new
                 {
                     SalaryHistoryId = salaryHistory.SalaryHistoryId,
@@ -86,13 +89,19 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
                     EffectiveDate = salaryHistory.EffectiveDate
                 });
             }
-            catch (Exception ex)
+
+            if (result.Error.Message.Contains("không tồn tại"))
             {
-                return BadRequest(new { Message = ex.Message });
+                _logger.LogWarning("Salary history with ID {SalaryHistoryId} not found", salaryHistoryId);
+                return NotFound(new { Message = result.Error.Message });
             }
+
+            _logger.LogWarning("Failed to update salary history with ID {SalaryHistoryId}, Error: {Error}",
+                salaryHistoryId, result.Error.Message);
+            return BadRequest(new { Message = result.Error.Message });
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpDelete("{salaryHistoryId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -101,21 +110,26 @@ namespace QuanLyNhanVien.Command.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> DeleteSalaryHistory(int salaryHistoryId)
         {
-            try
-            {
-                var command = new DeleteSalaryHistoryCommand { SalaryHistoryId = salaryHistoryId };
-                var result = await _mediator.Send(command);
-                if (!result.IsSuccess)
-                {
-                    return result.Error.Message.Contains("không tồn tại") ? NotFound(new { Message = result.Error.Message }) : BadRequest(new { Message = result.Error.Message });
-                }
+            _logger.LogInformation("Received DeleteSalaryHistory request for salary history ID: {SalaryHistoryId}", salaryHistoryId);
 
+            var command = new DeleteSalaryHistoryCommand { SalaryHistoryId = salaryHistoryId };
+            var result = await _mediator.Send(command);
+
+            if (result.IsSuccess)
+            {
+                _logger.LogInformation("Successfully deleted salary history with ID: {SalaryHistoryId}", salaryHistoryId);
                 return Ok(new { Message = "Xóa lịch sử lương thành công." });
             }
-            catch (Exception ex)
+
+            if (result.Error.Message.Contains("không tồn tại"))
             {
-                return BadRequest(new { Message = ex.Message });
+                _logger.LogWarning("Salary history with ID {SalaryHistoryId} not found", salaryHistoryId);
+                return NotFound(new { Message = result.Error.Message });
             }
+
+            _logger.LogWarning("Failed to delete salary history with ID {SalaryHistoryId}, Error: {Error}",
+                salaryHistoryId, result.Error.Message);
+            return BadRequest(new { Message = result.Error.Message });
         }
     }
 }

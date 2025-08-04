@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -77,20 +78,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdateDepartmentCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateDepartmentCommandHandler> _logger;
 
-        public UpdateDepartmentCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateDepartmentCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateDepartmentCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new UpdateDepartmentCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(UpdateDepartmentCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for department with ID: {DepartmentId}", request.DepartmentId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for department ID {DepartmentId}: {Errors}", request.DepartmentId, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -102,6 +108,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
                 if (department == null)
                 {
                     transaction.Rollback();
+                    _logger.LogWarning("Department with ID {DepartmentId} not found", request.DepartmentId);
                     return Result<bool>.Failure(new Error("Phòng ban không tồn tại."));
                 }
 
@@ -116,16 +123,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Departments
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    Console.WriteLine("Thành công");
+                    _logger.LogInformation("Successfully updated department with ID: {DepartmentId}", request.DepartmentId);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when updating department with ID: {DepartmentId}", request.DepartmentId);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật phòng ban."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error updating department with ID: {DepartmentId}", request.DepartmentId);
                 return Result<bool>.Failure(new Error($"Lỗi khi cập nhật phòng ban: {ex.Message}"));
             }
         }

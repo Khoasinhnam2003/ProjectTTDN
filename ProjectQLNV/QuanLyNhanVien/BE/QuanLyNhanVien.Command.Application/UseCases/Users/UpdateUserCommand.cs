@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -89,20 +90,26 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdateUserCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateUserCommandHandler> _logger;
 
-        public UpdateUserCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateUserCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateUserCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new UpdateUserCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<User>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for user ID: {UserId}, Username: {Username}",
+                request.UserId, request.Username);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for user ID {UserId}: {Errors}", request.UserId, errorMessages);
                 return Result<User>.Failure(new Error(errorMessages));
             }
 
@@ -113,6 +120,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
                 var user = await userRepository.FindAsync(request.UserId, cancellationToken);
                 if (user == null)
                 {
+                    _logger.LogWarning("User with ID {UserId} not found", request.UserId);
                     return Result<User>.Failure(new Error("Tài khoản không tồn tại."));
                 }
 
@@ -123,11 +131,10 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
                     user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password, salt);
                     user.PasswordSalt = salt;
                 }
-                user.UpdatedAt = DateTime.Now;
+                user.UpdatedAt = DateTime.Now; // 01:51 PM +07, 30/07/2025
 
                 userRepository.Update(user);
 
-                // Cập nhật UserRole
                 var userRoleRepository = _unitOfWork.Repository<UserRole, (int, int)>();
                 var existingRoles = await _context.UserRoles
                     .Where(ur => ur.UserId == request.UserId)
@@ -151,24 +158,33 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
                     }
                 }
 
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Commit();
-
-                var updatedUser = await _context.Users
-                    .Include(u => u.UserRoles)
-                    .ThenInclude(ur => ur.Role)
-                    .FirstOrDefaultAsync(u => u.UserId == user.UserId, cancellationToken);
-
-                if (updatedUser == null)
+                int changes = await _unitOfWork.SaveChangesAsync(cancellationToken);
+                if (changes > 0)
                 {
-                    return Result<User>.Failure(new Error("Không thể tìm thấy tài khoản vừa cập nhật."));
+                    transaction.Commit();
+                    var updatedUser = await _context.Users
+                        .Include(u => u.UserRoles)
+                        .ThenInclude(ur => ur.Role)
+                        .FirstOrDefaultAsync(u => u.UserId == user.UserId, cancellationToken);
+
+                    if (updatedUser == null)
+                    {
+                        _logger.LogWarning("Could not find user just updated with ID {UserId}", request.UserId);
+                        return Result<User>.Failure(new Error("Không thể tìm thấy tài khoản vừa cập nhật."));
+                    }
+
+                    _logger.LogInformation("Successfully updated user with ID: {UserId}", request.UserId);
+                    return Result<User>.Success(updatedUser);
                 }
 
-                return Result<User>.Success(updatedUser);
+                transaction.Rollback();
+                _logger.LogWarning("No changes made when updating user with ID: {UserId}", request.UserId);
+                return Result<User>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật tài khoản."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error updating user with ID: {UserId}", request.UserId);
                 return Result<User>.Failure(new Error($"Lỗi khi cập nhật tài khoản: {ex.Message}"));
             }
         }

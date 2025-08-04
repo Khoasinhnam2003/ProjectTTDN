@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -18,11 +19,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
 {
     public record CreateRoleCommand : IRequest<Result<Role>>
     {
-        [Required]
-        [StringLength(50)]
         public string RoleName { get; set; }
-
-        [StringLength(200)]
         public string Description { get; set; }
     }
 
@@ -60,20 +57,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateRoleCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateRoleCommandHandler> _logger;
 
-        public CreateRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateRoleCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateRoleCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateRoleCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Role>> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of role with name: {RoleName}", request.RoleName);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for role name {RoleName}: {Errors}", request.RoleName, errorMessages);
                 return Result<Role>.Failure(new Error(errorMessages));
             }
 
@@ -90,14 +92,23 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Roles
             {
                 var roleRepository = _unitOfWork.Repository<Role, int>();
                 roleRepository.Add(role);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                int changes = await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-                transaction.Commit();
-                return Result<Role>.Success(role);
+                if (changes > 0)
+                {
+                    transaction.Commit();
+                    _logger.LogInformation("Successfully created role with name: {RoleName}, ID: {RoleId}", role.RoleName, role.RoleId);
+                    return Result<Role>.Success(role);
+                }
+
+                transaction.Rollback();
+                _logger.LogWarning("No changes made when creating role with name: {RoleName}", request.RoleName);
+                return Result<Role>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo vai trò."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating role with name: {RoleName}", request.RoleName);
                 return Result<Role>.Failure(new Error($"Lỗi khi tạo vai trò: {ex.Message}"));
             }
         }

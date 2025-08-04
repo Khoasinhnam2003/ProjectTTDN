@@ -10,6 +10,7 @@ namespace QuanLyNhanVien.Command.Contracts.Shared
 {
     public class Result<T> : IResult<T>
     {
+
         public bool IsSuccess { get; }
         public T Data { get; }
         public Error Error { get; }

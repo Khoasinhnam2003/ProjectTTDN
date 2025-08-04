@@ -2205,6 +2205,9 @@
           "Microsoft.EntityFrameworkCore": "8.0.6",
           "QuanLyNhanVien.Command.Application": "1.0.0",
           "QuanLyNhanVien.Command.Persistence": "1.0.0",
+          "Serilog.AspNetCore": "8.0.2",
+          "Serilog.Sinks.Console": "5.0.1",
+          "Serilog.Sinks.File": "6.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.11.0"
         },
         "compile": {
@@ -2245,6 +2248,9 @@
           "QuanLyNhanVien.Command.Application": "1.0.0",
           "QuanLyNhanVien.Command.Infrastructure": "1.0.0",
           "QuanLyNhanVien.Query.Domain": "1.0.0",
+          "Serilog.AspNetCore": "8.0.2",
+          "Serilog.Sinks.Console": "5.0.1",
+          "Serilog.Sinks.File": "6.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.11.0"
         },
         "compile": {

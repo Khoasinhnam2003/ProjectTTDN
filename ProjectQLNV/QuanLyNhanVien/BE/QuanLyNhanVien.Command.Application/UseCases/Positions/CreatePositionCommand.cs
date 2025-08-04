@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -43,7 +44,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 .GreaterThanOrEqualTo(0).WithMessage("Lương cơ bản phải lớn hơn hoặc bằng 0.")
                 .When(x => x.BaseSalary.HasValue);
 
-            // Kiểm tra trùng lặp PositionName
             RuleFor(x => x.PositionName)
                 .CustomAsync(async (name, context, cancellationToken) =>
                 {
@@ -62,20 +62,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreatePositionCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreatePositionCommandHandler> _logger;
 
-        public CreatePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreatePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreatePositionCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreatePositionCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(CreatePositionCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of position with name: {PositionName}", request.PositionName);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for position name {PositionName}: {Errors}", request.PositionName, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -98,16 +103,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    Console.WriteLine("Thành công");
+                    _logger.LogInformation("Successfully created position with name: {PositionName}", request.PositionName);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating position with name: {PositionName}", request.PositionName);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo vị trí."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating position with name: {PositionName}", request.PositionName);
                 return Result<bool>.Failure(new Error($"Lỗi khi tạo vị trí: {ex.Message}"));
             }
         }

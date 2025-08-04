@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Application.UseCases.Positions;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
     public class PositionsController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger _logger;
 
-        public PositionsController(IMediator mediator)
+        public PositionsController(IMediator mediator, ILogger logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [Authorize]
@@ -29,15 +32,26 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> GetAllPositions([FromQuery] GetAllPositionsQuery query)
         {
-            var positions = await _mediator.Send(query);
-            var response = positions.Select(p => new
+            var userId = User?.Identity?.Name ?? "Unknown";
+            _logger.LogInformation("User {UserId} requested all positions with PageNumber={PageNumber} and PageSize={PageSize}", userId, query.PageNumber, query.PageSize);
+            try
             {
-                PositionId = p.PositionId,
-                PositionName = p.PositionName,
-                Description = p.Description,
-                BaseSalary = p.BaseSalary
-            }).ToList();
-            return Ok(response);
+                var positions = await _mediator.Send(query);
+                var response = positions.Select(p => new
+                {
+                    PositionId = p.PositionId,
+                    PositionName = p.PositionName,
+                    Description = p.Description,
+                    BaseSalary = p.BaseSalary
+                }).ToList();
+                _logger.LogInformation("Successfully returned {Count} positions for user {UserId}", response.Count, userId);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error while fetching all positions for user {UserId}", userId);
+                throw;
+            }
         }
 
         [Authorize]
@@ -48,21 +62,31 @@ namespace QuanLyNhanVien.Query.Presentation.Controller
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> GetPositionById(int positionId)
         {
+            var userId = User?.Identity?.Name ?? "Unknown";
+            _logger.LogInformation("User {UserId} requested position with ID {PositionId}", userId, positionId);
             try
             {
                 var query = new GetPositionByIdQuery { PositionId = positionId };
                 var position = await _mediator.Send(query);
-                return Ok(new
+                var response = new
                 {
                     PositionId = position.PositionId,
                     PositionName = position.PositionName,
                     Description = position.Description,
                     BaseSalary = position.BaseSalary
-                });
+                };
+                _logger.LogInformation("Successfully returned position with ID {PositionId} for user {UserId}", positionId, userId);
+                return Ok(response);
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning("Position with ID {PositionId} not found for user {UserId}", positionId, userId);
                 return NotFound(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error while fetching position with ID {PositionId} for user {UserId}", positionId, userId);
+                throw;
             }
         }
     }

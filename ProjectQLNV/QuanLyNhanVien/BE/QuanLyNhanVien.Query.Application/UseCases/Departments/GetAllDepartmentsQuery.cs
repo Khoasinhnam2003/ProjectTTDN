@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Contracts.DTOs;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
@@ -33,33 +34,46 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Departments
     public class GetAllDepartmentsQueryHandler : IRequestHandler<GetAllDepartmentsQuery, List<DepartmentDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetAllDepartmentsQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllDepartmentsQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<DepartmentDto>> Handle(GetAllDepartmentsQuery request, CancellationToken cancellationToken)
         {
-            var departmentRepository = _unitOfWork.Repository<Department>();
-            var employeeRepository = _unitOfWork.Repository<Employee>();
-
-            var departments = await departmentRepository.GetAll()
-                .Include(d => d.Manager)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ToListAsync(cancellationToken);
-
-            var departmentDtos = departments.Select(d => new DepartmentDto
+            _logger.LogInformation("Handling GetAllDepartmentsQuery, PageNumber: {PageNumber}, PageSize: {PageSize}",
+                request.PageNumber, request.PageSize);
+            try
             {
-                DepartmentId = d.DepartmentId,
-                DepartmentName = d.DepartmentName,
-                Location = d.Location,
-                ManagerName = d.Manager != null ? $"{d.Manager.FirstName} {d.Manager.LastName}" : null,
-                EmployeeCount = employeeRepository.GetAll().Count(e => e.DepartmentId == d.DepartmentId)
-            }).ToList();
+                var departmentRepository = _unitOfWork.Repository<Department>();
+                var employeeRepository = _unitOfWork.Repository<Employee>();
 
-            return departmentDtos;
+                var departments = await departmentRepository.GetAll()
+                    .Include(d => d.Manager)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToListAsync(cancellationToken);
+
+                var departmentDtos = departments.Select(d => new DepartmentDto
+                {
+                    DepartmentId = d.DepartmentId,
+                    DepartmentName = d.DepartmentName,
+                    Location = d.Location,
+                    ManagerName = d.Manager != null ? $"{d.Manager.FirstName} {d.Manager.LastName}" : null,
+                    EmployeeCount = employeeRepository.GetAll().Count(e => e.DepartmentId == d.DepartmentId)
+                }).ToList();
+
+                _logger.LogInformation("Retrieved {DepartmentCount} departments", departmentDtos.Count);
+                return departmentDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetAllDepartmentsQuery");
+                throw;
+            }
         }
     }
 }

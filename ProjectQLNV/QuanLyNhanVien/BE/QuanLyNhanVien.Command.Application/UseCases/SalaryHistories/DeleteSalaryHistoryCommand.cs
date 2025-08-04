@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -41,20 +42,26 @@ namespace QuanLyNhanVien.Command.Application.UseCases.SalaryHistories
         private readonly IUnitOfWork _unitOfWork;
         private readonly DeleteSalaryHistoryCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<DeleteSalaryHistoryCommandHandler> _logger;
 
-        public DeleteSalaryHistoryCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public DeleteSalaryHistoryCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<DeleteSalaryHistoryCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new DeleteSalaryHistoryCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(DeleteSalaryHistoryCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting deletion of salary history with ID: {SalaryHistoryId}", request.SalaryHistoryId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for salary history ID {SalaryHistoryId}: {Errors}",
+                    request.SalaryHistoryId, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -63,6 +70,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.SalaryHistories
 
             if (salaryHistory == null)
             {
+                _logger.LogWarning("Salary history with ID {SalaryHistoryId} not found", request.SalaryHistoryId);
                 return Result<bool>.Failure(new Error("Lịch sử lương không tồn tại."));
             }
 
@@ -75,14 +83,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.SalaryHistories
                 if (changes > 0)
                 {
                     transaction.Commit();
+                    _logger.LogInformation("Successfully deleted salary history with ID: {SalaryHistoryId}", request.SalaryHistoryId);
                     return Result<bool>.Success(true);
                 }
+
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when deleting salary history with ID: {SalaryHistoryId}", request.SalaryHistoryId);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi xóa lịch sử lương."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error deleting salary history with ID: {SalaryHistoryId}", request.SalaryHistoryId);
                 return Result<bool>.Failure(new Error($"Lỗi khi xóa lịch sử lương: {ex.Message}"));
             }
         }

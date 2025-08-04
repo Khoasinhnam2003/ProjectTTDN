@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -37,7 +38,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
 
-            // Quy tắc hiện tại
             RuleFor(x => x.EmployeeId).GreaterThan(0).WithMessage("ID nhân viên phải lớn hơn 0.");
             RuleFor(x => x.FirstName).NotEmpty().MaximumLength(50).WithMessage("Tên không được để trống và tối đa 50 ký tự.")
                 .Matches(new Regex("^[\\p{L}\\s]+$")).WithMessage("Tên chỉ được chứa chữ cái và khoảng trắng.");
@@ -48,7 +48,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 .Matches(new Regex("^[0-9]+$")).WithMessage("Số điện thoại chỉ được chứa số.");
             RuleFor(x => x.HireDate).NotEmpty().LessThanOrEqualTo(DateTime.Now).WithMessage("Ngày nhận việc không được trong tương lai.");
 
-            // Kiểm tra trùng lặp FirstName + LastName
             RuleFor(x => x).CustomAsync(async (command, context, cancellationToken) =>
             {
                 var employees = await _context.Employees.ToListAsync(cancellationToken);
@@ -63,10 +62,9 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 }
             });
 
-            // Kiểm tra trùng lặp Phone
             RuleFor(x => x.Phone).CustomAsync(async (phone, context, cancellationToken) =>
             {
-                var command = (UpdateEmployeeCommand)context.InstanceToValidate; // Lấy toàn bộ command
+                var command = (UpdateEmployeeCommand)context.InstanceToValidate;
                 var employees = await _context.Employees.ToListAsync(cancellationToken);
                 var duplicate = employees.FirstOrDefault(e =>
                     e.EmployeeId != command.EmployeeId &&
@@ -85,21 +83,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdateEmployeeCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdateEmployeeCommandHandler> _logger;
 
-        public UpdateEmployeeCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdateEmployeeCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdateEmployeeCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
-            _validator = new UpdateEmployeeCommandValidator(context); // Truyền context vào validator
+            _validator = new UpdateEmployeeCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Employee>> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            // Thực hiện validation
+            _logger.LogInformation("Starting update for employee with ID: {EmployeeId}", request.EmployeeId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for employee ID {EmployeeId}: {Errors}", request.EmployeeId, errorMessages);
                 return Result<Employee>.Failure(new Error(errorMessages));
             }
 
@@ -114,10 +116,10 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 if (employee == null)
                 {
                     transaction.Rollback();
+                    _logger.LogWarning("Employee with ID {EmployeeId} not found", request.EmployeeId);
                     return Result<Employee>.Failure(new Error("Nhân viên không tồn tại."));
                 }
 
-                // Lấy thông tin Department nếu có DepartmentId
                 Department primaryDepartment = null;
                 if (request.DepartmentId.HasValue)
                 {
@@ -125,42 +127,41 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                     if (primaryDepartment == null)
                     {
                         transaction.Rollback();
+                        _logger.LogWarning("Department with ID {DepartmentId} not found for employee ID {EmployeeId}", request.DepartmentId, request.EmployeeId);
                         return Result<Employee>.Failure(new Error("Phòng ban không tồn tại."));
                     }
                     employee.DepartmentId = primaryDepartment.DepartmentId;
-                    employee.Department = primaryDepartment; // Sử dụng instance từ repository
+                    employee.Department = primaryDepartment;
 
-                    // Cập nhật ManagerId nếu là quản lý
                     if (request.PositionId.HasValue && request.PositionId.Value == 2 && primaryDepartment.ManagerId != employee.EmployeeId)
                     {
                         primaryDepartment.ManagerId = employee.EmployeeId;
                         primaryDepartment.UpdatedAt = DateTime.Now;
                         departmentRepository.Update(primaryDepartment);
-                        Console.WriteLine($"Đã cập nhật ManagerId = {employee.EmployeeId} cho DepartmentId = {primaryDepartment.DepartmentId}");
+                        _logger.LogInformation("Updated ManagerId = {ManagerId} for DepartmentId = {DepartmentId}", employee.EmployeeId, primaryDepartment.DepartmentId);
                     }
                     else if (primaryDepartment.ManagerId == employee.EmployeeId && (!request.PositionId.HasValue || request.PositionId.Value != 2))
                     {
                         primaryDepartment.ManagerId = null;
                         primaryDepartment.UpdatedAt = DateTime.Now;
                         departmentRepository.Update(primaryDepartment);
-                        Console.WriteLine($"Đã đặt ManagerId = NULL cho DepartmentId = {primaryDepartment.DepartmentId}");
+                        _logger.LogInformation("Set ManagerId = NULL for DepartmentId = {DepartmentId}", primaryDepartment.DepartmentId);
                     }
                 }
 
-                // Lấy thông tin Position nếu có PositionId
                 if (request.PositionId.HasValue)
                 {
                     var position = await positionRepository.FindAsync(request.PositionId.Value, cancellationToken);
                     if (position == null)
                     {
                         transaction.Rollback();
+                        _logger.LogWarning("Position with ID {PositionId} not found for employee ID {EmployeeId}", request.PositionId, request.EmployeeId);
                         return Result<Employee>.Failure(new Error("Vị trí không tồn tại."));
                     }
                     employee.PositionId = position.PositionId;
-                    employee.Position = position; // Sử dụng instance từ repository
+                    employee.Position = position;
                 }
 
-                // Cập nhật thông tin nhân viên với thời gian hiện tại
                 employee.FirstName = request.FirstName;
                 employee.LastName = request.LastName;
                 employee.Email = request.Email;
@@ -168,7 +169,7 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 employee.DateOfBirth = request.DateOfBirth;
                 employee.HireDate = request.HireDate;
                 employee.IsActive = request.IsActive ?? employee.IsActive;
-                employee.UpdatedAt = DateTime.Now; // Cập nhật thời gian cho Employee
+                employee.UpdatedAt = DateTime.Now;
 
                 employeeRepository.Update(employee);
                 int changes = await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -176,13 +177,11 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    // Lấy tất cả Department mà employee đang quản lý
                     var managedDepartments = await _context.Departments
                         .Where(d => d.ManagerId == employee.EmployeeId)
                         .Include(d => d.Manager)
                         .ToListAsync(cancellationToken);
 
-                    // Tạo một bản sao của employee với đầy đủ thông tin
                     var resultEmployee = new Employee
                     {
                         EmployeeId = employee.EmployeeId,
@@ -251,24 +250,28 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Employees
                         SalaryHistories = employee.SalaryHistories,
                         Skills = employee.Skills
                     };
+                    _logger.LogInformation("Successfully updated employee with ID: {EmployeeId}", request.EmployeeId);
                     return Result<Employee>.Success(resultEmployee);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when updating employee with ID: {EmployeeId}", request.EmployeeId);
                 return Result<Employee>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật nhân viên."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
-                // Xử lý lỗi từ ràng buộc UNIQUE ([Email]) hoặc khóa ngoại
                 if (ex.InnerException?.Message.Contains("UNIQUE KEY constraint") == true)
                 {
+                    _logger.LogWarning("Email conflict for employee ID {EmployeeId}", request.EmployeeId);
                     return Result<Employee>.Failure(new Error("Email đã được sử dụng bởi một nhân viên khác."));
                 }
                 if (ex.InnerException?.Message.Contains("FOREIGN KEY constraint") == true)
                 {
+                    _logger.LogWarning("Invalid department or position for employee ID {EmployeeId}", request.EmployeeId);
                     return Result<Employee>.Failure(new Error("Phòng ban hoặc vị trí không hợp lệ."));
                 }
+                _logger.LogError(ex, "Error updating employee with ID: {EmployeeId}", request.EmployeeId);
                 return Result<Employee>.Failure(new Error($"Lỗi khi cập nhật nhân viên: {ex.Message}"));
             }
         }

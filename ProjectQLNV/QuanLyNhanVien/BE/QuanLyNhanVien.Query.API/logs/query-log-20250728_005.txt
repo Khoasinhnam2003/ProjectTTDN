@@ -1,0 +1,8 @@
+2025-07-28 15:34:25.313 +07:00 [INF] Query application is starting...
+2025-07-28 15:40:00.665 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-07-28 15:40:07.327 +07:00 [INF] User anhkhoa22022003 requested all employees with PageNumber=1 and PageSize=100
+2025-07-28 15:40:07.463 +07:00 [INF] Fetching all employees with PageNumber=1 and PageSize=100
+2025-07-28 15:40:08.023 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-28 15:40:08.025 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-28 15:40:08.312 +07:00 [INF] Successfully fetched 4 employees
+2025-07-28 15:40:08.315 +07:00 [INF] Successfully returned 4 employees for user anhkhoa22022003

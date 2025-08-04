@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using System;
@@ -33,22 +34,35 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Users
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<User>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetAllUsersQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllUsersQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<User>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<User>();
-            return await repository.GetAll()
-                .Include(u => u.Employee)
-                .Include(u => u.UserRoles)
-                    .ThenInclude(ur => ur.Role)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ToListAsync(cancellationToken);
+            _logger.LogInformation("Handling GetAllUsersQuery with PageNumber={PageNumber}, PageSize={PageSize}", request.PageNumber, request.PageSize);
+            try
+            {
+                var repository = _unitOfWork.Repository<User>();
+                var users = await repository.GetAll()
+                    .Include(u => u.Employee)
+                    .Include(u => u.UserRoles)
+                        .ThenInclude(ur => ur.Role)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToListAsync(cancellationToken);
+                _logger.LogInformation("Retrieved {Count} users", users.Count);
+                return users;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetAllUsersQuery");
+                throw;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -67,20 +68,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Contracts
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateContractCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateContractCommandHandler> _logger;
 
-        public CreateContractCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateContractCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateContractCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateContractCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Contract>> Handle(CreateContractCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of contract for EmployeeId: {EmployeeId}", request.EmployeeId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for EmployeeId {EmployeeId}: {Errors}", request.EmployeeId, errorMessages);
                 return Result<Contract>.Failure(new Error(errorMessages));
             }
 
@@ -106,14 +112,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Contracts
                 if (changes > 0)
                 {
                     transaction.Commit();
+                    _logger.LogInformation("Successfully created contract for EmployeeId: {EmployeeId} with ID: {ContractId}",
+                        request.EmployeeId, contract.ContractId);
                     return Result<Contract>.Success(contract);
                 }
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating contract for EmployeeId: {EmployeeId}", request.EmployeeId);
                 return Result<Contract>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo hợp đồng."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating contract for EmployeeId: {EmployeeId}", request.EmployeeId);
                 return Result<Contract>.Failure(new Error($"Lỗi khi tạo hợp đồng: {ex.Message}"));
             }
         }

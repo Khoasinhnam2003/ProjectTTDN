@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -47,7 +48,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 .GreaterThanOrEqualTo(0).WithMessage("Lương cơ bản phải lớn hơn hoặc bằng 0.")
                 .When(x => x.BaseSalary.HasValue);
 
-            // Kiểm tra trùng lặp PositionName
             RuleFor(x => x.PositionName)
                 .CustomAsync(async (name, context, cancellationToken) =>
                 {
@@ -67,20 +67,25 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
         private readonly IUnitOfWork _unitOfWork;
         private readonly UpdatePositionCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UpdatePositionCommandHandler> _logger;
 
-        public UpdatePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public UpdatePositionCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<UpdatePositionCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new UpdatePositionCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<bool>> Handle(UpdatePositionCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting update for position with ID: {PositionId}", request.PositionId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for position ID {PositionId}: {Errors}", request.PositionId, errorMessages);
                 return Result<bool>.Failure(new Error(errorMessages));
             }
 
@@ -92,13 +97,14 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 if (position == null)
                 {
                     transaction.Rollback();
+                    _logger.LogWarning("Position with ID {PositionId} not found", request.PositionId);
                     return Result<bool>.Failure(new Error("Vị trí không tồn tại."));
                 }
 
                 position.PositionName = request.PositionName;
                 position.Description = request.Description;
                 position.BaseSalary = request.BaseSalary;
-                position.UpdatedAt = DateTime.Now;
+                position.UpdatedAt = DateTime.Now; // 01:40 PM +07, 30/07/2025
 
                 positionRepository.Update(position);
                 int changes = await _unitOfWork.SaveChangesAsync(cancellationToken);
@@ -106,16 +112,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Positions
                 if (changes > 0)
                 {
                     transaction.Commit();
-                    Console.WriteLine("Thành công");
+                    _logger.LogInformation("Successfully updated position with ID: {PositionId}", request.PositionId);
                     return Result<bool>.Success(true);
                 }
 
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when updating position with ID: {PositionId}", request.PositionId);
                 return Result<bool>.Failure(new Error("Không có thay đổi nào được thực hiện khi cập nhật vị trí."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error updating position with ID: {PositionId}", request.PositionId);
                 return Result<bool>.Failure(new Error($"Lỗi khi cập nhật vị trí: {ex.Message}"));
             }
         }

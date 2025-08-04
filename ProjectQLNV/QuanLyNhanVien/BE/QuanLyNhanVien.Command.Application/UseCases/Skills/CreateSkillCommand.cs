@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -52,7 +53,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Skills
                 .MaximumLength(200).WithMessage("Mô tả tối đa 200 ký tự.")
                 .When(x => !string.IsNullOrEmpty(x.Description));
 
-            // Kiểm tra trùng lặp SkillName cho cùng EmployeeId
             RuleFor(x => x).CustomAsync(async (command, context, cancellationToken) =>
             {
                 var skill = await _context.Skills
@@ -70,20 +70,27 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Skills
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateSkillCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateSkillCommandHandler> _logger;
 
-        public CreateSkillCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateSkillCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateSkillCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateSkillCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<Skill>> Handle(CreateSkillCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Starting creation of skill for employee ID: {EmployeeId}, SkillName: {SkillName}",
+                request.EmployeeId, request.SkillName);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for skill creation for employee ID {EmployeeId}, SkillName: {SkillName}: {Errors}",
+                    request.EmployeeId, request.SkillName, errorMessages);
                 return Result<Skill>.Failure(new Error(errorMessages));
             }
 
@@ -107,14 +114,21 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Skills
                 if (changes > 0)
                 {
                     transaction.Commit();
+                    _logger.LogInformation("Successfully created skill with ID: {SkillId} for employee ID: {EmployeeId}, SkillName: {SkillName}",
+                        skill.SkillId, request.EmployeeId, request.SkillName);
                     return Result<Skill>.Success(skill);
                 }
+
                 transaction.Rollback();
+                _logger.LogWarning("No changes made when creating skill for employee ID: {EmployeeId}, SkillName: {SkillName}",
+                    request.EmployeeId, request.SkillName);
                 return Result<Skill>.Failure(new Error("Không có thay đổi nào được thực hiện khi tạo kỹ năng."));
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating skill for employee ID: {EmployeeId}, SkillName: {SkillName}",
+                    request.EmployeeId, request.SkillName);
                 return Result<Skill>.Failure(new Error($"Lỗi khi tạo kỹ năng: {ex.Message}"));
             }
         }

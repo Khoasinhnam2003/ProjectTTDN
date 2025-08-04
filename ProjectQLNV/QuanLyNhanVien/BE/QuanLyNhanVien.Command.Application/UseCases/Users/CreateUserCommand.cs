@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Command.Contracts.Errors;
 using QuanLyNhanVien.Command.Contracts.Shared;
 using QuanLyNhanVien.Command.Domain.Abstractions.Repositories;
@@ -31,7 +32,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
         public List<int> RoleIds { get; set; } = new List<int>();
     }
 
-    // Validator cho CreateUserCommand
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
         private readonly ApplicationDbContext _context;
@@ -74,7 +74,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
                 .Matches(new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"))
                 .WithMessage("Mật khẩu phải chứa ít nhất một chữ cái và một số.");
 
-            // Xác thực RoleIds
             RuleFor(x => x.RoleIds)
                 .NotNull()
                 .WithMessage("Danh sách vai trò không được null.")
@@ -96,31 +95,35 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
         }
     }
 
-    // Handler để xử lý CreateUserCommand
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result<User>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly CreateUserCommandValidator _validator;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CreateUserCommandHandler> _logger;
 
-        public CreateUserCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context)
+        public CreateUserCommandHandler(IUnitOfWork unitOfWork, ApplicationDbContext context, ILogger<CreateUserCommandHandler> logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _validator = new CreateUserCommandValidator(context);
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Result<User>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            // Thực hiện validation
+            _logger.LogInformation("Starting creation of user with username: {Username}, EmployeeId: {EmployeeId}",
+                request.Username, request.EmployeeId);
+
             var validationResult = await _validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
             {
                 var errorMessages = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                _logger.LogWarning("Validation failed for user creation with username {Username}: {Errors}",
+                    request.Username, errorMessages);
                 return Result<User>.Failure(new Error(errorMessages));
             }
 
-            // Mã hóa mật khẩu sử dụng BCrypt
             var salt = BCrypt.Net.BCrypt.GenerateSalt();
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password, salt);
 
@@ -137,12 +140,10 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
             using var transaction = await _unitOfWork.BeginTransactionAsync(cancellationToken);
             try
             {
-                // Thêm user
                 var userRepository = _unitOfWork.Repository<User, int>();
                 userRepository.Add(user);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-                // Thêm vai trò vào UserRole nếu có
                 if (request.RoleIds != null && request.RoleIds.Any())
                 {
                     var userRoleRepository = _unitOfWork.Repository<UserRole, (int, int)>();
@@ -161,7 +162,6 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
 
                 transaction.Commit();
 
-                // Lấy lại user với thông tin đầy đủ
                 var createdUser = await _context.Users
                     .Include(u => u.UserRoles)
                     .ThenInclude(ur => ur.Role)
@@ -169,14 +169,18 @@ namespace QuanLyNhanVien.Command.Application.UseCases.Users
 
                 if (createdUser == null)
                 {
+                    _logger.LogWarning("Could not find user just created with username {Username}", request.Username);
                     return Result<User>.Failure(new Error("Không thể tìm thấy tài khoản vừa tạo."));
                 }
 
+                _logger.LogInformation("Successfully created user with ID: {UserId}, Username: {Username}",
+                    createdUser.UserId, request.Username);
                 return Result<User>.Success(createdUser);
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                _logger.LogError(ex, "Error creating user with username: {Username}", request.Username);
                 return Result<User>.Failure(new Error($"Lỗi khi tạo tài khoản: {ex.Message}"));
             }
         }

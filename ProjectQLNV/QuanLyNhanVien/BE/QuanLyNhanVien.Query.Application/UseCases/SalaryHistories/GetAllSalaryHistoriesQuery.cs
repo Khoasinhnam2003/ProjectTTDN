@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using System;
@@ -33,20 +34,33 @@ namespace QuanLyNhanVien.Query.Application.UseCases.SalaryHistories
     public class GetAllSalaryHistoriesQueryHandler : IRequestHandler<GetAllSalaryHistoriesQuery, List<SalaryHistory>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetAllSalaryHistoriesQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllSalaryHistoriesQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<SalaryHistory>> Handle(GetAllSalaryHistoriesQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<SalaryHistory>();
-            return await repository.GetAll()
-                .Include(sh => sh.Employee)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .ToListAsync(cancellationToken);
+            _logger.LogInformation("Handling GetAllSalaryHistoriesQuery with PageNumber={PageNumber}, PageSize={PageSize}", request.PageNumber, request.PageSize);
+            try
+            {
+                var repository = _unitOfWork.Repository<SalaryHistory>();
+                var salaryHistories = await repository.GetAll()
+                    .Include(sh => sh.Employee)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToListAsync(cancellationToken);
+                _logger.LogInformation("Retrieved {Count} salary histories", salaryHistories.Count);
+                return salaryHistories;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetAllSalaryHistoriesQuery");
+                throw;
+            }
         }
     }
 }

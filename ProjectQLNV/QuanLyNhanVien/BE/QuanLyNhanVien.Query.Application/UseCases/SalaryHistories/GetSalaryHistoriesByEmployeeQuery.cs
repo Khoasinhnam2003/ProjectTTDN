@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Contracts.DTOs;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
@@ -36,32 +37,45 @@ namespace QuanLyNhanVien.Query.Application.UseCases.SalaryHistories
     public class GetSalaryHistoriesByEmployeeQueryHandler : IRequestHandler<GetSalaryHistoriesByEmployeeQuery, List<SalaryHistoryDTO>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetSalaryHistoriesByEmployeeQueryHandler(IUnitOfWork unitOfWork)
+        public GetSalaryHistoriesByEmployeeQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<List<SalaryHistoryDTO>> Handle(GetSalaryHistoriesByEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<SalaryHistory>();
-            return await repository.GetAll()
-                .Include(sh => sh.Employee)
-                .Where(sh => sh.EmployeeId == request.EmployeeId)
-                .OrderBy(sh => sh.EffectiveDate)
-                .Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .Select(sh => new SalaryHistoryDTO
-                {
-                    SalaryHistoryId = sh.SalaryHistoryId,
-                    EmployeeId = sh.EmployeeId,
-                    EmployeeName = sh.Employee != null ? $"{sh.Employee.FirstName} {sh.Employee.LastName}" : null,
-                    Salary = sh.Salary,
-                    EffectiveDate = sh.EffectiveDate,
-                    CreatedAt = sh.CreatedAt,
-                    UpdatedAt = sh.UpdatedAt
-                })
-                .ToListAsync(cancellationToken);
+            _logger.LogInformation("Handling GetSalaryHistoriesByEmployeeQuery for EmployeeId={EmployeeId}, PageNumber={PageNumber}, PageSize={PageSize}", request.EmployeeId, request.PageNumber, request.PageSize);
+            try
+            {
+                var repository = _unitOfWork.Repository<SalaryHistory>();
+                var salaryHistories = await repository.GetAll()
+                    .Include(sh => sh.Employee)
+                    .Where(sh => sh.EmployeeId == request.EmployeeId)
+                    .OrderBy(sh => sh.EffectiveDate)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
+                    .Take(request.PageSize)
+                    .Select(sh => new SalaryHistoryDTO
+                    {
+                        SalaryHistoryId = sh.SalaryHistoryId,
+                        EmployeeId = sh.EmployeeId,
+                        EmployeeName = sh.Employee != null ? $"{sh.Employee.FirstName} {sh.Employee.LastName}" : null,
+                        Salary = sh.Salary,
+                        EffectiveDate = sh.EffectiveDate,
+                        CreatedAt = sh.CreatedAt,
+                        UpdatedAt = sh.UpdatedAt
+                    })
+                    .ToListAsync(cancellationToken);
+                _logger.LogInformation("Retrieved {Count} salary histories for EmployeeId={EmployeeId}", salaryHistories.Count, request.EmployeeId);
+                return salaryHistories;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetSalaryHistoriesByEmployeeQuery for EmployeeId={EmployeeId}", request.EmployeeId);
+                throw;
+            }
         }
     }
 }

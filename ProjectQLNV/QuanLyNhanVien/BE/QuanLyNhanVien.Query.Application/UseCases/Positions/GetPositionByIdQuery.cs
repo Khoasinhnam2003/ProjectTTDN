@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using QuanLyNhanVien.Query.Domain.Abstractions.Repositories;
 using QuanLyNhanVien.Query.Domain.Entities;
 using System;
@@ -28,24 +29,37 @@ namespace QuanLyNhanVien.Query.Application.UseCases.Positions
     public class GetPositionByIdQueryHandler : IRequestHandler<GetPositionByIdQuery, Position>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
 
-        public GetPositionByIdQueryHandler(IUnitOfWork unitOfWork)
+        public GetPositionByIdQueryHandler(IUnitOfWork unitOfWork, ILogger logger)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Position> Handle(GetPositionByIdQuery request, CancellationToken cancellationToken)
         {
-            var repository = _unitOfWork.Repository<Position>();
-            var position = await repository.GetAll()
-                .FirstOrDefaultAsync(p => p.PositionId == request.PositionId, cancellationToken);
-
-            if (position == null)
+            _logger.LogInformation("Handling GetPositionByIdQuery for PositionId={PositionId}", request.PositionId);
+            try
             {
-                throw new InvalidOperationException("Position not found.");
-            }
+                var repository = _unitOfWork.Repository<Position>();
+                var position = await repository.GetAll()
+                    .FirstOrDefaultAsync(p => p.PositionId == request.PositionId, cancellationToken);
 
-            return position;
+                if (position == null)
+                {
+                    _logger.LogWarning("Position with ID {PositionId} not found", request.PositionId);
+                    throw new InvalidOperationException("Position not found.");
+                }
+
+                _logger.LogInformation("Successfully retrieved position with ID {PositionId}", request.PositionId);
+                return position;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling GetPositionByIdQuery for PositionId={PositionId}", request.PositionId);
+                throw;
+            }
         }
     }
 }
